@@ -1,0 +1,15 @@
+C:\CSharp\MimsSubscription\MimsSubscription\bin\Debug\MimsSubscription.exe.config
+C:\CSharp\MimsSubscription\MimsSubscription\bin\Debug\MimsSubscription.exe
+C:\CSharp\MimsSubscription\MimsSubscription\bin\Debug\MimsSubscription.pdb
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.csproj.AssemblyReference.cache
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MainWindow.g.cs
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\App.g.cs
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription_MarkupCompile.cache
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription_MarkupCompile.lref
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MainWindow.baml
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.g.resources
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.Properties.Resources.resources
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.csproj.GenerateResource.cache
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.csproj.CoreCompileInputs.cache
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.exe
+C:\CSharp\MimsSubscription\MimsSubscription\obj\Debug\MimsSubscription.pdb

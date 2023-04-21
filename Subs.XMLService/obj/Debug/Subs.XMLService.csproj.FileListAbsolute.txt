@@ -1,0 +1,75 @@
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.XMLService.dll.config
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.XMLService.dll
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.XMLService.pdb
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.Business.dll
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.Data.dll
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.Business.pdb
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.Business.dll.config
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.Data.pdb
+C:\CSharp\MIMS4\Subs.XMLService\bin\Subs.Data.dll.config
+C:\CSharp\MIMS4\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.AssemblyReference.cache
+C:\CSharp\MIMS4\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CoreCompileInputs.cache
+C:\CSharp\MIMS4\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CopyComplete
+C:\CSharp\MIMS4\Subs.XMLService\obj\Debug\Subs.XMLService.dll
+C:\CSharp\MIMS4\Subs.XMLService\obj\Debug\Subs.XMLService.pdb
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.XMLService.dll.config
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.XMLService.dll
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.XMLService.pdb
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.Business.dll
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.Data.dll
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.Business.pdb
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.Business.dll.config
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.Data.pdb
+Q:\Source code backups\MIMS20210808\Subs.XMLService\bin\Subs.Data.dll.config
+Q:\Source code backups\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.AssemblyReference.cache
+Q:\Source code backups\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CoreCompileInputs.cache
+Q:\Source code backups\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CopyComplete
+Q:\Source code backups\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.dll
+Q:\Source code backups\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.pdb
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.XMLService.dll.config
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.XMLService.dll
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.XMLService.pdb
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.Business.dll
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.Data.dll
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.Business.pdb
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.Business.dll.config
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.Data.pdb
+C:\CSharp\MIMS20210808\Subs.XMLService\bin\Subs.Data.dll.config
+C:\CSharp\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.AssemblyReference.cache
+C:\CSharp\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CoreCompileInputs.cache
+C:\CSharp\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CopyComplete
+C:\CSharp\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.dll
+C:\CSharp\MIMS20210808\Subs.XMLService\obj\Debug\Subs.XMLService.pdb
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.XMLService.dll.config
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.XMLService.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.XMLService.pdb
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.Business.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.Data.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Net.Http.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Text.Json.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.ValueTuple.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Memory.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Text.Encodings.Web.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Numerics.Vectors.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Threading.Tasks.Extensions.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Buffers.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.Business.pdb
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.Business.dll.config
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.Data.pdb
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Subs.Data.dll.config
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Text.Json.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.ValueTuple.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Memory.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Text.Encodings.Web.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Numerics.Vectors.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Threading.Tasks.Extensions.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Buffers.xml
+C:\CSharp\github\Subs2\Subs.XMLService\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\CSharp\github\Subs2\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.AssemblyReference.cache
+C:\CSharp\github\Subs2\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CoreCompileInputs.cache
+C:\CSharp\github\Subs2\Subs.XMLService\obj\Debug\Subs.XMLService.csproj.CopyComplete
+C:\CSharp\github\Subs2\Subs.XMLService\obj\Debug\Subs.XMLService.dll
+C:\CSharp\github\Subs2\Subs.XMLService\obj\Debug\Subs.XMLService.pdb

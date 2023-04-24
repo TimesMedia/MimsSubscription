@@ -685,7 +685,8 @@ namespace Subs.MimsWeb.Controllers
         {
             try
             {
-                return Redirect("https://www.byondhealthcare.com/partnerships");
+                return Redirect("~/Content/BeyondHealthCare.html");
+                //return Redirect("https://www.byondhealthcare.com/partnerships");
             }
             catch (Exception ex)
             {

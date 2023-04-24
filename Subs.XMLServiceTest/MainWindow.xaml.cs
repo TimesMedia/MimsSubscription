@@ -17,8 +17,6 @@ namespace Subs.XMLServiceTest
         //private CustomerData3 gCustomerDataShallow;
         private ServiceReference1.DeliveryAddressData2 gDeliveryAddressDataShallow;
 
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -88,12 +86,6 @@ namespace Subs.XMLServiceTest
         {
             try
             {
-                //Business.SeatResult lResult = Subs.Business.SubscriptionBiz.Authorize(17, 89287);
-
-                //MessageBox.Show(lResult.Reason);
-
-
-
                 ServiceSoapClient lClient = new ServiceSoapClient();
                 AuthorizationHeader lHeader = new AuthorizationHeader
                 {

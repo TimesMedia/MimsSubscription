@@ -124,10 +124,59 @@ namespace Subs.XMLService
         }
 
 
+        [SoapHeader("Authentication")]
+        [WebMethod]
+        public SeatResult Authorize(int pCustomerId, string pPassword, int pProductId)
+        {
+            try
+            {
+                SeatResult lSeatResult = new SeatResult();
 
 
+                if (Authentication.Source == "NJA" &&
+                Authentication.Type == "MOBIMims")
+                {
+                    if (!CustomerData3.Exists((int)pCustomerId))
+                    {
+                       lSeatResult.Reason = "There is no such CustomerId";
+                        return lSeatResult;
+                    }
 
+                    CustomerData3 lCustomerData = new CustomerData3(pCustomerId);
 
+                    if (lCustomerData.Password1 != pPassword)
+                    {
+                        lSeatResult.Reason = "Invalid Password";
+                        return lSeatResult;
+                    }
+
+                    return SubscriptionBiz.Authorize(pProductId, pCustomerId);
+                }
+                else
+                {
+                    throw new Exception("Invalid Source and/or Type");
+                }
+            }
+            catch (Exception ex)
+            {
+                //Display all the exceptions
+
+                Exception CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "Authorize with 3 parameters", "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
+
+                SeatResult lSeatResult = new SeatResult();
+                lSeatResult.Seats = 0;
+                lSeatResult.Reason = "Failed due to technical error";
+
+                return lSeatResult;
+            }
+        }
 
         [SoapHeader("Authentication")]
         [WebMethod]

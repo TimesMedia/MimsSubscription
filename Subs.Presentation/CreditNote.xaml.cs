@@ -79,10 +79,27 @@ namespace Subs.Presentation
         #region Select tab
         private void Click_Generate(object sender, RoutedEventArgs e)
         {
-
+            try 
+            { 
             MIMS_LedgerDoc_CreditNoteBatch_LoadResult lResult = (MIMS_LedgerDoc_CreditNoteBatch_LoadResult)DataGridListing.SelectedItem;
             Load(lResult);
             TabControl.SelectedIndex = 1;
+            }
+            catch (Exception ex)
+            {
+                //Display all the exceptions
+
+                Exception CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "Click_Generate", "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
+
+                throw ex;
+            }
         }
         public string Load(MIMS_LedgerDoc_CreditNoteBatch_LoadResult pDetail)
         {

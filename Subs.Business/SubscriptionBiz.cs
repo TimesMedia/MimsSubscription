@@ -27,6 +27,7 @@ namespace Subs.Business
         public DateTime ExpirationDate;
     }
 
+    
     public class PromotionCriteria
     {
         public int PayerId;

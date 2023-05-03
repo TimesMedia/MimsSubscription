@@ -15,7 +15,7 @@ namespace Subs.XMLServiceTest
     {
 
         //private CustomerData3 gCustomerDataShallow;
-        private ServiceReference1.DeliveryAddressData2 gDeliveryAddressDataShallow;
+        //private ServiceReference1.DeliveryAddressData2 gDeliveryAddressDataShallow;
 
         public MainWindow()
         {
@@ -76,11 +76,6 @@ namespace Subs.XMLServiceTest
                 MessageBox.Show(ex.Message);
             }
         }
-
-
-
-
-
 
     private void ButtonAuthorize_Click(object sender, RoutedEventArgs e)
         {
@@ -577,7 +572,7 @@ namespace Subs.XMLServiceTest
             }
         }
 
-        private void ButtonInsertDeliveryAddress_Click(object sender, RoutedEventArgs e)
+        private void ButtonAuthorisationMIC_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -585,48 +580,21 @@ namespace Subs.XMLServiceTest
                 AuthorizationHeader lHeader = new AuthorizationHeader
                 {
                     Source = "NJA",
-                    Type = "MIMS"
+                    Type = "MOBIMims"
                 };
 
-                ServiceReference1.InsertDeliveryAddressRequest lRequest = new InsertDeliveryAddressRequest();
+                AuthorizeMICRequest lRequest = new AuthorizeMICRequest();
                 lRequest.AuthorizationHeader = lHeader;
+                lRequest.pProductId = 88;
+                lRequest.pReceiverId = 120072;
+                lRequest.pPassword = "Sannie";
 
-                ServiceReference1.DeliveryAddressData2 lDeliveryAddressData = new ServiceReference1.DeliveryAddressData2();
 
-                lDeliveryAddressData.PhoneNumber = "0000000";
-                lDeliveryAddressData.CountryId = 61;
-                lDeliveryAddressData.Province = "Gauteng";
-                lDeliveryAddressData.City = "Tshwane";
-                lDeliveryAddressData.Street = "Remskoen";
-                lDeliveryAddressData.StreetExtension = "Ext3";
-                lDeliveryAddressData.StreetSuffix = "Laan";
-                lDeliveryAddressData.StreetNo = "522";
+                AuthorizeMICResponse lResponse = new AuthorizeMICResponse();
 
-                lDeliveryAddressData.Building = "High";
-                lDeliveryAddressData.FloorNo = "5";
-                lDeliveryAddressData.Room = "10";
-                lDeliveryAddressData.PostCode = "10000";
+                lResponse = lClient.AuthorizeMIC(lRequest);
 
-                //lDeliveryAddressData.X = "28.2144";
-                //lDeliveryAddressData.Y = "-25.72782";
-
-                ServiceReference1.InsertDeliveryAddressResponse lResponse = new InsertDeliveryAddressResponse();
-
-                lRequest.pDeliveryAddressData = lDeliveryAddressData;
-
-                lRequest.pCustomerId = 117990;
-
-                lResponse = lClient.InsertDeliveryAddress(lRequest);
-
-                if (lResponse.InsertDeliveryAddressResult != "OK")
-
-                {
-                    MessageBox.Show(lResponse.InsertDeliveryAddressResult);
-                }
-                else
-                {
-                    MessageBox.Show("DeliveryAddressId = " + lResponse.pDeliveryAddressData.DeliveryAddressId.ToString());
-                }
+                MessageBox.Show(lResponse.AuthorizeMICResult.ExpirationDate.ToString() + " Seats " + lResponse.AuthorizeMICResult.Seats.ToString() + " " + lResponse.AuthorizeMICResult.Reason.ToString());
 
             }
 
@@ -639,120 +607,13 @@ namespace Subs.XMLServiceTest
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "ButtonInsertDeliveryAddress_Click", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "ButtonAuthorizeMIC_Click", "");
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
                 MessageBox.Show(ex.Message);
             }
 
-        }
-
-        private void ButtonGetDeliveryAddress_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ServiceSoapClient lClient = new ServiceSoapClient();
-                AuthorizationHeader lHeader = new AuthorizationHeader
-                {
-                    Source = "NJA",
-                    Type = "MIMS"
-                };
-
-                ServiceReference1.GetDeliveryAddressRequest lRequest = new GetDeliveryAddressRequest();
-                lRequest.AuthorizationHeader = lHeader;
-
-                lRequest.pDeliveryAddressId = 38401;
-
-                ServiceReference1.GetDeliveryAddressResponse lResponse = new GetDeliveryAddressResponse();
-
-                lResponse = lClient.GetDeliveryAddress(lRequest);
-
-                if (lResponse.GetDeliveryAddressResult != "OK")
-
-                {
-                    MessageBox.Show(lResponse.GetDeliveryAddressResult);
-                }
-                else
-                {
-                    gDeliveryAddressDataShallow = lResponse.pDeliveryAddressData;
-                    MessageBox.Show("Delivery street = " + lResponse.pDeliveryAddressData.Street);
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                //Display all the exceptions
-
-                Exception CurrentException = ex;
-                int ExceptionLevel = 0;
-                do
-                {
-                    ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "ButtonGetDeliveryAddress_Click", "");
-                    CurrentException = CurrentException.InnerException;
-                } while (CurrentException != null);
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void ButtonUpdateDeliveryAddress_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                ServiceSoapClient lClient = new ServiceSoapClient();
-                AuthorizationHeader lHeader = new AuthorizationHeader
-                {
-                    Source = "NJA",
-                    Type = "MIMS"
-                };
-
-                ServiceReference1.UpdateDeliveryAddressRequest lRequest = new UpdateDeliveryAddressRequest();
-                lRequest.AuthorizationHeader = lHeader;
-
-                if (gDeliveryAddressDataShallow == null)
-                {
-                    MessageBox.Show("There is no DeliveryAddress to update.");
-                    return;
-                }
-
-                gDeliveryAddressDataShallow.Street = "EmpireEmpire";
-
-                lRequest.pDeliveryAddressData = gDeliveryAddressDataShallow;
-
-                ServiceReference1.UpdateDeliveryAddressResponse lResponse = new UpdateDeliveryAddressResponse();
-
-                lResponse = lClient.UpdateDeliveryAddress(lRequest);
-
-                if (lResponse.UpdateDeliveryAddressResult != "OK")
-
-                {
-                    MessageBox.Show(lResponse.UpdateDeliveryAddressResult);
-                }
-                else
-                {
-                    MessageBox.Show("Street was updated to: " + lResponse.pDeliveryAddressData.Street.ToString());
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                //Display all the exceptions
-
-                Exception CurrentException = ex;
-                int ExceptionLevel = 0;
-                do
-                {
-                    ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "ButtonUpdateDeliveryAddress_Click", "");
-                    CurrentException = CurrentException.InnerException;
-                } while (CurrentException != null);
-
-                MessageBox.Show(ex.Message);
-            }
         }
     }
     

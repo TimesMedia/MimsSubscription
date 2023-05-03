@@ -47,6 +47,22 @@
           <s:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
+      <s:element name="AuthorizeMIC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pReceiverId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="pPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pProductId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthorizeMICResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorizeMICResult" type="tns:SeatResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Authorizations">
         <s:complexType />
       </s:element>
@@ -117,79 +133,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="InsertDeliveryAddress">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="pDeliveryAddressData" type="tns:DeliveryAddressData2" />
-            <s:element minOccurs="1" maxOccurs="1" name="pCustomerId" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:complexType name="DeliveryAddressData2">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:BaseModel">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="DeliveryAddressId" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Suburb" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="StreetExtension" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="StreetSuffix" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="StreetId" nillable="true" type="s:int" />
-              <s:element minOccurs="0" maxOccurs="1" name="StreetNo" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Building" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="FloorNo" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="Room" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="SDI" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="ModifiedBy" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="ModifiedOn" type="s:dateTime" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="BaseModel" />
-      <s:element name="InsertDeliveryAddressResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="InsertDeliveryAddressResult" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pDeliveryAddressData" type="tns:DeliveryAddressData2" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetDeliveryAddress">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="pDeliveryAddressId" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetDeliveryAddressResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetDeliveryAddressResult" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pDeliveryAddressData" type="tns:DeliveryAddressData2" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateDeliveryAddress">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="pDeliveryAddressData" type="tns:DeliveryAddressData2" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="UpdateDeliveryAddressResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="UpdateDeliveryAddressResult" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="pDeliveryAddressData" type="tns:DeliveryAddressData2" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="SendOTPSoapIn">
@@ -208,6 +151,15 @@
     <wsdl:part name="parameters" element="tns:AuthorizeResponse" />
   </wsdl:message>
   <wsdl:message name="AuthorizeAuthorizationHeader">
+    <wsdl:part name="AuthorizationHeader" element="tns:AuthorizationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizeMICSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthorizeMIC" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizeMICSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthorizeMICResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthorizeMICAuthorizationHeader">
     <wsdl:part name="AuthorizationHeader" element="tns:AuthorizationHeader" />
   </wsdl:message>
   <wsdl:message name="AuthorizationsSoapIn">
@@ -246,33 +198,6 @@
   <wsdl:message name="FindCustomerIdByNationalIdAuthorizationHeader">
     <wsdl:part name="AuthorizationHeader" element="tns:AuthorizationHeader" />
   </wsdl:message>
-  <wsdl:message name="InsertDeliveryAddressSoapIn">
-    <wsdl:part name="parameters" element="tns:InsertDeliveryAddress" />
-  </wsdl:message>
-  <wsdl:message name="InsertDeliveryAddressSoapOut">
-    <wsdl:part name="parameters" element="tns:InsertDeliveryAddressResponse" />
-  </wsdl:message>
-  <wsdl:message name="InsertDeliveryAddressAuthorizationHeader">
-    <wsdl:part name="AuthorizationHeader" element="tns:AuthorizationHeader" />
-  </wsdl:message>
-  <wsdl:message name="GetDeliveryAddressSoapIn">
-    <wsdl:part name="parameters" element="tns:GetDeliveryAddress" />
-  </wsdl:message>
-  <wsdl:message name="GetDeliveryAddressSoapOut">
-    <wsdl:part name="parameters" element="tns:GetDeliveryAddressResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetDeliveryAddressAuthorizationHeader">
-    <wsdl:part name="AuthorizationHeader" element="tns:AuthorizationHeader" />
-  </wsdl:message>
-  <wsdl:message name="UpdateDeliveryAddressSoapIn">
-    <wsdl:part name="parameters" element="tns:UpdateDeliveryAddress" />
-  </wsdl:message>
-  <wsdl:message name="UpdateDeliveryAddressSoapOut">
-    <wsdl:part name="parameters" element="tns:UpdateDeliveryAddressResponse" />
-  </wsdl:message>
-  <wsdl:message name="UpdateDeliveryAddressAuthorizationHeader">
-    <wsdl:part name="AuthorizationHeader" element="tns:AuthorizationHeader" />
-  </wsdl:message>
   <wsdl:portType name="ServiceSoap">
     <wsdl:operation name="SendOTP">
       <wsdl:input message="tns:SendOTPSoapIn" />
@@ -281,6 +206,10 @@
     <wsdl:operation name="Authorize">
       <wsdl:input message="tns:AuthorizeSoapIn" />
       <wsdl:output message="tns:AuthorizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthorizeMIC">
+      <wsdl:input message="tns:AuthorizeMICSoapIn" />
+      <wsdl:output message="tns:AuthorizeMICSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Authorizations">
       <wsdl:input message="tns:AuthorizationsSoapIn" />
@@ -297,18 +226,6 @@
     <wsdl:operation name="FindCustomerIdByNationalId">
       <wsdl:input message="tns:FindCustomerIdByNationalIdSoapIn" />
       <wsdl:output message="tns:FindCustomerIdByNationalIdSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="InsertDeliveryAddress">
-      <wsdl:input message="tns:InsertDeliveryAddressSoapIn" />
-      <wsdl:output message="tns:InsertDeliveryAddressSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDeliveryAddress">
-      <wsdl:input message="tns:GetDeliveryAddressSoapIn" />
-      <wsdl:output message="tns:GetDeliveryAddressSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateDeliveryAddress">
-      <wsdl:input message="tns:UpdateDeliveryAddressSoapIn" />
-      <wsdl:output message="tns:UpdateDeliveryAddressSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
@@ -328,6 +245,16 @@
       <wsdl:input>
         <soap:body use="literal" />
         <soap:header message="tns:AuthorizeAuthorizationHeader" part="AuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorizeMIC">
+      <soap:operation soapAction="http://tempuri.org/AuthorizeMIC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AuthorizeMICAuthorizationHeader" part="AuthorizationHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap:body use="literal" />
@@ -373,36 +300,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="InsertDeliveryAddress">
-      <soap:operation soapAction="http://tempuri.org/InsertDeliveryAddress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-        <soap:header message="tns:InsertDeliveryAddressAuthorizationHeader" part="AuthorizationHeader" use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDeliveryAddress">
-      <soap:operation soapAction="http://tempuri.org/GetDeliveryAddress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-        <soap:header message="tns:GetDeliveryAddressAuthorizationHeader" part="AuthorizationHeader" use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateDeliveryAddress">
-      <soap:operation soapAction="http://tempuri.org/UpdateDeliveryAddress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-        <soap:header message="tns:UpdateDeliveryAddressAuthorizationHeader" part="AuthorizationHeader" use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -421,6 +318,16 @@
       <wsdl:input>
         <soap12:body use="literal" />
         <soap12:header message="tns:AuthorizeAuthorizationHeader" part="AuthorizationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorizeMIC">
+      <soap12:operation soapAction="http://tempuri.org/AuthorizeMIC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AuthorizeMICAuthorizationHeader" part="AuthorizationHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
@@ -461,36 +368,6 @@
       <wsdl:input>
         <soap12:body use="literal" />
         <soap12:header message="tns:FindCustomerIdByNationalIdAuthorizationHeader" part="AuthorizationHeader" use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="InsertDeliveryAddress">
-      <soap12:operation soapAction="http://tempuri.org/InsertDeliveryAddress" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-        <soap12:header message="tns:InsertDeliveryAddressAuthorizationHeader" part="AuthorizationHeader" use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDeliveryAddress">
-      <soap12:operation soapAction="http://tempuri.org/GetDeliveryAddress" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-        <soap12:header message="tns:GetDeliveryAddressAuthorizationHeader" part="AuthorizationHeader" use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateDeliveryAddress">
-      <soap12:operation soapAction="http://tempuri.org/UpdateDeliveryAddress" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-        <soap12:header message="tns:UpdateDeliveryAddressAuthorizationHeader" part="AuthorizationHeader" use="literal" />
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />

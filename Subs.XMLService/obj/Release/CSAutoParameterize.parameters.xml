@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Subs.XMLService.Properties.Settings.ConnectionString-Web.config Connection String" description="Subs.XMLService.Properties.Settings.ConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=PKLWEBDB01\mssql2016std;Initial Catalog=MIMS3;User=MIMSWebServiceUser; Password=akkedis; Enlist=False;Pooling=True;Max Pool Size=10;Connect Timeout=30" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\CSharp\\MimsSubscription\\Subs\.XMLService\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Subs.XMLService.Properties.Settings.ConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

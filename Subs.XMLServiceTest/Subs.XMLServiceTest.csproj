@@ -96,6 +96,9 @@
     <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.AuthorizationsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.AuthorizeMICResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.AuthorizeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -108,16 +111,7 @@
     <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.FindEMailByCustomerIdResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.SendOTPResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReference1\Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">

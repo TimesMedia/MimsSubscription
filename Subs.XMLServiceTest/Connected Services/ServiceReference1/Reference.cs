@@ -17,7 +17,6 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SendOTP", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
         Subs.XMLServiceTest.ServiceReference1.SendOTPResponse SendOTP(Subs.XMLServiceTest.ServiceReference1.SendOTPRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SendOTP", ReplyAction="*")]
@@ -25,15 +24,20 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Authorize", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
         Subs.XMLServiceTest.ServiceReference1.AuthorizeResponse Authorize(Subs.XMLServiceTest.ServiceReference1.AuthorizeRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Authorize", ReplyAction="*")]
         System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.AuthorizeResponse> AuthorizeAsync(Subs.XMLServiceTest.ServiceReference1.AuthorizeRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AuthorizeMIC", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        Subs.XMLServiceTest.ServiceReference1.AuthorizeMICResponse AuthorizeMIC(Subs.XMLServiceTest.ServiceReference1.AuthorizeMICRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AuthorizeMIC", ReplyAction="*")]
+        System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.AuthorizeMICResponse> AuthorizeMICAsync(Subs.XMLServiceTest.ServiceReference1.AuthorizeMICRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Authorizations", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
         Subs.XMLServiceTest.ServiceReference1.AuthorizationsResponse Authorizations(Subs.XMLServiceTest.ServiceReference1.AuthorizationsRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Authorizations", ReplyAction="*")]
@@ -41,7 +45,6 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEMailByCustomerId", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
         Subs.XMLServiceTest.ServiceReference1.FindEMailByCustomerIdResponse FindEMailByCustomerId(Subs.XMLServiceTest.ServiceReference1.FindEMailByCustomerIdRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindEMailByCustomerId", ReplyAction="*")]
@@ -49,7 +52,6 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindCustomerIdByEmail", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
         Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByEmailResponse FindCustomerIdByEmail(Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByEmailRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindCustomerIdByEmail", ReplyAction="*")]
@@ -57,35 +59,10 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindCustomerIdByNationalId", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
         Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByNationalIdResponse FindCustomerIdByNationalId(Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByNationalIdRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/FindCustomerIdByNationalId", ReplyAction="*")]
         System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByNationalIdResponse> FindCustomerIdByNationalIdAsync(Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByNationalIdRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertDeliveryAddress", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
-        Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressResponse InsertDeliveryAddress(Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/InsertDeliveryAddress", ReplyAction="*")]
-        System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressResponse> InsertDeliveryAddressAsync(Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDeliveryAddress", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
-        Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressResponse GetDeliveryAddress(Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDeliveryAddress", ReplyAction="*")]
-        System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressResponse> GetDeliveryAddressAsync(Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDeliveryAddress", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(BaseModel))]
-        Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressResponse UpdateDeliveryAddress(Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateDeliveryAddress", ReplyAction="*")]
-        System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressResponse> UpdateDeliveryAddressAsync(Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressRequest request);
     }
     
     /// <remarks/>
@@ -144,286 +121,6 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveryAddressData2))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BaseModel : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DeliveryAddressData2 : BaseModel {
-        
-        private int deliveryAddressIdField;
-        
-        private string phoneNumberField;
-        
-        private int countryIdField;
-        
-        private string provinceField;
-        
-        private string cityField;
-        
-        private string suburbField;
-        
-        private string streetField;
-        
-        private string streetExtensionField;
-        
-        private string streetSuffixField;
-        
-        private System.Nullable<int> streetIdField;
-        
-        private string streetNoField;
-        
-        private string buildingField;
-        
-        private string floorNoField;
-        
-        private string roomField;
-        
-        private string postCodeField;
-        
-        private string sDIField;
-        
-        private string modifiedByField;
-        
-        private System.DateTime modifiedOnField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public int DeliveryAddressId {
-            get {
-                return this.deliveryAddressIdField;
-            }
-            set {
-                this.deliveryAddressIdField = value;
-                this.RaisePropertyChanged("DeliveryAddressId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string PhoneNumber {
-            get {
-                return this.phoneNumberField;
-            }
-            set {
-                this.phoneNumberField = value;
-                this.RaisePropertyChanged("PhoneNumber");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public int CountryId {
-            get {
-                return this.countryIdField;
-            }
-            set {
-                this.countryIdField = value;
-                this.RaisePropertyChanged("CountryId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string Province {
-            get {
-                return this.provinceField;
-            }
-            set {
-                this.provinceField = value;
-                this.RaisePropertyChanged("Province");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string City {
-            get {
-                return this.cityField;
-            }
-            set {
-                this.cityField = value;
-                this.RaisePropertyChanged("City");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public string Suburb {
-            get {
-                return this.suburbField;
-            }
-            set {
-                this.suburbField = value;
-                this.RaisePropertyChanged("Suburb");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public string Street {
-            get {
-                return this.streetField;
-            }
-            set {
-                this.streetField = value;
-                this.RaisePropertyChanged("Street");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public string StreetExtension {
-            get {
-                return this.streetExtensionField;
-            }
-            set {
-                this.streetExtensionField = value;
-                this.RaisePropertyChanged("StreetExtension");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public string StreetSuffix {
-            get {
-                return this.streetSuffixField;
-            }
-            set {
-                this.streetSuffixField = value;
-                this.RaisePropertyChanged("StreetSuffix");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
-        public System.Nullable<int> StreetId {
-            get {
-                return this.streetIdField;
-            }
-            set {
-                this.streetIdField = value;
-                this.RaisePropertyChanged("StreetId");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public string StreetNo {
-            get {
-                return this.streetNoField;
-            }
-            set {
-                this.streetNoField = value;
-                this.RaisePropertyChanged("StreetNo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public string Building {
-            get {
-                return this.buildingField;
-            }
-            set {
-                this.buildingField = value;
-                this.RaisePropertyChanged("Building");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-        public string FloorNo {
-            get {
-                return this.floorNoField;
-            }
-            set {
-                this.floorNoField = value;
-                this.RaisePropertyChanged("FloorNo");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-        public string Room {
-            get {
-                return this.roomField;
-            }
-            set {
-                this.roomField = value;
-                this.RaisePropertyChanged("Room");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
-        public string PostCode {
-            get {
-                return this.postCodeField;
-            }
-            set {
-                this.postCodeField = value;
-                this.RaisePropertyChanged("PostCode");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
-        public string SDI {
-            get {
-                return this.sDIField;
-            }
-            set {
-                this.sDIField = value;
-                this.RaisePropertyChanged("SDI");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
-        public string ModifiedBy {
-            get {
-                return this.modifiedByField;
-            }
-            set {
-                this.modifiedByField = value;
-                this.RaisePropertyChanged("ModifiedBy");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=17)]
-        public System.DateTime ModifiedOn {
-            get {
-                return this.modifiedOnField;
-            }
-            set {
-                this.modifiedOnField = value;
-                this.RaisePropertyChanged("ModifiedOn");
             }
         }
     }
@@ -672,6 +369,50 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AuthorizeMIC", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AuthorizeMICRequest {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int pReceiverId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string pPassword;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=2)]
+        public int pProductId;
+        
+        public AuthorizeMICRequest() {
+        }
+        
+        public AuthorizeMICRequest(Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader, int pReceiverId, string pPassword, int pProductId) {
+            this.AuthorizationHeader = AuthorizationHeader;
+            this.pReceiverId = pReceiverId;
+            this.pPassword = pPassword;
+            this.pProductId = pProductId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AuthorizeMICResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class AuthorizeMICResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Subs.XMLServiceTest.ServiceReference1.SeatResult AuthorizeMICResult;
+        
+        public AuthorizeMICResponse() {
+        }
+        
+        public AuthorizeMICResponse(Subs.XMLServiceTest.ServiceReference1.SeatResult AuthorizeMICResult) {
+            this.AuthorizeMICResult = AuthorizeMICResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="Authorizations", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
     public partial class AuthorizationsRequest {
         
@@ -822,130 +563,6 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertDeliveryAddress", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class InsertDeliveryAddressRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public int pCustomerId;
-        
-        public InsertDeliveryAddressRequest() {
-        }
-        
-        public InsertDeliveryAddressRequest(Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader, Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData, int pCustomerId) {
-            this.AuthorizationHeader = AuthorizationHeader;
-            this.pDeliveryAddressData = pDeliveryAddressData;
-            this.pCustomerId = pCustomerId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="InsertDeliveryAddressResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class InsertDeliveryAddressResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string InsertDeliveryAddressResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData;
-        
-        public InsertDeliveryAddressResponse() {
-        }
-        
-        public InsertDeliveryAddressResponse(string InsertDeliveryAddressResult, Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData) {
-            this.InsertDeliveryAddressResult = InsertDeliveryAddressResult;
-            this.pDeliveryAddressData = pDeliveryAddressData;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDeliveryAddress", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetDeliveryAddressRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int pDeliveryAddressId;
-        
-        public GetDeliveryAddressRequest() {
-        }
-        
-        public GetDeliveryAddressRequest(Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader, int pDeliveryAddressId) {
-            this.AuthorizationHeader = AuthorizationHeader;
-            this.pDeliveryAddressId = pDeliveryAddressId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDeliveryAddressResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class GetDeliveryAddressResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string GetDeliveryAddressResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData;
-        
-        public GetDeliveryAddressResponse() {
-        }
-        
-        public GetDeliveryAddressResponse(string GetDeliveryAddressResult, Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData) {
-            this.GetDeliveryAddressResult = GetDeliveryAddressResult;
-            this.pDeliveryAddressData = pDeliveryAddressData;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDeliveryAddress", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateDeliveryAddressRequest {
-        
-        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData;
-        
-        public UpdateDeliveryAddressRequest() {
-        }
-        
-        public UpdateDeliveryAddressRequest(Subs.XMLServiceTest.ServiceReference1.AuthorizationHeader AuthorizationHeader, Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData) {
-            this.AuthorizationHeader = AuthorizationHeader;
-            this.pDeliveryAddressData = pDeliveryAddressData;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDeliveryAddressResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class UpdateDeliveryAddressResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string UpdateDeliveryAddressResult;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
-        public Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData;
-        
-        public UpdateDeliveryAddressResponse() {
-        }
-        
-        public UpdateDeliveryAddressResponse(string UpdateDeliveryAddressResult, Subs.XMLServiceTest.ServiceReference1.DeliveryAddressData2 pDeliveryAddressData) {
-            this.UpdateDeliveryAddressResult = UpdateDeliveryAddressResult;
-            this.pDeliveryAddressData = pDeliveryAddressData;
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ServiceSoapChannel : Subs.XMLServiceTest.ServiceReference1.ServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -989,6 +606,14 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
             return base.Channel.AuthorizeAsync(request);
         }
         
+        public Subs.XMLServiceTest.ServiceReference1.AuthorizeMICResponse AuthorizeMIC(Subs.XMLServiceTest.ServiceReference1.AuthorizeMICRequest request) {
+            return base.Channel.AuthorizeMIC(request);
+        }
+        
+        public System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.AuthorizeMICResponse> AuthorizeMICAsync(Subs.XMLServiceTest.ServiceReference1.AuthorizeMICRequest request) {
+            return base.Channel.AuthorizeMICAsync(request);
+        }
+        
         public Subs.XMLServiceTest.ServiceReference1.AuthorizationsResponse Authorizations(Subs.XMLServiceTest.ServiceReference1.AuthorizationsRequest request) {
             return base.Channel.Authorizations(request);
         }
@@ -1019,30 +644,6 @@ namespace Subs.XMLServiceTest.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByNationalIdResponse> FindCustomerIdByNationalIdAsync(Subs.XMLServiceTest.ServiceReference1.FindCustomerIdByNationalIdRequest request) {
             return base.Channel.FindCustomerIdByNationalIdAsync(request);
-        }
-        
-        public Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressResponse InsertDeliveryAddress(Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressRequest request) {
-            return base.Channel.InsertDeliveryAddress(request);
-        }
-        
-        public System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressResponse> InsertDeliveryAddressAsync(Subs.XMLServiceTest.ServiceReference1.InsertDeliveryAddressRequest request) {
-            return base.Channel.InsertDeliveryAddressAsync(request);
-        }
-        
-        public Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressResponse GetDeliveryAddress(Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressRequest request) {
-            return base.Channel.GetDeliveryAddress(request);
-        }
-        
-        public System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressResponse> GetDeliveryAddressAsync(Subs.XMLServiceTest.ServiceReference1.GetDeliveryAddressRequest request) {
-            return base.Channel.GetDeliveryAddressAsync(request);
-        }
-        
-        public Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressResponse UpdateDeliveryAddress(Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressRequest request) {
-            return base.Channel.UpdateDeliveryAddress(request);
-        }
-        
-        public System.Threading.Tasks.Task<Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressResponse> UpdateDeliveryAddressAsync(Subs.XMLServiceTest.ServiceReference1.UpdateDeliveryAddressRequest request) {
-            return base.Channel.UpdateDeliveryAddressAsync(request);
         }
     }
 }

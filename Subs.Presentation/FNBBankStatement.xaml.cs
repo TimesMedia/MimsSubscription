@@ -218,7 +218,7 @@ namespace Subs.Presentation
                 {
                     ExceptionLevel++;
                     ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "LoadBankStatement",
-                        pFileName + "CurrentAllocationNumber: " + lCurrentAllocationNo.ToString());
+                        pFileName + "lBuffer = " + lBuffer.ToString());
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 

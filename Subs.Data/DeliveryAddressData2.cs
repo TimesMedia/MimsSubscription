@@ -201,7 +201,7 @@ namespace Subs.Data
                 lConnection.Open();
                 Command.Connection = lConnection;
                 Command.CommandType = CommandType.Text;
-                Command.CommandText = "Select top 1 isnull(CustomerId, 0) from DeliveryAddressCustomer where DeliveryAddressId = " 
+                Command.CommandText = "Select top 1 'CustomerId' = isnull(CustomerId, 0) from DeliveryAddressCustomer where DeliveryAddressId = " 
                                         + pDeliveryAddressId.ToString();
 
                 return (int)Command.ExecuteScalar();
@@ -215,7 +215,7 @@ namespace Subs.Data
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "DeliveryAddressData2", "GetCustomerId", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "DeliveryAddressData2", "GetCustomerId", "DeliveryAddressId = " + pDeliveryAddressId.ToString());
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 

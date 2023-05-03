@@ -107,7 +107,7 @@ namespace Subs.Presentation
 
                     StatementRow = gPaymentDoc.DebitOrderBankStatement.NewDebitOrderBankStatementRow();
 
-                    string lCustomerIdString = Buffer.Substring(141, 10).Trim();
+                    string lCustomerIdString = Buffer.Substring(139, 10).Trim();
     
                     // Ensure that it is a number
 
@@ -124,7 +124,7 @@ namespace Subs.Presentation
                         }
                         else
                         {
-                            MessageBox.Show("CustomerId " + lCustomerIdString + " is invalid. Check your input file!");
+                            MessageBox.Show("CustomerId " + lCustomerIdString + " does not exist. Check your input file!");
                             return false;
                         }
                         

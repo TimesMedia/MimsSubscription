@@ -19,10 +19,7 @@
         <Button Name="buttonFindEmailByCustomer" Content="FindEmailByCustomer" HorizontalAlignment="Left" Margin="38,189,0,0" VerticalAlignment="Top" Width="137" Click="ButtonFindEmailByCustomer_Click"/>
         <Button Name="buttonReflection" Content="Reflection" HorizontalAlignment="Left" Margin="38,259,0,0" VerticalAlignment="Top" Width="137" Click="ButtonReflection_Click"/>
 
-        <!--<Button Name="buttonUpdateDeliveryAddress" Content="UpdateDeliveryAddress" HorizontalAlignment="Left" Margin="448,300,0,0" VerticalAlignment="Top" Width="137" Click="ButtonUpdateDeliveryAddress_Click"/>
-        <Button Name="buttonGetDeliveryAddress" Content="GetDeliveryAddress" HorizontalAlignment="Left" Margin="240,300,0,0" VerticalAlignment="Top" Width="137" Click="ButtonGetDeliveryAddress_Click"/>
-        <Button Name="buttonInsertDeliveryAddress" Content="InsertDeliveryAddress" HorizontalAlignment="Left" Margin="38,300,0,0" VerticalAlignment="Top" Width="137" Click="ButtonInsertDeliveryAddress_Click"/>-->
-
+        <Button Name="buttonAuthorisationMIC" Content="Medicine Interaction Checker" HorizontalAlignment="Left" Margin="300,259,0,0" VerticalAlignment="Top" Width="228" Click="ButtonAuthorisationMIC_Click"/>
 
     </Grid>
 </Window>

@@ -24,15 +24,13 @@ namespace Subs.Data {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class CustomerDoc2 : global::System.Data.DataSet {
         
-        private Comment2DataTable tableComment2;
-        
         private LiabilityDataTable tableLiability;
         
         private DiscrepanciesDataTable tableDiscrepancies;
         
         private CustomerDataTable tableCustomer;
         
-        private global::System.Data.DataRelation relationFK_Comment2_Customer1;
+        private Comment2DataTable tableComment2;
         
         private global::System.Data.DataRelation relationFK_Comment2_Customer;
         
@@ -64,9 +62,6 @@ namespace Subs.Data {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Comment2"] != null)) {
-                    base.Tables.Add(new Comment2DataTable(ds.Tables["Comment2"]));
-                }
                 if ((ds.Tables["Liability"] != null)) {
                     base.Tables.Add(new LiabilityDataTable(ds.Tables["Liability"]));
                 }
@@ -75,6 +70,9 @@ namespace Subs.Data {
                 }
                 if ((ds.Tables["Customer"] != null)) {
                     base.Tables.Add(new CustomerDataTable(ds.Tables["Customer"]));
+                }
+                if ((ds.Tables["Comment2"] != null)) {
+                    base.Tables.Add(new Comment2DataTable(ds.Tables["Comment2"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -92,16 +90,6 @@ namespace Subs.Data {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Comment2DataTable Comment2 {
-            get {
-                return this.tableComment2;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -131,6 +119,16 @@ namespace Subs.Data {
         public CustomerDataTable Customer {
             get {
                 return this.tableCustomer;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Comment2DataTable Comment2 {
+            get {
+                return this.tableComment2;
             }
         }
         
@@ -201,9 +199,6 @@ namespace Subs.Data {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Comment2"] != null)) {
-                    base.Tables.Add(new Comment2DataTable(ds.Tables["Comment2"]));
-                }
                 if ((ds.Tables["Liability"] != null)) {
                     base.Tables.Add(new LiabilityDataTable(ds.Tables["Liability"]));
                 }
@@ -212,6 +207,9 @@ namespace Subs.Data {
                 }
                 if ((ds.Tables["Customer"] != null)) {
                     base.Tables.Add(new CustomerDataTable(ds.Tables["Customer"]));
+                }
+                if ((ds.Tables["Comment2"] != null)) {
+                    base.Tables.Add(new Comment2DataTable(ds.Tables["Comment2"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -246,12 +244,6 @@ namespace Subs.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableComment2 = ((Comment2DataTable)(base.Tables["Comment2"]));
-            if ((initTable == true)) {
-                if ((this.tableComment2 != null)) {
-                    this.tableComment2.InitVars();
-                }
-            }
             this.tableLiability = ((LiabilityDataTable)(base.Tables["Liability"]));
             if ((initTable == true)) {
                 if ((this.tableLiability != null)) {
@@ -270,7 +262,12 @@ namespace Subs.Data {
                     this.tableCustomer.InitVars();
                 }
             }
-            this.relationFK_Comment2_Customer1 = this.Relations["FK_Comment2_Customer1"];
+            this.tableComment2 = ((Comment2DataTable)(base.Tables["Comment2"]));
+            if ((initTable == true)) {
+                if ((this.tableComment2 != null)) {
+                    this.tableComment2.InitVars();
+                }
+            }
             this.relationFK_Comment2_Customer = this.Relations["FK_Comment2_Customer"];
         }
         
@@ -282,28 +279,18 @@ namespace Subs.Data {
             this.Namespace = "http://tempuri.org/CustomerDoc2.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableComment2 = new Comment2DataTable();
-            base.Tables.Add(this.tableComment2);
             this.tableLiability = new LiabilityDataTable();
             base.Tables.Add(this.tableLiability);
             this.tableDiscrepancies = new DiscrepanciesDataTable();
             base.Tables.Add(this.tableDiscrepancies);
             this.tableCustomer = new CustomerDataTable();
             base.Tables.Add(this.tableCustomer);
-            this.relationFK_Comment2_Customer1 = new global::System.Data.DataRelation("FK_Comment2_Customer1", new global::System.Data.DataColumn[] {
-                        this.tableDiscrepancies.CustomerIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableComment2.CustomerIdColumn}, false);
-            this.Relations.Add(this.relationFK_Comment2_Customer1);
+            this.tableComment2 = new Comment2DataTable();
+            base.Tables.Add(this.tableComment2);
             this.relationFK_Comment2_Customer = new global::System.Data.DataRelation("FK_Comment2_Customer", new global::System.Data.DataColumn[] {
                         this.tableCustomer.CustomerIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableComment2.CustomerIdColumn}, false);
             this.Relations.Add(this.relationFK_Comment2_Customer);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeComment2() {
-            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -321,6 +308,12 @@ namespace Subs.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeCustomer() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeComment2() {
             return false;
         }
         
@@ -380,9 +373,6 @@ namespace Subs.Data {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Comment2RowChangeEventHandler(object sender, Comment2RowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void LiabilityRowChangeEventHandler(object sender, LiabilityRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -391,329 +381,8 @@ namespace Subs.Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void CustomerRowChangeEventHandler(object sender, CustomerRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Comment2DataTable : global::System.Data.TypedTableBase<Comment2Row> {
-            
-            private global::System.Data.DataColumn columnCommentId;
-            
-            private global::System.Data.DataColumn columnCustomerId;
-            
-            private global::System.Data.DataColumn columnComment;
-            
-            private global::System.Data.DataColumn columnModifiedBy;
-            
-            private global::System.Data.DataColumn columnModifiedOn;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2DataTable() {
-                this.TableName = "Comment2";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Comment2DataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Comment2DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CommentIdColumn {
-                get {
-                    return this.columnCommentId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CustomerIdColumn {
-                get {
-                    return this.columnCustomerId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CommentColumn {
-                get {
-                    return this.columnComment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ModifiedByColumn {
-                get {
-                    return this.columnModifiedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn ModifiedOnColumn {
-                get {
-                    return this.columnModifiedOn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2Row this[int index] {
-                get {
-                    return ((Comment2Row)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Comment2RowChangeEventHandler Comment2RowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Comment2RowChangeEventHandler Comment2RowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Comment2RowChangeEventHandler Comment2RowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Comment2RowChangeEventHandler Comment2RowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddComment2Row(Comment2Row row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2Row AddComment2Row(DiscrepanciesRow parentDiscrepanciesRowByFK_Comment2_Customer1, string Comment, string ModifiedBy, System.DateTime ModifiedOn) {
-                Comment2Row rowComment2Row = ((Comment2Row)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        Comment,
-                        ModifiedBy,
-                        ModifiedOn};
-                if ((parentDiscrepanciesRowByFK_Comment2_Customer1 != null)) {
-                    columnValuesArray[1] = parentDiscrepanciesRowByFK_Comment2_Customer1[0];
-                }
-                rowComment2Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowComment2Row);
-                return rowComment2Row;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2Row FindByCommentId(int CommentId) {
-                return ((Comment2Row)(this.Rows.Find(new object[] {
-                            CommentId})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                Comment2DataTable cln = ((Comment2DataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new Comment2DataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnCommentId = base.Columns["CommentId"];
-                this.columnCustomerId = base.Columns["CustomerId"];
-                this.columnComment = base.Columns["Comment"];
-                this.columnModifiedBy = base.Columns["ModifiedBy"];
-                this.columnModifiedOn = base.Columns["ModifiedOn"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnCommentId = new global::System.Data.DataColumn("CommentId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCommentId);
-                this.columnCustomerId = new global::System.Data.DataColumn("CustomerId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerId);
-                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnComment);
-                this.columnModifiedBy = new global::System.Data.DataColumn("ModifiedBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy);
-                this.columnModifiedOn = new global::System.Data.DataColumn("ModifiedOn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedOn);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnCommentId}, true));
-                this.columnCommentId.AutoIncrement = true;
-                this.columnCommentId.AutoIncrementSeed = -1;
-                this.columnCommentId.AutoIncrementStep = -1;
-                this.columnCommentId.AllowDBNull = false;
-                this.columnCommentId.ReadOnly = true;
-                this.columnCommentId.Unique = true;
-                this.columnComment.AllowDBNull = false;
-                this.columnComment.MaxLength = 800;
-                this.columnModifiedBy.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2Row NewComment2Row() {
-                return ((Comment2Row)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Comment2Row(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(Comment2Row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.Comment2RowChanged != null)) {
-                    this.Comment2RowChanged(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.Comment2RowChanging != null)) {
-                    this.Comment2RowChanging(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.Comment2RowDeleted != null)) {
-                    this.Comment2RowDeleted(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.Comment2RowDeleting != null)) {
-                    this.Comment2RowDeleting(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveComment2Row(Comment2Row row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                CustomerDoc2 ds = new CustomerDoc2();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Comment2DataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void Comment2RowChangeEventHandler(object sender, Comment2RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1443,11 +1112,7 @@ namespace Subs.Data {
             
             private global::System.Data.DataColumn columnVerificationDate;
             
-            private global::System.Data.DataColumn columnCheckpointPaymentTransactionId;
-            
             private global::System.Data.DataColumn columnCheckpointDatePayment;
-            
-            private global::System.Data.DataColumn columnCheckpointValue;
             
             private global::System.Data.DataColumn columnCheckpointDateInvoice;
             
@@ -1738,25 +1403,9 @@ namespace Subs.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CheckpointPaymentTransactionIdColumn {
-                get {
-                    return this.columnCheckpointPaymentTransactionId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn CheckpointDatePaymentColumn {
                 get {
                     return this.columnCheckpointDatePayment;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CheckpointValueColumn {
-                get {
-                    return this.columnCheckpointValue;
                 }
             }
             
@@ -1898,9 +1547,7 @@ namespace Subs.Data {
                         decimal Liability, 
                         int Correspondence2, 
                         System.DateTime VerificationDate, 
-                        int CheckpointPaymentTransactionId, 
                         System.DateTime CheckpointDatePayment, 
-                        decimal CheckpointValue, 
                         System.DateTime CheckpointDateInvoice, 
                         string CouncilNumber, 
                         string PracticeNumber1, 
@@ -1941,9 +1588,7 @@ namespace Subs.Data {
                         Liability,
                         Correspondence2,
                         VerificationDate,
-                        CheckpointPaymentTransactionId,
                         CheckpointDatePayment,
-                        CheckpointValue,
                         CheckpointDateInvoice,
                         CouncilNumber,
                         PracticeNumber1,
@@ -2011,9 +1656,7 @@ namespace Subs.Data {
                 this.columnLiability = base.Columns["Liability"];
                 this.columnCorrespondence2 = base.Columns["Correspondence2"];
                 this.columnVerificationDate = base.Columns["VerificationDate"];
-                this.columnCheckpointPaymentTransactionId = base.Columns["CheckpointPaymentTransactionId"];
                 this.columnCheckpointDatePayment = base.Columns["CheckpointDatePayment"];
-                this.columnCheckpointValue = base.Columns["CheckpointValue"];
                 this.columnCheckpointDateInvoice = base.Columns["CheckpointDateInvoice"];
                 this.columnCouncilNumber = base.Columns["CouncilNumber"];
                 this.columnPracticeNumber1 = base.Columns["PracticeNumber1"];
@@ -2086,12 +1729,8 @@ namespace Subs.Data {
                 base.Columns.Add(this.columnCorrespondence2);
                 this.columnVerificationDate = new global::System.Data.DataColumn("VerificationDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVerificationDate);
-                this.columnCheckpointPaymentTransactionId = new global::System.Data.DataColumn("CheckpointPaymentTransactionId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCheckpointPaymentTransactionId);
                 this.columnCheckpointDatePayment = new global::System.Data.DataColumn("CheckpointDatePayment", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheckpointDatePayment);
-                this.columnCheckpointValue = new global::System.Data.DataColumn("CheckpointValue", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCheckpointValue);
                 this.columnCheckpointDateInvoice = new global::System.Data.DataColumn("CheckpointDateInvoice", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCheckpointDateInvoice);
                 this.columnCouncilNumber = new global::System.Data.DataColumn("CouncilNumber", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2151,12 +1790,8 @@ namespace Subs.Data {
                 this.columnLiability.DefaultValue = ((decimal)(0m));
                 this.columnCorrespondence2.AllowDBNull = false;
                 this.columnCorrespondence2.DefaultValue = ((int)(1));
-                this.columnCheckpointPaymentTransactionId.AllowDBNull = false;
-                this.columnCheckpointPaymentTransactionId.DefaultValue = ((int)(0));
                 this.columnCheckpointDatePayment.AllowDBNull = false;
                 this.columnCheckpointDatePayment.DefaultValue = ((System.DateTime)(CustomerDataTable.columnCheckpointDatePayment_defaultValue));
-                this.columnCheckpointValue.AllowDBNull = false;
-                this.columnCheckpointValue.DefaultValue = ((decimal)(0.00m));
                 this.columnCheckpointDateInvoice.AllowDBNull = false;
                 this.columnCheckpointDateInvoice.DefaultValue = ((System.DateTime)(CustomerDataTable.columnCheckpointDateInvoice_defaultValue));
                 this.columnCouncilNumber.MaxLength = 13;
@@ -2297,145 +1932,327 @@ namespace Subs.Data {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class Comment2Row : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Comment2DataTable : global::System.Data.TypedTableBase<Comment2Row> {
             
-            private Comment2DataTable tableComment2;
+            private global::System.Data.DataColumn columnCommentId;
+            
+            private global::System.Data.DataColumn columnCustomerId;
+            
+            private global::System.Data.DataColumn columnComment;
+            
+            private global::System.Data.DataColumn columnModifiedBy;
+            
+            private global::System.Data.DataColumn columnModifiedOn;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Comment2Row(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableComment2 = ((Comment2DataTable)(this.Table));
+            public Comment2DataTable() {
+                this.TableName = "Comment2";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int CommentId {
-                get {
-                    return ((int)(this[this.tableComment2.CommentIdColumn]));
+            internal Comment2DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
                 }
-                set {
-                    this[this.tableComment2.CommentIdColumn] = value;
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected Comment2DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CommentIdColumn {
+                get {
+                    return this.columnCommentId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int CustomerId {
+            public global::System.Data.DataColumn CustomerIdColumn {
                 get {
+                    return this.columnCustomerId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CommentColumn {
+                get {
+                    return this.columnComment;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ModifiedByColumn {
+                get {
+                    return this.columnModifiedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ModifiedOnColumn {
+                get {
+                    return this.columnModifiedOn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Comment2Row this[int index] {
+                get {
+                    return ((Comment2Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Comment2RowChangeEventHandler Comment2RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Comment2RowChangeEventHandler Comment2RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Comment2RowChangeEventHandler Comment2RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event Comment2RowChangeEventHandler Comment2RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddComment2Row(Comment2Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Comment2Row AddComment2Row(CustomerRow parentCustomerRowByFK_Comment2_Customer, string Comment, string ModifiedBy, System.DateTime ModifiedOn) {
+                Comment2Row rowComment2Row = ((Comment2Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        Comment,
+                        ModifiedBy,
+                        ModifiedOn};
+                if ((parentCustomerRowByFK_Comment2_Customer != null)) {
+                    columnValuesArray[1] = parentCustomerRowByFK_Comment2_Customer[0];
+                }
+                rowComment2Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowComment2Row);
+                return rowComment2Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Comment2Row FindByCommentId(int CommentId) {
+                return ((Comment2Row)(this.Rows.Find(new object[] {
+                            CommentId})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Comment2DataTable cln = ((Comment2DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Comment2DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnCommentId = base.Columns["CommentId"];
+                this.columnCustomerId = base.Columns["CustomerId"];
+                this.columnComment = base.Columns["Comment"];
+                this.columnModifiedBy = base.Columns["ModifiedBy"];
+                this.columnModifiedOn = base.Columns["ModifiedOn"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnCommentId = new global::System.Data.DataColumn("CommentId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCommentId);
+                this.columnCustomerId = new global::System.Data.DataColumn("CustomerId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerId);
+                this.columnComment = new global::System.Data.DataColumn("Comment", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComment);
+                this.columnModifiedBy = new global::System.Data.DataColumn("ModifiedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnModifiedBy);
+                this.columnModifiedOn = new global::System.Data.DataColumn("ModifiedOn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnModifiedOn);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnCommentId}, true));
+                this.columnCommentId.AutoIncrement = true;
+                this.columnCommentId.AutoIncrementSeed = -1;
+                this.columnCommentId.AutoIncrementStep = -1;
+                this.columnCommentId.AllowDBNull = false;
+                this.columnCommentId.ReadOnly = true;
+                this.columnCommentId.Unique = true;
+                this.columnCustomerId.AllowDBNull = false;
+                this.columnComment.AllowDBNull = false;
+                this.columnComment.MaxLength = 800;
+                this.columnModifiedBy.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Comment2Row NewComment2Row() {
+                return ((Comment2Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Comment2Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Comment2Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Comment2RowChanged != null)) {
+                    this.Comment2RowChanged(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Comment2RowChanging != null)) {
+                    this.Comment2RowChanging(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Comment2RowDeleted != null)) {
+                    this.Comment2RowDeleted(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Comment2RowDeleting != null)) {
+                    this.Comment2RowDeleting(this, new Comment2RowChangeEvent(((Comment2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveComment2Row(Comment2Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                CustomerDoc2 ds = new CustomerDoc2();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Comment2DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
                     try {
-                        return ((int)(this[this.tableComment2.CustomerIdColumn]));
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerId\' in table \'Comment2\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComment2.CustomerIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Comment {
-                get {
-                    return ((string)(this[this.tableComment2.CommentColumn]));
-                }
-                set {
-                    this[this.tableComment2.CommentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ModifiedBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableComment2.ModifiedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy\' in table \'Comment2\' is DBNull.", e);
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
                     }
                 }
-                set {
-                    this[this.tableComment2.ModifiedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime ModifiedOn {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableComment2.ModifiedOnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedOn\' in table \'Comment2\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComment2.ModifiedOnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public DiscrepanciesRow DiscrepanciesRow {
-                get {
-                    return ((DiscrepanciesRow)(this.GetParentRow(this.Table.ParentRelations["FK_Comment2_Customer1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Comment2_Customer1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CustomerRow CustomerRow {
-                get {
-                    return ((CustomerRow)(this.GetParentRow(this.Table.ParentRelations["FK_Comment2_Customer"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Comment2_Customer"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCustomerIdNull() {
-                return this.IsNull(this.tableComment2.CustomerIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCustomerIdNull() {
-                this[this.tableComment2.CustomerIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsModifiedByNull() {
-                return this.IsNull(this.tableComment2.ModifiedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetModifiedByNull() {
-                this[this.tableComment2.ModifiedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsModifiedOnNull() {
-                return this.IsNull(this.tableComment2.ModifiedOnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetModifiedOnNull() {
-                this[this.tableComment2.ModifiedOnColumn] = global::System.Convert.DBNull;
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -2734,17 +2551,6 @@ namespace Subs.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCommentsNull() {
                 this[this.tableDiscrepancies.CommentsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2Row[] GetComment2Rows() {
-                if ((this.Table.ChildRelations["FK_Comment2_Customer1"] == null)) {
-                    return new Comment2Row[0];
-                }
-                else {
-                    return ((Comment2Row[])(base.GetChildRows(this.Table.ChildRelations["FK_Comment2_Customer1"])));
-                }
             }
         }
         
@@ -3183,34 +2989,12 @@ namespace Subs.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int CheckpointPaymentTransactionId {
-                get {
-                    return ((int)(this[this.tableCustomer.CheckpointPaymentTransactionIdColumn]));
-                }
-                set {
-                    this[this.tableCustomer.CheckpointPaymentTransactionIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime CheckpointDatePayment {
                 get {
                     return ((global::System.DateTime)(this[this.tableCustomer.CheckpointDatePaymentColumn]));
                 }
                 set {
                     this[this.tableCustomer.CheckpointDatePaymentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public decimal CheckpointValue {
-                get {
-                    return ((decimal)(this[this.tableCustomer.CheckpointValueColumn]));
-                }
-                set {
-                    this[this.tableCustomer.CheckpointValueColumn] = value;
                 }
             }
             
@@ -3634,36 +3418,117 @@ namespace Subs.Data {
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Comment2RowChangeEvent : global::System.EventArgs {
+        public partial class Comment2Row : global::System.Data.DataRow {
             
-            private Comment2Row eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private Comment2DataTable tableComment2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2RowChangeEvent(Comment2Row row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal Comment2Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableComment2 = ((Comment2DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Comment2Row Row {
+            public int CommentId {
                 get {
-                    return this.eventRow;
+                    return ((int)(this[this.tableComment2.CommentIdColumn]));
+                }
+                set {
+                    this[this.tableComment2.CommentIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public int CustomerId {
                 get {
-                    return this.eventAction;
+                    return ((int)(this[this.tableComment2.CustomerIdColumn]));
                 }
+                set {
+                    this[this.tableComment2.CustomerIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Comment {
+                get {
+                    return ((string)(this[this.tableComment2.CommentColumn]));
+                }
+                set {
+                    this[this.tableComment2.CommentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ModifiedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableComment2.ModifiedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy\' in table \'Comment2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComment2.ModifiedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime ModifiedOn {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableComment2.ModifiedOnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedOn\' in table \'Comment2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableComment2.ModifiedOnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public CustomerRow CustomerRow {
+                get {
+                    return ((CustomerRow)(this.GetParentRow(this.Table.ParentRelations["FK_Comment2_Customer"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Comment2_Customer"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsModifiedByNull() {
+                return this.IsNull(this.tableComment2.ModifiedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetModifiedByNull() {
+                this[this.tableComment2.ModifiedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsModifiedOnNull() {
+                return this.IsNull(this.tableComment2.ModifiedOnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetModifiedOnNull() {
+                this[this.tableComment2.ModifiedOnColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3768,233 +3633,44 @@ namespace Subs.Data {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class Comment2RowChangeEvent : global::System.EventArgs {
+            
+            private Comment2Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Comment2RowChangeEvent(Comment2Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public Comment2Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace Subs.Data.CustomerDoc2TableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Comment2TableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Comment2TableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Comment2";
-            tableMapping.ColumnMappings.Add("CommentId", "CommentId");
-            tableMapping.ColumnMappings.Add("CustomerId", "CustomerId");
-            tableMapping.ColumnMappings.Add("Comment", "Comment");
-            tableMapping.ColumnMappings.Add("ModifiedBy", "ModifiedBy");
-            tableMapping.ColumnMappings.Add("ModifiedOn", "ModifiedOn");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Comment2] WHERE (([CommentId] = @Original_CommentId) AND ([Cus" +
-                "tomerId] = @Original_CustomerId) AND ([Comment] = @Original_Comment) AND ([Modif" +
-                "iedBy] = @Original_ModifiedBy) AND ([ModifiedOn] = @Original_ModifiedOn))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CommentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CommentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Comment2] ([CustomerId], [Comment], [ModifiedBy], [ModifiedOn]" +
-                ") VALUES (@CustomerId, @Comment, @ModifiedBy, @ModifiedOn);\r\nSELECT CommentId, C" +
-                "ustomerId, Comment, ModifiedBy, ModifiedOn FROM Comment2 WHERE (CommentId = SCOP" +
-                "E_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Comment2] SET [CustomerId] = @CustomerId, [Comment] = @Comment, [ModifiedBy] = @ModifiedBy, [ModifiedOn] = @ModifiedOn WHERE (([CommentId] = @Original_CommentId) AND ([CustomerId] = @Original_CustomerId) AND ([Comment] = @Original_Comment) AND ([ModifiedBy] = @Original_ModifiedBy) AND ([ModifiedOn] = @Original_ModifiedOn));
-SELECT CommentId, CustomerId, Comment, ModifiedBy, ModifiedOn FROM Comment2 WHERE (CommentId = @CommentId)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CommentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CommentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CommentId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CommentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Subs.Data.Properties.Settings.Default.MIMSConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT CommentId, CustomerId, Comment, ModifiedBy, ModifiedOn FROM dbo.Comment2";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "dbo.[MIMS.CustomerDoc.Comment2.FillByCustomerId]";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(CustomerDoc2.Comment2DataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCustomerId(CustomerDoc2.Comment2DataTable dataTable, global::System.Nullable<int> CustomerId) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((CustomerId.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(CustomerId.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CustomerDoc2.Comment2DataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(CustomerDoc2 dataSet) {
-            return this.Adapter.Update(dataSet, "Comment2");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -4514,9 +4190,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             tableMapping.ColumnMappings.Add("Liability", "Liability");
             tableMapping.ColumnMappings.Add("Correspondence2", "Correspondence2");
             tableMapping.ColumnMappings.Add("VerificationDate", "VerificationDate");
-            tableMapping.ColumnMappings.Add("CheckpointPaymentTransactionId", "CheckpointPaymentTransactionId");
             tableMapping.ColumnMappings.Add("CheckpointDatePayment", "CheckpointDatePayment");
-            tableMapping.ColumnMappings.Add("CheckpointValue", "CheckpointValue");
             tableMapping.ColumnMappings.Add("CheckpointDateInvoice", "CheckpointDateInvoice");
             tableMapping.ColumnMappings.Add("CouncilNumber", "CouncilNumber");
             tableMapping.ColumnMappings.Add("PracticeNumber1", "PracticeNumber1");
@@ -4529,48 +4203,46 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Customer] WHERE (([CustomerId] = @Original_CustomerId) AND ([TitleId" +
-                "] = @Original_TitleId) AND ((@IsNull_Initials = 1 AND [Initials] IS NULL) OR ([I" +
-                "nitials] = @Original_Initials)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS N" +
-                "ULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_Surname = 1 AND [Surn" +
-                "ame] IS NULL) OR ([Surname] = @Original_Surname)) AND ((@IsNull_NationalId1 = 1 " +
-                "AND [NationalId1] IS NULL) OR ([NationalId1] = @Original_NationalId1)) AND ((@Is" +
-                "Null_NationalId2 = 1 AND [NationalId2] IS NULL) OR ([NationalId2] = @Original_Na" +
-                "tionalId2)) AND ((@IsNull_NationalId3 = 1 AND [NationalId3] IS NULL) OR ([Nation" +
-                "alId3] = @Original_NationalId3)) AND ([CompanyId] = @Original_CompanyId) AND ((@" +
-                "IsNull_CompanyNameUnverified = 1 AND [CompanyNameUnverified] IS NULL) OR ([Compa" +
-                "nyNameUnverified] = @Original_CompanyNameUnverified)) AND ((@IsNull_Department =" +
-                " 1 AND [Department] IS NULL) OR ([Department] = @Original_Department)) AND ((@Is" +
-                "Null_Address1 = 1 AND [Address1] IS NULL) OR ([Address1] = @Original_Address1)) " +
-                "AND ((@IsNull_Address2 = 1 AND [Address2] IS NULL) OR ([Address2] = @Original_Ad" +
-                "dress2)) AND ((@IsNull_Address3 = 1 AND [Address3] IS NULL) OR ([Address3] = @Or" +
-                "iginal_Address3)) AND ((@IsNull_Address4 = 1 AND [Address4] IS NULL) OR ([Addres" +
-                "s4] = @Original_Address4)) AND ((@IsNull_Address5 = 1 AND [Address5] IS NULL) OR" +
-                " ([Address5] = @Original_Address5)) AND ([AddressType] = @Original_AddressType) " +
-                "AND ([PostAddressId] = @Original_PostAddressId) AND ((@IsNull_PhysicalAddressId " +
-                "= 1 AND [PhysicalAddressId] IS NULL) OR ([PhysicalAddressId] = @Original_Physica" +
-                "lAddressId)) AND ([CountryId] = @Original_CountryId) AND ((@IsNull_PhoneNumber =" +
-                " 1 AND [PhoneNumber] IS NULL) OR ([PhoneNumber] = @Original_PhoneNumber)) AND ((" +
-                "@IsNull_CellPhoneNumber = 1 AND [CellPhoneNumber] IS NULL) OR ([CellPhoneNumber]" +
-                " = @Original_CellPhoneNumber)) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress]" +
-                " IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND ((@IsNull_InvoiceEma" +
-                "il = 1 AND [InvoiceEmail] IS NULL) OR ([InvoiceEmail] = @Original_InvoiceEmail))" +
-                " AND ((@IsNull_StatementEmail = 1 AND [StatementEmail] IS NULL) OR ([StatementEm" +
-                "ail] = @Original_StatementEmail)) AND ([Liability] = @Original_Liability) AND ([" +
-                "Correspondence2] = @Original_Correspondence2) AND ((@IsNull_VerificationDate = 1" +
-                " AND [VerificationDate] IS NULL) OR ([VerificationDate] = @Original_Verification" +
-                "Date)) AND ([CheckpointPaymentTransactionId] = @Original_CheckpointPaymentTransa" +
-                "ctionId) AND ([CheckpointDatePayment] = @Original_CheckpointDatePayment) AND ([C" +
-                "heckpointValue] = @Original_CheckpointValue) AND ([CheckpointDateInvoice] = @Ori" +
-                "ginal_CheckpointDateInvoice) AND ((@IsNull_CouncilNumber = 1 AND [CouncilNumber]" +
-                " IS NULL) OR ([CouncilNumber] = @Original_CouncilNumber)) AND ((@IsNull_Practice" +
-                "Number1 = 1 AND [PracticeNumber1] IS NULL) OR ([PracticeNumber1] = @Original_Pra" +
-                "cticeNumber1)) AND ((@IsNull_PracticeNumber2 = 1 AND [PracticeNumber2] IS NULL) " +
-                "OR ([PracticeNumber2] = @Original_PracticeNumber2)) AND ((@IsNull_PracticeNumber" +
-                "3 = 1 AND [PracticeNumber3] IS NULL) OR ([PracticeNumber3] = @Original_PracticeN" +
-                "umber3)) AND ([AutomaticPaymentAllocation] = @Original_AutomaticPaymentAllocatio" +
-                "n) AND ([Marketing] = @Original_Marketing) AND ([ModifiedBy] = @Original_Modifie" +
-                "dBy) AND ([ModifiedOn] = @Original_ModifiedOn))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Customer] WHERE (([CustomerId] = @Original_CustomerId) AND ([T" +
+                "itleId] = @Original_TitleId) AND ((@IsNull_Initials = 1 AND [Initials] IS NULL) " +
+                "OR ([Initials] = @Original_Initials)) AND ((@IsNull_FirstName = 1 AND [FirstName" +
+                "] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_Surname = 1 AND" +
+                " [Surname] IS NULL) OR ([Surname] = @Original_Surname)) AND ((@IsNull_NationalId" +
+                "1 = 1 AND [NationalId1] IS NULL) OR ([NationalId1] = @Original_NationalId1)) AND" +
+                " ((@IsNull_NationalId2 = 1 AND [NationalId2] IS NULL) OR ([NationalId2] = @Origi" +
+                "nal_NationalId2)) AND ((@IsNull_NationalId3 = 1 AND [NationalId3] IS NULL) OR ([" +
+                "NationalId3] = @Original_NationalId3)) AND ([CompanyId] = @Original_CompanyId) A" +
+                "ND ((@IsNull_CompanyNameUnverified = 1 AND [CompanyNameUnverified] IS NULL) OR (" +
+                "[CompanyNameUnverified] = @Original_CompanyNameUnverified)) AND ((@IsNull_Depart" +
+                "ment = 1 AND [Department] IS NULL) OR ([Department] = @Original_Department)) AND" +
+                " ((@IsNull_Address1 = 1 AND [Address1] IS NULL) OR ([Address1] = @Original_Addre" +
+                "ss1)) AND ((@IsNull_Address2 = 1 AND [Address2] IS NULL) OR ([Address2] = @Origi" +
+                "nal_Address2)) AND ((@IsNull_Address3 = 1 AND [Address3] IS NULL) OR ([Address3]" +
+                " = @Original_Address3)) AND ((@IsNull_Address4 = 1 AND [Address4] IS NULL) OR ([" +
+                "Address4] = @Original_Address4)) AND ((@IsNull_Address5 = 1 AND [Address5] IS NU" +
+                "LL) OR ([Address5] = @Original_Address5)) AND ([AddressType] = @Original_Address" +
+                "Type) AND ([PostAddressId] = @Original_PostAddressId) AND ((@IsNull_PhysicalAddr" +
+                "essId = 1 AND [PhysicalAddressId] IS NULL) OR ([PhysicalAddressId] = @Original_P" +
+                "hysicalAddressId)) AND ([CountryId] = @Original_CountryId) AND ((@IsNull_PhoneNu" +
+                "mber = 1 AND [PhoneNumber] IS NULL) OR ([PhoneNumber] = @Original_PhoneNumber)) " +
+                "AND ([CellPhoneNumber] = @Original_CellPhoneNumber) AND ((@IsNull_EmailAddress =" +
+                " 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @Original_EmailAddress)) AND" +
+                " ((@IsNull_InvoiceEmail = 1 AND [InvoiceEmail] IS NULL) OR ([InvoiceEmail] = @Or" +
+                "iginal_InvoiceEmail)) AND ((@IsNull_StatementEmail = 1 AND [StatementEmail] IS N" +
+                "ULL) OR ([StatementEmail] = @Original_StatementEmail)) AND ([Liability] = @Origi" +
+                "nal_Liability) AND ([Correspondence2] = @Original_Correspondence2) AND ((@IsNull" +
+                "_VerificationDate = 1 AND [VerificationDate] IS NULL) OR ([VerificationDate] = @" +
+                "Original_VerificationDate)) AND ([CheckpointDatePayment] = @Original_CheckpointD" +
+                "atePayment) AND ([CheckpointDateInvoice] = @Original_CheckpointDateInvoice) AND " +
+                "((@IsNull_CouncilNumber = 1 AND [CouncilNumber] IS NULL) OR ([CouncilNumber] = @" +
+                "Original_CouncilNumber)) AND ((@IsNull_PracticeNumber1 = 1 AND [PracticeNumber1]" +
+                " IS NULL) OR ([PracticeNumber1] = @Original_PracticeNumber1)) AND ((@IsNull_Prac" +
+                "ticeNumber2 = 1 AND [PracticeNumber2] IS NULL) OR ([PracticeNumber2] = @Original" +
+                "_PracticeNumber2)) AND ((@IsNull_PracticeNumber3 = 1 AND [PracticeNumber3] IS NU" +
+                "LL) OR ([PracticeNumber3] = @Original_PracticeNumber3)) AND ([AutomaticPaymentAl" +
+                "location] = @Original_AutomaticPaymentAllocation) AND ([Marketing] = @Original_M" +
+                "arketing) AND ([ModifiedBy] = @Original_ModifiedBy) AND ([ModifiedOn] = @Origina" +
+                "l_ModifiedOn))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TitleId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TitleId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4608,7 +4280,6 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CellPhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CellPhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CellPhoneNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CellPhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmailAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmailAddress", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4620,9 +4291,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Correspondence2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Correspondence2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VerificationDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VerificationDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VerificationDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VerificationDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointPaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointPaymentTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointDatePayment", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDatePayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointValue", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "CheckpointValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointDateInvoice", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDateInvoice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CouncilNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouncilNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CouncilNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouncilNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4638,31 +4307,29 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Customer] ([Password1], [TitleId], [Initials], [FirstName], [Surname" +
-                "], [NationalId1], [NationalId2], [NationalId3], [CompanyId], [CompanyNameUnverif" +
-                "ied], [Department], [Address1], [Address2], [Address3], [Address4], [Address5], " +
-                "[AddressType], [PostAddressId], [PhysicalAddressId], [CountryId], [PhoneNumber]," +
-                " [CellPhoneNumber], [EmailAddress], [InvoiceEmail], [StatementEmail], [Liability" +
-                "], [Correspondence2], [VerificationDate], [CheckpointPaymentTransactionId], [Che" +
-                "ckpointDatePayment], [CheckpointValue], [CheckpointDateInvoice], [CouncilNumber]" +
-                ", [PracticeNumber1], [PracticeNumber2], [PracticeNumber3], [AutomaticPaymentAllo" +
-                "cation], [Marketing], [ModifiedBy], [ModifiedOn]) VALUES (@Password1, @TitleId, " +
-                "@Initials, @FirstName, @Surname, @NationalId1, @NationalId2, @NationalId3, @Comp" +
-                "anyId, @CompanyNameUnverified, @Department, @Address1, @Address2, @Address3, @Ad" +
-                "dress4, @Address5, @AddressType, @PostAddressId, @PhysicalAddressId, @CountryId," +
-                " @PhoneNumber, @CellPhoneNumber, @EmailAddress, @InvoiceEmail, @StatementEmail, " +
-                "@Liability, @Correspondence2, @VerificationDate, @CheckpointPaymentTransactionId" +
-                ", @CheckpointDatePayment, @CheckpointValue, @CheckpointDateInvoice, @CouncilNumb" +
-                "er, @PracticeNumber1, @PracticeNumber2, @PracticeNumber3, @AutomaticPaymentAlloc" +
-                "ation, @Marketing, @ModifiedBy, @ModifiedOn);\r\nSELECT CustomerId, Password1, Tit" +
-                "leId, Initials, FirstName, Surname, NationalId1, NationalId2, NationalId3, Compa" +
-                "nyId, CompanyNameUnverified, Department, Address1, Address2, Address3, Address4," +
-                " Address5, AddressType, PostAddressId, PhysicalAddressId, CountryId, PhoneNumber" +
-                ", CellPhoneNumber, EmailAddress, InvoiceEmail, StatementEmail, Liability, Corres" +
-                "pondence2, VerificationDate, CheckpointPaymentTransactionId, CheckpointDatePayme" +
-                "nt, CheckpointValue, CheckpointDateInvoice, CouncilNumber, PracticeNumber1, Prac" +
-                "ticeNumber2, PracticeNumber3, AutomaticPaymentAllocation, Marketing, ModifiedBy," +
-                " ModifiedOn FROM Customer WHERE (CustomerId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Customer] ([Password1], [TitleId], [Initials], [FirstName], [S" +
+                "urname], [NationalId1], [NationalId2], [NationalId3], [CompanyId], [CompanyNameU" +
+                "nverified], [Department], [Address1], [Address2], [Address3], [Address4], [Addre" +
+                "ss5], [AddressType], [PostAddressId], [PhysicalAddressId], [CountryId], [PhoneNu" +
+                "mber], [CellPhoneNumber], [EmailAddress], [InvoiceEmail], [StatementEmail], [Lia" +
+                "bility], [Correspondence2], [VerificationDate], [CheckpointDatePayment], [Checkp" +
+                "ointDateInvoice], [CouncilNumber], [PracticeNumber1], [PracticeNumber2], [Practi" +
+                "ceNumber3], [AutomaticPaymentAllocation], [Marketing], [ModifiedBy], [ModifiedOn" +
+                "]) VALUES (@Password1, @TitleId, @Initials, @FirstName, @Surname, @NationalId1, " +
+                "@NationalId2, @NationalId3, @CompanyId, @CompanyNameUnverified, @Department, @Ad" +
+                "dress1, @Address2, @Address3, @Address4, @Address5, @AddressType, @PostAddressId" +
+                ", @PhysicalAddressId, @CountryId, @PhoneNumber, @CellPhoneNumber, @EmailAddress," +
+                " @InvoiceEmail, @StatementEmail, @Liability, @Correspondence2, @VerificationDate" +
+                ", @CheckpointDatePayment, @CheckpointDateInvoice, @CouncilNumber, @PracticeNumbe" +
+                "r1, @PracticeNumber2, @PracticeNumber3, @AutomaticPaymentAllocation, @Marketing," +
+                " @ModifiedBy, @ModifiedOn);\r\nSELECT CustomerId, Password1, TitleId, Initials, Fi" +
+                "rstName, Surname, NationalId1, NationalId2, NationalId3, CompanyId, CompanyNameU" +
+                "nverified, Department, Address1, Address2, Address3, Address4, Address5, Address" +
+                "Type, PostAddressId, PhysicalAddressId, CountryId, PhoneNumber, CellPhoneNumber," +
+                " EmailAddress, InvoiceEmail, StatementEmail, Liability, Correspondence2, Verific" +
+                "ationDate, CheckpointDatePayment, CheckpointDateInvoice, CouncilNumber, Practice" +
+                "Number1, PracticeNumber2, PracticeNumber3, AutomaticPaymentAllocation, Marketing" +
+                ", ModifiedBy, ModifiedOn FROM Customer WHERE (CustomerId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password1", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TitleId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TitleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4692,9 +4359,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Liability", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Liability", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Correspondence2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Correspondence2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VerificationDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VerificationDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointPaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointPaymentTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointDatePayment", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDatePayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointValue", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "CheckpointValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointDateInvoice", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDateInvoice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CouncilNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouncilNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PracticeNumber1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PracticeNumber1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4706,73 +4371,69 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Customer] SET [Password1] = @Password1, [TitleId] = @TitleId, [Initials] " +
-                "= @Initials, [FirstName] = @FirstName, [Surname] = @Surname, [NationalId1] = @Na" +
-                "tionalId1, [NationalId2] = @NationalId2, [NationalId3] = @NationalId3, [CompanyI" +
-                "d] = @CompanyId, [CompanyNameUnverified] = @CompanyNameUnverified, [Department] " +
-                "= @Department, [Address1] = @Address1, [Address2] = @Address2, [Address3] = @Add" +
-                "ress3, [Address4] = @Address4, [Address5] = @Address5, [AddressType] = @AddressT" +
-                "ype, [PostAddressId] = @PostAddressId, [PhysicalAddressId] = @PhysicalAddressId," +
-                " [CountryId] = @CountryId, [PhoneNumber] = @PhoneNumber, [CellPhoneNumber] = @Ce" +
-                "llPhoneNumber, [EmailAddress] = @EmailAddress, [InvoiceEmail] = @InvoiceEmail, [" +
-                "StatementEmail] = @StatementEmail, [Liability] = @Liability, [Correspondence2] =" +
-                " @Correspondence2, [VerificationDate] = @VerificationDate, [CheckpointPaymentTra" +
-                "nsactionId] = @CheckpointPaymentTransactionId, [CheckpointDatePayment] = @Checkp" +
-                "ointDatePayment, [CheckpointValue] = @CheckpointValue, [CheckpointDateInvoice] =" +
-                " @CheckpointDateInvoice, [CouncilNumber] = @CouncilNumber, [PracticeNumber1] = @" +
-                "PracticeNumber1, [PracticeNumber2] = @PracticeNumber2, [PracticeNumber3] = @Prac" +
-                "ticeNumber3, [AutomaticPaymentAllocation] = @AutomaticPaymentAllocation, [Market" +
-                "ing] = @Marketing, [ModifiedBy] = @ModifiedBy, [ModifiedOn] = @ModifiedOn WHERE " +
-                "(([CustomerId] = @Original_CustomerId) AND ([TitleId] = @Original_TitleId) AND (" +
-                "(@IsNull_Initials = 1 AND [Initials] IS NULL) OR ([Initials] = @Original_Initial" +
-                "s)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Orig" +
-                "inal_FirstName)) AND ((@IsNull_Surname = 1 AND [Surname] IS NULL) OR ([Surname] " +
-                "= @Original_Surname)) AND ((@IsNull_NationalId1 = 1 AND [NationalId1] IS NULL) O" +
-                "R ([NationalId1] = @Original_NationalId1)) AND ((@IsNull_NationalId2 = 1 AND [Na" +
-                "tionalId2] IS NULL) OR ([NationalId2] = @Original_NationalId2)) AND ((@IsNull_Na" +
-                "tionalId3 = 1 AND [NationalId3] IS NULL) OR ([NationalId3] = @Original_NationalI" +
-                "d3)) AND ([CompanyId] = @Original_CompanyId) AND ((@IsNull_CompanyNameUnverified" +
-                " = 1 AND [CompanyNameUnverified] IS NULL) OR ([CompanyNameUnverified] = @Origina" +
-                "l_CompanyNameUnverified)) AND ((@IsNull_Department = 1 AND [Department] IS NULL)" +
-                " OR ([Department] = @Original_Department)) AND ((@IsNull_Address1 = 1 AND [Addre" +
-                "ss1] IS NULL) OR ([Address1] = @Original_Address1)) AND ((@IsNull_Address2 = 1 A" +
-                "ND [Address2] IS NULL) OR ([Address2] = @Original_Address2)) AND ((@IsNull_Addre" +
-                "ss3 = 1 AND [Address3] IS NULL) OR ([Address3] = @Original_Address3)) AND ((@IsN" +
-                "ull_Address4 = 1 AND [Address4] IS NULL) OR ([Address4] = @Original_Address4)) A" +
-                "ND ((@IsNull_Address5 = 1 AND [Address5] IS NULL) OR ([Address5] = @Original_Add" +
-                "ress5)) AND ([AddressType] = @Original_AddressType) AND ([PostAddressId] = @Orig" +
-                "inal_PostAddressId) AND ((@IsNull_PhysicalAddressId = 1 AND [PhysicalAddressId] " +
-                "IS NULL) OR ([PhysicalAddressId] = @Original_PhysicalAddressId)) AND ([CountryId" +
-                "] = @Original_CountryId) AND ((@IsNull_PhoneNumber = 1 AND [PhoneNumber] IS NULL" +
-                ") OR ([PhoneNumber] = @Original_PhoneNumber)) AND ((@IsNull_CellPhoneNumber = 1 " +
-                "AND [CellPhoneNumber] IS NULL) OR ([CellPhoneNumber] = @Original_CellPhoneNumber" +
-                ")) AND ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress]" +
-                " = @Original_EmailAddress)) AND ((@IsNull_InvoiceEmail = 1 AND [InvoiceEmail] IS" +
-                " NULL) OR ([InvoiceEmail] = @Original_InvoiceEmail)) AND ((@IsNull_StatementEmai" +
-                "l = 1 AND [StatementEmail] IS NULL) OR ([StatementEmail] = @Original_StatementEm" +
-                "ail)) AND ([Liability] = @Original_Liability) AND ([Correspondence2] = @Original" +
-                "_Correspondence2) AND ((@IsNull_VerificationDate = 1 AND [VerificationDate] IS N" +
-                "ULL) OR ([VerificationDate] = @Original_VerificationDate)) AND ([CheckpointPayme" +
-                "ntTransactionId] = @Original_CheckpointPaymentTransactionId) AND ([CheckpointDat" +
-                "ePayment] = @Original_CheckpointDatePayment) AND ([CheckpointValue] = @Original_" +
-                "CheckpointValue) AND ([CheckpointDateInvoice] = @Original_CheckpointDateInvoice)" +
-                " AND ((@IsNull_CouncilNumber = 1 AND [CouncilNumber] IS NULL) OR ([CouncilNumber" +
-                "] = @Original_CouncilNumber)) AND ((@IsNull_PracticeNumber1 = 1 AND [PracticeNum" +
-                "ber1] IS NULL) OR ([PracticeNumber1] = @Original_PracticeNumber1)) AND ((@IsNull" +
-                "_PracticeNumber2 = 1 AND [PracticeNumber2] IS NULL) OR ([PracticeNumber2] = @Ori" +
-                "ginal_PracticeNumber2)) AND ((@IsNull_PracticeNumber3 = 1 AND [PracticeNumber3] " +
-                "IS NULL) OR ([PracticeNumber3] = @Original_PracticeNumber3)) AND ([AutomaticPaym" +
-                "entAllocation] = @Original_AutomaticPaymentAllocation) AND ([Marketing] = @Origi" +
-                "nal_Marketing) AND ([ModifiedBy] = @Original_ModifiedBy) AND ([ModifiedOn] = @Or" +
-                "iginal_ModifiedOn));\r\nSELECT CustomerId, Password1, TitleId, Initials, FirstName" +
-                ", Surname, NationalId1, NationalId2, NationalId3, CompanyId, CompanyNameUnverifi" +
-                "ed, Department, Address1, Address2, Address3, Address4, Address5, AddressType, P" +
-                "ostAddressId, PhysicalAddressId, CountryId, PhoneNumber, CellPhoneNumber, EmailA" +
-                "ddress, InvoiceEmail, StatementEmail, Liability, Correspondence2, VerificationDa" +
-                "te, CheckpointPaymentTransactionId, CheckpointDatePayment, CheckpointValue, Chec" +
-                "kpointDateInvoice, CouncilNumber, PracticeNumber1, PracticeNumber2, PracticeNumb" +
-                "er3, AutomaticPaymentAllocation, Marketing, ModifiedBy, ModifiedOn FROM Customer" +
-                " WHERE (CustomerId = @CustomerId)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Customer] SET [Password1] = @Password1, [TitleId] = @TitleId, [Init" +
+                "ials] = @Initials, [FirstName] = @FirstName, [Surname] = @Surname, [NationalId1]" +
+                " = @NationalId1, [NationalId2] = @NationalId2, [NationalId3] = @NationalId3, [Co" +
+                "mpanyId] = @CompanyId, [CompanyNameUnverified] = @CompanyNameUnverified, [Depart" +
+                "ment] = @Department, [Address1] = @Address1, [Address2] = @Address2, [Address3] " +
+                "= @Address3, [Address4] = @Address4, [Address5] = @Address5, [AddressType] = @Ad" +
+                "dressType, [PostAddressId] = @PostAddressId, [PhysicalAddressId] = @PhysicalAddr" +
+                "essId, [CountryId] = @CountryId, [PhoneNumber] = @PhoneNumber, [CellPhoneNumber]" +
+                " = @CellPhoneNumber, [EmailAddress] = @EmailAddress, [InvoiceEmail] = @InvoiceEm" +
+                "ail, [StatementEmail] = @StatementEmail, [Liability] = @Liability, [Corresponden" +
+                "ce2] = @Correspondence2, [VerificationDate] = @VerificationDate, [CheckpointDate" +
+                "Payment] = @CheckpointDatePayment, [CheckpointDateInvoice] = @CheckpointDateInvo" +
+                "ice, [CouncilNumber] = @CouncilNumber, [PracticeNumber1] = @PracticeNumber1, [Pr" +
+                "acticeNumber2] = @PracticeNumber2, [PracticeNumber3] = @PracticeNumber3, [Automa" +
+                "ticPaymentAllocation] = @AutomaticPaymentAllocation, [Marketing] = @Marketing, [" +
+                "ModifiedBy] = @ModifiedBy, [ModifiedOn] = @ModifiedOn WHERE (([CustomerId] = @Or" +
+                "iginal_CustomerId) AND ([TitleId] = @Original_TitleId) AND ((@IsNull_Initials = " +
+                "1 AND [Initials] IS NULL) OR ([Initials] = @Original_Initials)) AND ((@IsNull_Fi" +
+                "rstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND" +
+                " ((@IsNull_Surname = 1 AND [Surname] IS NULL) OR ([Surname] = @Original_Surname)" +
+                ") AND ((@IsNull_NationalId1 = 1 AND [NationalId1] IS NULL) OR ([NationalId1] = @" +
+                "Original_NationalId1)) AND ((@IsNull_NationalId2 = 1 AND [NationalId2] IS NULL) " +
+                "OR ([NationalId2] = @Original_NationalId2)) AND ((@IsNull_NationalId3 = 1 AND [N" +
+                "ationalId3] IS NULL) OR ([NationalId3] = @Original_NationalId3)) AND ([CompanyId" +
+                "] = @Original_CompanyId) AND ((@IsNull_CompanyNameUnverified = 1 AND [CompanyNam" +
+                "eUnverified] IS NULL) OR ([CompanyNameUnverified] = @Original_CompanyNameUnverif" +
+                "ied)) AND ((@IsNull_Department = 1 AND [Department] IS NULL) OR ([Department] = " +
+                "@Original_Department)) AND ((@IsNull_Address1 = 1 AND [Address1] IS NULL) OR ([A" +
+                "ddress1] = @Original_Address1)) AND ((@IsNull_Address2 = 1 AND [Address2] IS NUL" +
+                "L) OR ([Address2] = @Original_Address2)) AND ((@IsNull_Address3 = 1 AND [Address" +
+                "3] IS NULL) OR ([Address3] = @Original_Address3)) AND ((@IsNull_Address4 = 1 AND" +
+                " [Address4] IS NULL) OR ([Address4] = @Original_Address4)) AND ((@IsNull_Address" +
+                "5 = 1 AND [Address5] IS NULL) OR ([Address5] = @Original_Address5)) AND ([Addres" +
+                "sType] = @Original_AddressType) AND ([PostAddressId] = @Original_PostAddressId) " +
+                "AND ((@IsNull_PhysicalAddressId = 1 AND [PhysicalAddressId] IS NULL) OR ([Physic" +
+                "alAddressId] = @Original_PhysicalAddressId)) AND ([CountryId] = @Original_Countr" +
+                "yId) AND ((@IsNull_PhoneNumber = 1 AND [PhoneNumber] IS NULL) OR ([PhoneNumber] " +
+                "= @Original_PhoneNumber)) AND ([CellPhoneNumber] = @Original_CellPhoneNumber) AN" +
+                "D ((@IsNull_EmailAddress = 1 AND [EmailAddress] IS NULL) OR ([EmailAddress] = @O" +
+                "riginal_EmailAddress)) AND ((@IsNull_InvoiceEmail = 1 AND [InvoiceEmail] IS NULL" +
+                ") OR ([InvoiceEmail] = @Original_InvoiceEmail)) AND ((@IsNull_StatementEmail = 1" +
+                " AND [StatementEmail] IS NULL) OR ([StatementEmail] = @Original_StatementEmail))" +
+                " AND ([Liability] = @Original_Liability) AND ([Correspondence2] = @Original_Corr" +
+                "espondence2) AND ((@IsNull_VerificationDate = 1 AND [VerificationDate] IS NULL) " +
+                "OR ([VerificationDate] = @Original_VerificationDate)) AND ([CheckpointDatePaymen" +
+                "t] = @Original_CheckpointDatePayment) AND ([CheckpointDateInvoice] = @Original_C" +
+                "heckpointDateInvoice) AND ((@IsNull_CouncilNumber = 1 AND [CouncilNumber] IS NUL" +
+                "L) OR ([CouncilNumber] = @Original_CouncilNumber)) AND ((@IsNull_PracticeNumber1" +
+                " = 1 AND [PracticeNumber1] IS NULL) OR ([PracticeNumber1] = @Original_PracticeNu" +
+                "mber1)) AND ((@IsNull_PracticeNumber2 = 1 AND [PracticeNumber2] IS NULL) OR ([Pr" +
+                "acticeNumber2] = @Original_PracticeNumber2)) AND ((@IsNull_PracticeNumber3 = 1 A" +
+                "ND [PracticeNumber3] IS NULL) OR ([PracticeNumber3] = @Original_PracticeNumber3)" +
+                ") AND ([AutomaticPaymentAllocation] = @Original_AutomaticPaymentAllocation) AND " +
+                "([Marketing] = @Original_Marketing) AND ([ModifiedBy] = @Original_ModifiedBy) AN" +
+                "D ([ModifiedOn] = @Original_ModifiedOn));\r\nSELECT CustomerId, Password1, TitleId" +
+                ", Initials, FirstName, Surname, NationalId1, NationalId2, NationalId3, CompanyId" +
+                ", CompanyNameUnverified, Department, Address1, Address2, Address3, Address4, Add" +
+                "ress5, AddressType, PostAddressId, PhysicalAddressId, CountryId, PhoneNumber, Ce" +
+                "llPhoneNumber, EmailAddress, InvoiceEmail, StatementEmail, Liability, Correspond" +
+                "ence2, VerificationDate, CheckpointDatePayment, CheckpointDateInvoice, CouncilNu" +
+                "mber, PracticeNumber1, PracticeNumber2, PracticeNumber3, AutomaticPaymentAllocat" +
+                "ion, Marketing, ModifiedBy, ModifiedOn FROM Customer WHERE (CustomerId = @Custom" +
+                "erId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password1", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TitleId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TitleId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4802,9 +4463,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Liability", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Liability", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Correspondence2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Correspondence2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VerificationDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VerificationDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointPaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointPaymentTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointDatePayment", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDatePayment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointValue", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "CheckpointValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CheckpointDateInvoice", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDateInvoice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CouncilNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouncilNumber", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PracticeNumber1", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PracticeNumber1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4850,7 +4509,6 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CountryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CountryId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PhoneNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CellPhoneNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CellPhoneNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CellPhoneNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CellPhoneNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EmailAddress", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EmailAddress", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EmailAddress", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4862,9 +4520,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Correspondence2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Correspondence2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_VerificationDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VerificationDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_VerificationDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VerificationDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointPaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointPaymentTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointDatePayment", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDatePayment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointValue", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "CheckpointValue", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CheckpointDateInvoice", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CheckpointDateInvoice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CouncilNumber", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouncilNumber", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CouncilNumber", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CouncilNumber", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -4885,7 +4541,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Subs.Data.Properties.Settings.Default.MIMSConnectionString;
+            this._connection.ConnectionString = global::Subs.Data.Properties.Settings.Default.MIMS3ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4894,10 +4550,7 @@ SELECT PayerId, CustomerLiability, JournalLiability, Difference, Datum FROM Liab
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        CustomerId, Password1, TitleId, Initials, FirstName, Surname, NationalId1, NationalId2, NationalId3, CompanyId, CompanyNameUnverified, Department, Address1, Address2, Address3, Address4, Address5, AddressType, 
-                         PostAddressId, PhysicalAddressId, CountryId, PhoneNumber, CellPhoneNumber, EmailAddress, InvoiceEmail, StatementEmail, Liability, Correspondence2, VerificationDate, CheckpointPaymentTransactionId, 
-                         CheckpointDatePayment, CheckpointValue, CheckpointDateInvoice, CouncilNumber, PracticeNumber1, PracticeNumber2, PracticeNumber3, AutomaticPaymentAllocation, Marketing, ModifiedBy, ModifiedOn
-FROM            Customer";
+            this._commandCollection[0].CommandText = @"SELECT CustomerId, Password1, TitleId, Initials, FirstName, Surname, NationalId1, NationalId2, NationalId3, CompanyId, CompanyNameUnverified, Department, Address1, Address2, Address3, Address4, Address5, AddressType, PostAddressId, PhysicalAddressId, CountryId, PhoneNumber, CellPhoneNumber, EmailAddress, InvoiceEmail, StatementEmail, Liability, Correspondence2, VerificationDate, CheckpointDatePayment, CheckpointDateInvoice, CouncilNumber, PracticeNumber1, PracticeNumber2, PracticeNumber3, AutomaticPaymentAllocation, Marketing, ModifiedBy, ModifiedOn FROM dbo.Customer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -5147,6 +4800,231 @@ FROM            Customer";
             else {
                 return ((object)(returnValue));
             }
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Comment2TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public Comment2TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Comment2";
+            tableMapping.ColumnMappings.Add("CommentId", "CommentId");
+            tableMapping.ColumnMappings.Add("CustomerId", "CustomerId");
+            tableMapping.ColumnMappings.Add("Comment", "Comment");
+            tableMapping.ColumnMappings.Add("ModifiedBy", "ModifiedBy");
+            tableMapping.ColumnMappings.Add("ModifiedOn", "ModifiedOn");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Comment2] WHERE (([CommentId] = @Original_CommentId) AND ([CustomerId] = @Original_CustomerId) AND ([Comment] = @Original_Comment) AND ((@IsNull_ModifiedBy = 1 AND [ModifiedBy] IS NULL) OR ([ModifiedBy] = @Original_ModifiedBy)) AND ((@IsNull_ModifiedOn = 1 AND [ModifiedOn] IS NULL) OR ([ModifiedOn] = @Original_ModifiedOn)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CommentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CommentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModifiedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModifiedOn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Comment2] ([CustomerId], [Comment], [ModifiedBy], [ModifiedOn]" +
+                ") VALUES (@CustomerId, @Comment, @ModifiedBy, @ModifiedOn);\r\nSELECT CommentId, C" +
+                "ustomerId, Comment, ModifiedBy, ModifiedOn FROM Comment2 WHERE (CommentId = SCOP" +
+                "E_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Comment2] SET [CustomerId] = @CustomerId, [Comment] = @Comment, [ModifiedBy] = @ModifiedBy, [ModifiedOn] = @ModifiedOn WHERE (([CommentId] = @Original_CommentId) AND ([CustomerId] = @Original_CustomerId) AND ([Comment] = @Original_Comment) AND ((@IsNull_ModifiedBy = 1 AND [ModifiedBy] IS NULL) OR ([ModifiedBy] = @Original_ModifiedBy)) AND ((@IsNull_ModifiedOn = 1 AND [ModifiedOn] IS NULL) OR ([ModifiedOn] = @Original_ModifiedOn)));
+SELECT CommentId, CustomerId, Comment, ModifiedBy, ModifiedOn FROM Comment2 WHERE (CommentId = @CommentId)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CommentId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CommentId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Comment", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Comment", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModifiedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedBy", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ModifiedOn", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ModifiedOn", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ModifiedOn", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CommentId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CommentId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Subs.Data.Properties.Settings.Default.MIMS3ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT CommentId, CustomerId, Comment, ModifiedBy, ModifiedOn FROM dbo.Comment2";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "dbo.[MIMS.CustomerDoc.Comment2.FillByCustomerId]";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(CustomerDoc2.Comment2DataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCustomerId(CustomerDoc2.Comment2DataTable dataTable, global::System.Nullable<int> CustomerId) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((CustomerId.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(CustomerId.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(CustomerDoc2.Comment2DataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(CustomerDoc2 dataSet) {
+            return this.Adapter.Update(dataSet, "Comment2");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
         }
     }
 }

@@ -281,7 +281,11 @@ namespace DW {
             
             private global::System.Data.DataColumn columnTransactionId;
             
-            private global::System.Data.DataColumn columnDatum;
+            private global::System.Data.DataColumn columnEffectiveDate;
+            
+            private global::System.Data.DataColumn columnOriginalTransactionId;
+            
+            private global::System.Data.DataColumn columnCaptureDate;
             
             private global::System.Data.DataColumn columnPayerId;
             
@@ -332,9 +336,25 @@ namespace DW {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DatumColumn {
+            public global::System.Data.DataColumn EffectiveDateColumn {
                 get {
-                    return this.columnDatum;
+                    return this.columnEffectiveDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OriginalTransactionIdColumn {
+                get {
+                    return this.columnOriginalTransactionId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CaptureDateColumn {
+                get {
+                    return this.columnCaptureDate;
                 }
             }
             
@@ -399,11 +419,13 @@ namespace DW {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FactLiabilityRow AddFactLiabilityRow(int TransactionId, System.DateTime Datum, int PayerId, int Operation, decimal Value) {
+            public FactLiabilityRow AddFactLiabilityRow(int TransactionId, System.DateTime EffectiveDate, int OriginalTransactionId, System.DateTime CaptureDate, int PayerId, int Operation, decimal Value) {
                 FactLiabilityRow rowFactLiabilityRow = ((FactLiabilityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TransactionId,
-                        Datum,
+                        EffectiveDate,
+                        OriginalTransactionId,
+                        CaptureDate,
                         PayerId,
                         Operation,
                         Value};
@@ -437,7 +459,9 @@ namespace DW {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnTransactionId = base.Columns["TransactionId"];
-                this.columnDatum = base.Columns["Datum"];
+                this.columnEffectiveDate = base.Columns["EffectiveDate"];
+                this.columnOriginalTransactionId = base.Columns["OriginalTransactionId"];
+                this.columnCaptureDate = base.Columns["CaptureDate"];
                 this.columnPayerId = base.Columns["PayerId"];
                 this.columnOperation = base.Columns["Operation"];
                 this.columnValue = base.Columns["Value"];
@@ -448,8 +472,12 @@ namespace DW {
             private void InitClass() {
                 this.columnTransactionId = new global::System.Data.DataColumn("TransactionId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionId);
-                this.columnDatum = new global::System.Data.DataColumn("Datum", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDatum);
+                this.columnEffectiveDate = new global::System.Data.DataColumn("EffectiveDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEffectiveDate);
+                this.columnOriginalTransactionId = new global::System.Data.DataColumn("OriginalTransactionId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOriginalTransactionId);
+                this.columnCaptureDate = new global::System.Data.DataColumn("CaptureDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCaptureDate);
                 this.columnPayerId = new global::System.Data.DataColumn("PayerId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPayerId);
                 this.columnOperation = new global::System.Data.DataColumn("Operation", typeof(int), null, global::System.Data.MappingType.Element);
@@ -460,7 +488,7 @@ namespace DW {
                                 this.columnTransactionId}, true));
                 this.columnTransactionId.AllowDBNull = false;
                 this.columnTransactionId.Unique = true;
-                this.columnDatum.AllowDBNull = false;
+                this.columnEffectiveDate.AllowDBNull = false;
                 this.columnPayerId.AllowDBNull = false;
                 this.columnOperation.AllowDBNull = false;
                 this.columnValue.AllowDBNull = false;
@@ -617,12 +645,44 @@ namespace DW {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime Datum {
+            public System.DateTime EffectiveDate {
                 get {
-                    return ((global::System.DateTime)(this[this.tableFactLiability.DatumColumn]));
+                    return ((global::System.DateTime)(this[this.tableFactLiability.EffectiveDateColumn]));
                 }
                 set {
-                    this[this.tableFactLiability.DatumColumn] = value;
+                    this[this.tableFactLiability.EffectiveDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int OriginalTransactionId {
+                get {
+                    try {
+                        return ((int)(this[this.tableFactLiability.OriginalTransactionIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OriginalTransactionId\' in table \'FactLiability\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactLiability.OriginalTransactionIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime CaptureDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableFactLiability.CaptureDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CaptureDate\' in table \'FactLiability\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactLiability.CaptureDateColumn] = value;
                 }
             }
             
@@ -657,6 +717,30 @@ namespace DW {
                 set {
                     this[this.tableFactLiability.ValueColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOriginalTransactionIdNull() {
+                return this.IsNull(this.tableFactLiability.OriginalTransactionIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOriginalTransactionIdNull() {
+                this[this.tableFactLiability.OriginalTransactionIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCaptureDateNull() {
+                return this.IsNull(this.tableFactLiability.CaptureDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCaptureDateNull() {
+                this[this.tableFactLiability.CaptureDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -820,44 +904,57 @@ namespace DW.DWDatasetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "FactLiability";
             tableMapping.ColumnMappings.Add("TransactionId", "TransactionId");
-            tableMapping.ColumnMappings.Add("Datum", "Datum");
+            tableMapping.ColumnMappings.Add("Datum", "EffectiveDate");
             tableMapping.ColumnMappings.Add("PayerId", "PayerId");
             tableMapping.ColumnMappings.Add("Operation", "Operation");
             tableMapping.ColumnMappings.Add("Value", "Value");
+            tableMapping.ColumnMappings.Add("EffectiveDate", "EffectiveDate");
+            tableMapping.ColumnMappings.Add("OriginalTransactionId", "OriginalTransactionId");
+            tableMapping.ColumnMappings.Add("CaptureDate", "CaptureDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [FactLiability] WHERE (([TransactionId] = @Original_TransactionId) AN" +
-                "D ([Datum] = @Original_Datum) AND ([PayerId] = @Original_PayerId) AND ([Operatio" +
-                "n] = @Original_Operation) AND ([Value] = @Original_Value))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [FactLiability] WHERE (([TransactionId] = @Original_TransactionId) AND ([EffectiveDate] = @Original_EffectiveDate) AND ((@IsNull_OriginalTransactionId = 1 AND [OriginalTransactionId] IS NULL) OR ([OriginalTransactionId] = @Original_OriginalTransactionId)) AND ((@IsNull_CaptureDate = 1 AND [CaptureDate] IS NULL) OR ([CaptureDate] = @Original_CaptureDate)) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Datum", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CaptureDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [FactLiability] ([TransactionId], [Datum], [PayerId], [Operation], [Value]) VALUES (@TransactionId, @Datum, @PayerId, @Operation, @Value);
-SELECT TransactionId, Datum, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [FactLiability] ([TransactionId], [EffectiveDate], [OriginalTransactionId], [CaptureDate], [PayerId], [Operation], [Value]) VALUES (@TransactionId, @EffectiveDate, @OriginalTransactionId, @CaptureDate, @PayerId, @Operation, @Value);
+SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Datum", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [FactLiability] SET [TransactionId] = @TransactionId, [Datum] = @Datum, [PayerId] = @PayerId, [Operation] = @Operation, [Value] = @Value WHERE (([TransactionId] = @Original_TransactionId) AND ([Datum] = @Original_Datum) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value));
-SELECT TransactionId, Datum, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [FactLiability] SET [TransactionId] = @TransactionId, [EffectiveDate] = @EffectiveDate, [OriginalTransactionId] = @OriginalTransactionId, [CaptureDate] = @CaptureDate, [PayerId] = @PayerId, [Operation] = @Operation, [Value] = @Value WHERE (([TransactionId] = @Original_TransactionId) AND ([EffectiveDate] = @Original_EffectiveDate) AND ((@IsNull_OriginalTransactionId = 1 AND [OriginalTransactionId] IS NULL) OR ([OriginalTransactionId] = @Original_OriginalTransactionId)) AND ((@IsNull_CaptureDate = 1 AND [CaptureDate] IS NULL) OR ([CaptureDate] = @Original_CaptureDate)) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value));
+SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Datum", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Datum", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Datum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CaptureDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -876,7 +973,8 @@ SELECT TransactionId, Datum, PayerId, Operation, Value FROM FactLiability WHERE 
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TransactionId, Datum, PayerId, Operation, Value FROM FactLiability";
+            this._commandCollection[0].CommandText = "SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId," +
+                " Operation, Value FROM FactLiability";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

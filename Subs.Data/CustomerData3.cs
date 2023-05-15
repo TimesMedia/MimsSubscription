@@ -1700,17 +1700,17 @@ namespace Subs.Data
             }
         }
           
-        public int CheckpointPaymentTransactionId
-        {
-            get
-            { return gTable[0].CheckpointPaymentTransactionId; }
+        //public int CheckpointPaymentTransactionId
+        //{
+        //    get
+        //    { return gTable[0].CheckpointPaymentTransactionId; }
 
-            set
-            {
-                gTable[0].CheckpointPaymentTransactionId = value;
-                NotifyPropertyChanged("CheckpointPaymentTransactionId");
-            }
-        }
+        //    set
+        //    {
+        //        gTable[0].CheckpointPaymentTransactionId = value;
+        //        NotifyPropertyChanged("CheckpointPaymentTransactionId");
+        //    }
+        //}
 
         public DateTime CheckpointPaymentDate
         {
@@ -1724,17 +1724,17 @@ namespace Subs.Data
             }
         }
 
-        public decimal CheckpointPaymentValue
-        {
-            get
-            { return gTable[0].CheckpointValue; }
+        //public decimal CheckpointPaymentValue
+        //{
+        //    get
+        //    { return gTable[0].CheckpointValue; }
 
-            set
-            {
-                gTable[0].CheckpointValue = value;
-                NotifyPropertyChanged("CheckpointPaymentValue");
-            }
-        }
+        //    set
+        //    {
+        //        gTable[0].CheckpointValue = value;
+        //        NotifyPropertyChanged("CheckpointPaymentValue");
+        //    }
+        //}
 
         public DateTime CheckpointInvoiceDate
         {
@@ -1961,12 +1961,10 @@ namespace Subs.Data
                 decimal lInvoiceBalance = 0;
                 decimal lStatementBalance = 0;
                 int lCurrentInvoiceId = 0;
-                DateTime lDateOfFirstInvoice;
-                decimal lValueOfFirstInvoice;
+                //DateTime lDateOfFirstInvoice;
+                //decimal lValueOfFirstInvoice;
 
-                // Start by removing all entries that pertain to the past.
-
-                // Create a list of all the invoices in this batch.
+                // Create a list of all the invoiceids in this report.
 
                 IEnumerable<int> lInvoicesInReport = pInvoicesAndPayments.ToList().Where(q => q.Operation == "Invoice").Select(p => p.InvoiceId).Distinct();
 
@@ -1981,76 +1979,76 @@ namespace Subs.Data
                     return "Nothing: I cannot do anything with a subscription that is not invoiced! ";
                 }
 
-                // Get the date and value of the FIRST invoice
+                //// Get the date and value of the FIRST invoice
 
-                lDateOfFirstInvoice = pInvoicesAndPayments.ToList().Where(q => q.Operation == "Invoice").Min(p => p.Date); // These are invoicesw with a net value of more than 0.
-                int lIdOfFirstInvoice = lInvoicesInReport.First();
-                lValueOfFirstInvoice = pInvoicesAndPayments.ToList().Where(q => q.Operation == "Invoice" && q.InvoiceId == lIdOfFirstInvoice).Select(p => p.Value).First();
+                //lDateOfFirstInvoice = pInvoicesAndPayments.ToList().Where(q => q.Operation == "Invoice").Min(p => p.Date); // These are invoicesw with a net value of more than 0.
+                //int lIdOfFirstInvoice = lInvoicesInReport.First();
+                //lValueOfFirstInvoice = pInvoicesAndPayments.ToList().Where(q => q.Operation == "Invoice" && q.InvoiceId == lIdOfFirstInvoice).Select(p => p.Value).First();
 
-                List<InvoicesAndPayments> lCandidatesForRemoval = new List<InvoicesAndPayments>();
+                //List<InvoicesAndPayments> lCandidatesForRemoval = new List<InvoicesAndPayments>();
 
-                foreach (InvoicesAndPayments lReportItem in pInvoicesAndPayments)
-                {
+                //foreach (InvoicesAndPayments lReportItem in pInvoicesAndPayments)
+                //{
 
-                    //1  Remove writeoff stuff pertaining to invoices outside this window.
+                //    //1  Remove writeoff stuff pertaining to invoices outside this window.
 
-                    if (lReportItem.OperationId == (int)Operation.WriteOffMoney || lReportItem.OperationId == (int)Operation.ReverseWriteOffMoney)
-                    {
-                        if (!lInvoicesInReport.Contains(lReportItem.InvoiceId))
-                        {
-                            lCandidatesForRemoval.Add(lReportItem);
+                //    if (lReportItem.OperationId == (int)Operation.WriteOffMoney || lReportItem.OperationId == (int)Operation.ReverseWriteOffMoney)
+                //    {
+                //        if (!lInvoicesInReport.Contains(lReportItem.InvoiceId))
+                //        {
+                //            lCandidatesForRemoval.Add(lReportItem);
 
-                        }
-                    }
+                //        }
+                //    }
 
-                    //2 Remove allocation  pertaining to invoices outside of this window
+                //    //2 Remove allocation  pertaining to invoices outside of this window
 
-                    if (lReportItem.OperationId == (int)Operation.AllocatePaymentToInvoice)
-                    {
-                        if (!lInvoicesInReport.Contains(lReportItem.InvoiceId))
-                        {
-                            lCandidatesForRemoval.Add(lReportItem);
-                        }
-                    }
-                }
+                //    if (lReportItem.OperationId == (int)Operation.AllocatePaymentToInvoice)
+                //    {
+                //        if (!lInvoicesInReport.Contains(lReportItem.InvoiceId))
+                //        {
+                //            lCandidatesForRemoval.Add(lReportItem);
+                //        }
+                //    }
+                //}
 
-                foreach (InvoicesAndPayments item in lCandidatesForRemoval)
-                {
-                    pInvoicesAndPayments.Remove(item);
-                }
+                //foreach (InvoicesAndPayments item in lCandidatesForRemoval)
+                //{
+                //    pInvoicesAndPayments.Remove(item);
+                //}
 
-                // Second round of cleanup
+                //// Second round of cleanup
 
-                // Get the surviving payments
+                //// Get the surviving payments
 
-                IEnumerable<int> lPaymentReport = pInvoicesAndPayments.ToList()
-                    .Where(q => q.OperationId == (int)Operation.Pay
-                        || q.OperationId == (int)Operation.Balance
-                        || q.OperationId == (int)Operation.ReversePayment
-                        || q.OperationId == (int)Operation.Refund
-                    )
-                    .Select(p => p.TransactionId).Distinct();
+                //IEnumerable<int> lPaymentReport = pInvoicesAndPayments.ToList()
+                //    .Where(q => q.OperationId == (int)Operation.Pay
+                //        || q.OperationId == (int)Operation.Balance
+                //        || q.OperationId == (int)Operation.ReversePayment
+                //        || q.OperationId == (int)Operation.Refund
+                //    )
+                //    .Select(p => p.TransactionId).Distinct();
 
-                lCandidatesForRemoval.Clear();
+                //lCandidatesForRemoval.Clear();
 
-                foreach (InvoicesAndPayments lReportItem in pInvoicesAndPayments)
-                {
+                //foreach (InvoicesAndPayments lReportItem in pInvoicesAndPayments)
+                //{
 
-                    if (lReportItem.OperationId == (int)Operation.AllocatePaymentToInvoice)
-                    {
-                        if (!lPaymentReport.Contains(lReportItem.TransactionId))
-                        {
-                            lCandidatesForRemoval.Add(lReportItem);
-                        }
-                    }
-                }
+                //    if (lReportItem.OperationId == (int)Operation.AllocatePaymentToInvoice)
+                //    {
+                //        if (!lPaymentReport.Contains(lReportItem.TransactionId))
+                //        {
+                //            lCandidatesForRemoval.Add(lReportItem);
+                //        }
+                //    }
+                //}
 
-                foreach (InvoicesAndPayments item in lCandidatesForRemoval)
-                {
-                    pInvoicesAndPayments.Remove(item);
-                }
+                //foreach (InvoicesAndPayments item in lCandidatesForRemoval)
+                //{
+                //    pInvoicesAndPayments.Remove(item);
+                //}
 
-                // Set Balance to LastRow
+                // Set Balance to LastRow **********************************************************************************************
 
                 IEnumerable<Subs.Data.InvoicesAndPayments> lElement = pInvoicesAndPayments.Where(q => q.OperationId == (int)Operation.Balance).ToList();
                 if (lElement.Count() == 1)
@@ -2058,10 +2056,10 @@ namespace Subs.Data
                     lElement.First().LastRow = true;
                 }
 
-                // Process the payments by grouping the relevant stuff together
+                // Process the payments by grouping the relevant stuff together by TransactionId ********************************************
 
-                Subs.Data.InvoicesAndPayments lPreviousPaymentRow = null;
                 Subs.Data.InvoicesAndPayments lPreviousInvoiceRow = null;
+                Subs.Data.InvoicesAndPayments lPreviousPaymentRow = null;
                 int lCurrentTransactionId = 0;
                 decimal lPaymentBalance = 0M;
 
@@ -2072,7 +2070,7 @@ namespace Subs.Data
                         || lRow.OperationId == (int)Operation.ReversePayment
                         || lRow.OperationId == (int)Operation.Refund))
                     {
-                        break;
+                        continue;  // Skip the non payment rows.
                     }
 
                     lRow.LastRow = false;
@@ -2086,10 +2084,10 @@ namespace Subs.Data
                     {
                         // Complete the previous group
 
-                        if (lPreviousInvoiceRow != null)
+                        if (lPreviousPaymentRow != null)
                         {
-                            lPreviousInvoiceRow.LastRow = true;
-                            lPreviousInvoiceRow.InvoiceBalance = lPaymentBalance;
+                            lPreviousPaymentRow.LastRow = true;
+                            lPreviousPaymentRow.InvoiceBalance = lPaymentBalance;
                         }
 
                         // Work with the new invoice
@@ -2097,17 +2095,17 @@ namespace Subs.Data
                         lCurrentTransactionId = lRow.TransactionId;
                         lPaymentBalance = lRow.Value;
                     }
-                    lPreviousInvoiceRow = lRow;
-                }
+                    lPreviousPaymentRow = lRow;
+                } // end of foreach
 
                 // Do the last row
-                if (lPreviousInvoiceRow != null)
+                if (lPreviousPaymentRow != null)
                 {
-                    lPreviousInvoiceRow.LastRow = true;
-                    lPreviousInvoiceRow.InvoiceBalance = lPaymentBalance;
+                    lPreviousPaymentRow.LastRow = true;
+                    lPreviousPaymentRow.InvoiceBalance = lPaymentBalance;
                 }
 
-                // Calculate the balances
+                // Calculate the invoice balances. Group by InvoiceId  *****************************************************************************************************
 
 
                 foreach (Subs.Data.InvoicesAndPayments lRow in pInvoicesAndPayments)
@@ -2129,10 +2127,10 @@ namespace Subs.Data
                     {
                         // Complete the old invoice
 
-                        if (lPreviousPaymentRow != null)
+                        if (lPreviousInvoiceRow != null)
                         {
-                            lPreviousPaymentRow.LastRow = true;
-                            lPreviousPaymentRow.InvoiceBalance = lInvoiceBalance;
+                            lPreviousInvoiceRow.LastRow = true;
+                            lPreviousInvoiceRow.InvoiceBalance = lInvoiceBalance;
                         }
 
                         // Work with the new invoice
@@ -2141,17 +2139,17 @@ namespace Subs.Data
                         lInvoiceBalance = lRow.Value;
                     }
 
-                    lPreviousPaymentRow = lRow;
+                    lPreviousInvoiceRow = lRow;
                 }
 
                 // Do the last row.
-                if (lPreviousPaymentRow != null)
+                if (lPreviousInvoiceRow != null)
                 {
-                    lPreviousPaymentRow.LastRow = true;
-                    lPreviousPaymentRow.InvoiceBalance = lInvoiceBalance;
+                    lPreviousInvoiceRow.LastRow = true;
+                    lPreviousInvoiceRow.InvoiceBalance = lInvoiceBalance;
                 }
 
-                // Adjust the Payment balances
+                // Adjust the Payment balances ******************************************************************************************
 
                 foreach (Subs.Data.InvoicesAndPayments lRow in pInvoicesAndPayments)
                 {
@@ -2174,7 +2172,7 @@ namespace Subs.Data
                     }
                 }
 
-                // Calculate the statement balances
+                // Calculate the statement balances **************************************************************************************
 
                lStatementBalance = 0;
 
@@ -2200,7 +2198,8 @@ namespace Subs.Data
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "CustomerData", "PopulateInvoices", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "CustomerData", "PopulateInvoices",
+                        "PayerId = " + pPayerId.ToString());
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
@@ -2234,7 +2233,8 @@ namespace Subs.Data
                                                   {
                                                       TransactionId = v.TransactionId,
                                                       OriginalTransactionId = v.OriginalTransactionId,
-                                                      Date = v.Date,
+                                                      CaptureDate = v.CaptureDate,
+                                                      EffectiveDate = v.Date,
                                                       Operation = v.Operation,
                                                       OperationId = v.OperationId,
                                                       InvoiceId = 0,
@@ -2273,7 +2273,7 @@ namespace Subs.Data
 
                 foreach (LiabilityRecord item in lLiabilityList)
                 {
-                    item.Date = new DateTime(item.Date.Year, item.Date.Month, item.Date.Day);
+                    item.EffectiveDate = new DateTime(item.EffectiveDate.Year, item.EffectiveDate.Month, item.EffectiveDate.Day);
 
                     if (item.OperationId == (int)Operation.ReversePayment || item.OperationId == (int)Operation.Refund)
                     {
@@ -2282,13 +2282,13 @@ namespace Subs.Data
                 }
 
 
-                List<DateTime> lDates = (List<DateTime>)lLiabilityList.Select(o => o.Date).Distinct().OrderBy(o => o.Date).ToList();
+                List<DateTime> lDates = (List<DateTime>)lLiabilityList.Select(o => o.EffectiveDate).Distinct().OrderBy(o => o.Date).ToList();
                 List<LiabilityRecord> lGroup = new List<LiabilityRecord>();
                 decimal lBalance = 0M;
 
                 foreach (DateTime lDate in lDates)
                 {
-                    lGroup = (List<LiabilityRecord>)lLiabilityList.Where(o => o.Date == lDate).OrderBy(o => o.TransactionId).ToList();
+                    lGroup = (List<LiabilityRecord>)lLiabilityList.Where(o => o.EffectiveDate == lDate).OrderBy(o => o.TransactionId).ToList();
                     foreach (LiabilityRecord lRecord in lGroup)
                     {
                         lRecord.Value = -lRecord.Value;

@@ -456,6 +456,8 @@ C:\CSharp\github\Subs2\Subs.MimsWeb\obj\Release\MimsWeb.dll
 C:\CSharp\github\Subs2\Subs.MimsWeb\obj\Release\MimsWeb.pdb
 C:\CSharp\github\Subs2\Subs.MimsWeb\bin\Subs.Presentation.pdb
 C:\CSharp\github\Subs2\Subs.MimsWeb\bin\Subs.Presentation.exe.config
+C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\Subs.MimsWeb.csproj.AssemblyReference.cache
+C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\Subs.MimsWeb.csproj.CoreCompileInputs.cache
 C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\appsettings.json
 C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\Content\img\home_left.png
 C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\Content\img\home_right.png
@@ -604,8 +606,6 @@ C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\System.Web.WebPages.Razor.xml
 C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\Newtonsoft.Json.xml
 C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\Antlr3.Runtime.pdb
 C:\CSharp\MimsSubscription\Subs.MimsWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\Subs.MimsWeb.csproj.AssemblyReference.cache
-C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\Subs.MimsWeb.csproj.CoreCompileInputs.cache
 C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\Subs.MimsWeb.csproj.CopyComplete
 C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\MimsWeb.dll
 C:\CSharp\MimsSubscription\Subs.MimsWeb\obj\Release\MimsWeb.pdb

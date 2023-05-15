@@ -191,7 +191,6 @@ namespace Subs.Data
         {
             try
             {
-
                 List<int> lResults = new List<int>();
 
                 SqlConnection lConnection = new SqlConnection();
@@ -203,9 +202,12 @@ namespace Subs.Data
                 Command.CommandType = CommandType.Text;
                 Command.CommandText = "Select top 1 'CustomerId' = isnull(CustomerId, 0) from DeliveryAddressCustomer where DeliveryAddressId = " 
                                         + pDeliveryAddressId.ToString();
-
-                return (int)Command.ExecuteScalar();
-            }
+                if (Command.ExecuteScalar() != null)
+                {
+                    return (int)Command.ExecuteScalar();
+                }
+                else return 0;
+        }
             catch (Exception ex)
             {
                 //Display all the exceptions
@@ -226,10 +228,10 @@ namespace Subs.Data
 
             #endregion
 
-            #region Utilities
+        #region Utilities
 
-
-            private bool Load(int DeliveryAddressId)
+      
+        private bool Load(int DeliveryAddressId)
         {
             try
             {

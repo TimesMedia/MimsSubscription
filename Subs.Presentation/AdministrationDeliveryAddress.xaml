@@ -89,6 +89,7 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem x:Name="contextSelect" Header="Select" Click="Click_Select" />
+                        <MenuItem x:Name="contextGoToCustomer" Header="GoToCustomer" Click="Click_GoToCustomer" />
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>

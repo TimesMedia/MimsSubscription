@@ -20,22 +20,22 @@
         <elementListCompartment Id="168207c4-cf7c-4fdb-bbe9-df118aec40bc" absoluteBounds="2.8899999999999997, 3.96, 1.9700000000000002, 0.44169108072916663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="7b92ac85-afe3-4544-baa8-2f776f4515e5" absoluteBounds="0.5, 0.5, 2, 3.1170068359375">
+    <classShape Id="7b92ac85-afe3-4544-baa8-2f776f4515e5" absoluteBounds="0.5, 0.5, 2, 3.3093082682291666">
       <DataClassMoniker Name="/MIMSDataContext/InvoicesAndPayments" />
       <nestedChildShapes>
-        <elementListCompartment Id="04a738c0-4c20-411f-81fe-7c27e0a51ef9" absoluteBounds="0.5149999999999999, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="04a738c0-4c20-411f-81fe-7c27e0a51ef9" absoluteBounds="0.515, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1e9abca0-4936-4d2c-bac8-0a0ff0426350" absoluteBounds="0.5, 3.625, 2, 2.1554996744791666">
+    <classShape Id="1e9abca0-4936-4d2c-bac8-0a0ff0426350" absoluteBounds="0.5, 4.625, 2, 2.1554996744791666">
       <DataClassMoniker Name="/MIMSDataContext/SelectedSubscription" />
       <nestedChildShapes>
-        <elementListCompartment Id="d1c184e7-4a86-4f50-8c18-4e8fe9705384" absoluteBounds="0.5149999999999999, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d1c184e7-4a86-4f50-8c18-4e8fe9705384" absoluteBounds="0.5149999999999999, 5.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="727e55bd-ec04-4673-954e-2f35de1c81f4" absoluteBounds="5.875, 0.5, 2, 2.5401025390625">
+    <classShape Id="727e55bd-ec04-4673-954e-2f35de1c81f4" absoluteBounds="5.875, 0.5, 2, 2.7324039713541666">
       <DataClassMoniker Name="/MIMSDataContext/LiabilityRecord" />
       <nestedChildShapes>
-        <elementListCompartment Id="b4f02715-cf9a-4902-8221-9ee34e6e7694" absoluteBounds="5.89, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b4f02715-cf9a-4902-8221-9ee34e6e7694" absoluteBounds="5.89, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="20325687-6556-44bc-833d-928f6122db55" absoluteBounds="7.5, 5.25, 2, 1.0016910807291666">

@@ -566,9 +566,8 @@ namespace Subs.Presentation
         {
             try
             {
-
-                (int CountryId, string Province, string City, string Suburb, string Street) Test = DeliveryAddressStatic.AddressInStrings(396018);
-                MessageBox.Show(Test.ToString());
+                int Result = DeliveryAddressData2.GetCustomerId(42479);
+                MessageBox.Show(Result.ToString());
 
             }
             catch (Exception ex)

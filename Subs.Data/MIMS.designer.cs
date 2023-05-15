@@ -499,18 +499,18 @@ namespace Subs.Data
 			return ((ISingleResult<MIMS_DeliveryAddressDoc_DeliveryAddress_NonStandardResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[MIMS.DataContext.InvoicesAndPayments]")]
-		public ISingleResult<InvoicesAndPayments> MIMS_DataContext_InvoicesAndPayments([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PayerId", DbType="Int")] System.Nullable<int> payerId)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), payerId);
-			return ((ISingleResult<InvoicesAndPayments>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[MIMS.LedgerDoc.CreditNoteBatch.Load]")]
 		public ISingleResult<MIMS_LedgerDoc_CreditNoteBatch_LoadResult> MIMS_LedgerDoc_CreditNoteBatch_Load([global::System.Data.Linq.Mapping.ParameterAttribute(Name="InvoiceId", DbType="Int")] System.Nullable<int> invoiceId)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceId);
 			return ((ISingleResult<MIMS_LedgerDoc_CreditNoteBatch_LoadResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.[MIMS.DataContext.InvoicesAndPayments]")]
+		public ISingleResult<InvoicesAndPayments> MIMS_DataContext_InvoicesAndPayments([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PayerId", DbType="Int")] System.Nullable<int> payerId)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), payerId);
+			return ((ISingleResult<InvoicesAndPayments>)(result.ReturnValue));
 		}
 	}
 	
@@ -748,6 +748,8 @@ namespace Subs.Data
 		
 		private System.Nullable<int> _OriginalTransactionId;
 		
+		private System.Nullable<System.DateTime> _CaptureDate;
+		
 		public InvoicesAndPayments()
 		{
 		}
@@ -943,6 +945,22 @@ namespace Subs.Data
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaptureDate")]
+		public System.Nullable<System.DateTime> CaptureDate
+		{
+			get
+			{
+				return this._CaptureDate;
+			}
+			set
+			{
+				if ((this._CaptureDate != value))
+				{
+					this._CaptureDate = value;
+				}
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
@@ -1102,6 +1120,8 @@ namespace Subs.Data
 		
 		private System.Nullable<int> _OriginalTransactionId;
 		
+		private System.Nullable<System.DateTime> _CaptureDate;
+		
 		public LiabilityRecord()
 		{
 		}
@@ -1122,8 +1142,8 @@ namespace Subs.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date")]
-		public System.DateTime Date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Date", Storage="_Date")]
+		public System.DateTime EffectiveDate
 		{
 			get
 			{
@@ -1246,6 +1266,22 @@ namespace Subs.Data
 				if ((this._OriginalTransactionId != value))
 				{
 					this._OriginalTransactionId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaptureDate")]
+		public System.Nullable<System.DateTime> CaptureDate
+		{
+			get
+			{
+				return this._CaptureDate;
+			}
+			set
+			{
+				if ((this._CaptureDate != value))
+				{
+					this._CaptureDate = value;
 				}
 			}
 		}

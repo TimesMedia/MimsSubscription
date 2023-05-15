@@ -123,11 +123,6 @@ namespace Subs.Presentation
 
         #region Non standard deliveryaddresses
 
-
-
-
-
-
         private void Click_Select(object sender, MouseButtonEventArgs e)
         {
             Select();
@@ -171,7 +166,17 @@ namespace Subs.Presentation
                 MessageBox.Show("Error in Select");
             }
         }
-      
+
+
+        private void Click_GoToCustomer(object sender, RoutedEventArgs e)
+        {
+            gSelectedAddress = (DeliveryAddressData2)gDeliveryAddressViewSource.View.CurrentItem;
+            CustomerPicker3 lPicker = new CustomerPicker3(); 
+            lPicker.SetCurrentCustomer(gSelectedAddress.CustomerId);
+            lPicker.ShowDialog();
+        }
+
+
         #endregion
 
 
@@ -267,5 +272,7 @@ namespace Subs.Presentation
 
 
         #endregion
+
+     
     }
 }

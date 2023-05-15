@@ -31,7 +31,7 @@ namespace Subs.Data
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "CommentData constructor", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "CommentData constructor", "CustomerId = " + pCustomerId.ToString());
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Subs.Presentation"
         xmlns:Data="clr-namespace:Subs.Data;assembly=Subs.Data" x:Class="Subs.Presentation.FNBBankStatement"
         mc:Ignorable="d"
-        Title="FNB bank statement" Height="838.235" Width="1246.794" Loaded="Window_Loaded">
+        Title="FNB bank statement" Height="838.235" Width="1300" Loaded="Window_Loaded">
 
     <Window.Resources>
         <local:PaymentState2String x:Key="lPaymentState2String"/>

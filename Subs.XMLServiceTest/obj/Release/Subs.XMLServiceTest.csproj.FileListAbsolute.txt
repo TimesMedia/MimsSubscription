@@ -61,6 +61,11 @@ C:\CSharp\github\Subs2\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.cspro
 C:\CSharp\github\Subs2\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.csproj.CopyComplete
 C:\CSharp\github\Subs2\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.exe
 C:\CSharp\github\Subs2\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.pdb
+C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.csproj.AssemblyReference.cache
+C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\MainWindow.g.cs
+C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\App.g.cs
+C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest_MarkupCompile.cache
+C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest_MarkupCompile.lref
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\Subs.XMLServiceTest.exe.config
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\Subs.XMLServiceTest.exe
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\Subs.XMLServiceTest.pdb
@@ -89,11 +94,6 @@ C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\System.Threading.Task
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\System.Buffers.xml
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
-C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.csproj.AssemblyReference.cache
-C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\MainWindow.g.cs
-C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\App.g.cs
-C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest_MarkupCompile.cache
-C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest_MarkupCompile.lref
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\MainWindow.baml
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.g.resources
 C:\CSharp\MimsSubscription\Subs.XMLServiceTest\obj\Release\Subs.XMLServiceTest.Properties.Resources.resources

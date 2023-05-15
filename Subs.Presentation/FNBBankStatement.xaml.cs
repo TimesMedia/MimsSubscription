@@ -459,7 +459,8 @@ namespace Subs.Presentation
         private void buttonPost_Click(object sender, RoutedEventArgs e)
         {
             buttonPost.IsEnabled = false;  // Prevent this button from being hit twice. Can be reset only via a new validate. 
-
+            int lCurrentCustomerId = 0;
+            string lCurrentReference = "";
             this.Cursor = Cursors.Wait;
             try
             {
@@ -487,6 +488,7 @@ namespace Subs.Presentation
                     }
 
                     //Construct a Payment record
+                    lCurrentCustomerId = lBankStatementRow.CustomerId;
 
                     lPaymentRecord.CustomerId = lBankStatementRow.CustomerId;
                     lPaymentRecord.Amount = lBankStatementRow.Amount; ;
@@ -498,6 +500,8 @@ namespace Subs.Presentation
                         + "/" + lBankStatementRow.AllocationNo.ToString();
                     lPaymentRecord.Date = lBankStatementRow.TransactionDate;
 
+                    lCurrentReference = lPaymentRecord.Reference;
+
                     // Do the overall payment
 
                     int lPaymentTransactionId = 0;
@@ -507,7 +511,8 @@ namespace Subs.Presentation
 
                         if ((lResult = CustomerBiz.Pay(ref lPaymentRecord, out lPaymentTransactionId)) != "OK")
                         {
-                            MessageBox.Show(lResult);
+                            MessageBox.Show(lResult + " Customer = " + lCurrentCustomerId.ToString() + " Reference = " + lCurrentReference);
+                            ExceptionData.WriteException(1, lResult, this.ToString(), "buttonPost_Click", "Customer = " + lCurrentCustomerId.ToString() + " Reference = "  + lCurrentReference);
                             return;
                         }
                         lBankStatementRow.PaymentTransactionId = lPaymentTransactionId;
@@ -529,6 +534,9 @@ namespace Subs.Presentation
                         return;
                     }
 
+                    lCurrentCustomerId = 0;
+                    lCurrentReference = "";
+
                 } // End of foreach loop Bankstatements
 
                 MessageBox.Show("I have submitted " + Submitted.ToString() + " payments");
@@ -543,7 +551,8 @@ namespace Subs.Presentation
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "buttonPost_Click", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "buttonPost_Click",
+                         "Customer = " + lCurrentCustomerId.ToString() + " Reference = " + lCurrentReference);
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 

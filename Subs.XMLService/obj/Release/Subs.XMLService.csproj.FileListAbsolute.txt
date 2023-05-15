@@ -45,6 +45,8 @@ C:\CSharp\github\Subs2\Subs.XMLService\obj\Release\Subs.XMLService.csproj.CoreCo
 C:\CSharp\github\Subs2\Subs.XMLService\obj\Release\Subs.XMLService.csproj.CopyComplete
 C:\CSharp\github\Subs2\Subs.XMLService\obj\Release\Subs.XMLService.dll
 C:\CSharp\github\Subs2\Subs.XMLService\obj\Release\Subs.XMLService.pdb
+C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.csproj.AssemblyReference.cache
+C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.csproj.CoreCompileInputs.cache
 C:\CSharp\MimsSubscription\Subs.XMLService\bin\Subs.XMLService.dll.config
 C:\CSharp\MimsSubscription\Subs.XMLService\bin\Subs.XMLService.dll
 C:\CSharp\MimsSubscription\Subs.XMLService\bin\Subs.XMLService.pdb
@@ -73,8 +75,6 @@ C:\CSharp\MimsSubscription\Subs.XMLService\bin\System.Threading.Tasks.Extensions
 C:\CSharp\MimsSubscription\Subs.XMLService\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\CSharp\MimsSubscription\Subs.XMLService\bin\System.Buffers.xml
 C:\CSharp\MimsSubscription\Subs.XMLService\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.csproj.AssemblyReference.cache
-C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.csproj.CoreCompileInputs.cache
 C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.csproj.CopyComplete
 C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.dll
 C:\CSharp\MimsSubscription\Subs.XMLService\obj\Release\Subs.XMLService.pdb

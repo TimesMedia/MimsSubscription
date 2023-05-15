@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="DW.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="DW.exe" version="1.0.0.8" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="DW" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -42,26 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DW.exe" size="35776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DW.exe" size="40384">
       <assemblyIdentity name="DW" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sNcZNupZyWYUWkPjNpvZMLatDFozN0TNTFzw3SKgpMQ=</dsig:DigestValue>
+        <dsig:DigestValue>kFYlB2a8tO3MH0x/oXzkFMZ5e3e4Ncmv0EvCB5bUsJo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Data.dll" size="1359872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Data.dll" size="1356288">
       <assemblyIdentity name="Subs.Data" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ceTiZR9irYaRPRQu6Hxx8rueMd2M2szy1brTJD3sFLE=</dsig:DigestValue>
+        <dsig:DigestValue>pIUG5Ds/DFVhdcuKmQdUsrb6bxp1W6JZKboWTVGMqqY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

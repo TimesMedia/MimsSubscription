@@ -83,7 +83,17 @@ namespace DW
                         DWDataset.FactLiabilityRow lNewRow = gTable.NewFactLiabilityRow();
 
                         lNewRow.TransactionId = item.TransactionId;
-                        lNewRow.Datum = item.Date;
+                        lNewRow.EffectiveDate = item.EffectiveDate;
+                        if (item.OriginalTransactionId != null)
+                        {
+                            lNewRow.OriginalTransactionId = (int)item.OriginalTransactionId;
+                        }
+
+                        if (item.CaptureDate != null)
+                        {
+                            lNewRow.CaptureDate = (DateTime)item.CaptureDate;
+                        }
+                        
                         lNewRow.PayerId = PayerId;
                         lNewRow.Operation = (int)item.OperationId;
                         lNewRow.Value = item.Value;

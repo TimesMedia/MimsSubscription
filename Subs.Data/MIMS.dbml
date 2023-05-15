@@ -33,6 +33,7 @@
       <Column Name="LastRow" Type="System.Boolean" CanBeNull="false" />
       <Column Name="OperationId" Type="System.Int32" CanBeNull="false" />
       <Column Name="OriginalTransactionId" Type="System.Int32" CanBeNull="true" />
+      <Column Member="CaptureDate" Type="System.DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="" Member="SelectedSubscriptions">
@@ -49,7 +50,7 @@
   <Table Name="" Member="LiabilityRecords">
     <Type Name="LiabilityRecord" Id="ID3">
       <Column Name="TransactionId" Type="System.Int32" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="Date" Member="EffectiveDate" Storage="_Date" Type="System.DateTime" CanBeNull="false" />
       <Column Name="Operation" Type="System.String" CanBeNull="false" />
       <Column Name="InvoiceId" Type="System.Int32" CanBeNull="false" />
       <Column Name="SubscriptionId" Type="System.Int32" CanBeNull="false" />
@@ -57,6 +58,7 @@
       <Column Name="Balance" Type="System.Decimal" CanBeNull="true" />
       <Column Name="OperationId" Type="System.Int32" CanBeNull="true" />
       <Column Name="OriginalTransactionId" Type="System.Int32" CanBeNull="true" />
+      <Column Member="CaptureDate" Type="System.DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="" Member="InvoiceIds">
@@ -409,10 +411,6 @@
       <Column Name="DeliveryAddressId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.[MIMS.DataContext.InvoicesAndPayments]" Method="MIMS_DataContext_InvoicesAndPayments">
-    <Parameter Name="PayerId" Parameter="payerId" Type="System.Int32" DbType="Int" />
-    <ElementType IdRef="ID18" />
-  </Function>
   <Function Name="dbo.[MIMS.LedgerDoc.CreditNoteBatch.Load]" Method="MIMS_LedgerDoc_CreditNoteBatch_Load">
     <Parameter Name="InvoiceId" Parameter="invoiceId" Type="System.Int32" DbType="Int" />
     <ElementType Name="MIMS_LedgerDoc_CreditNoteBatch_LoadResult">
@@ -426,5 +424,9 @@
       <Column Name="EmailAddress" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
       <Column Name="InvoiceEmail" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.[MIMS.DataContext.InvoicesAndPayments]" Method="MIMS_DataContext_InvoicesAndPayments">
+    <Parameter Name="PayerId" Parameter="payerId" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID18" />
   </Function>
 </Database>

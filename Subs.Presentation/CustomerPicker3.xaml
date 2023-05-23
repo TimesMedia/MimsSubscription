@@ -431,7 +431,7 @@
                         <DataGridTextColumn Binding="{Binding SubscriptionId}" Header="SubscriptionId" Width="105"/>
 
                         <DataGridTextColumn Binding="{Binding Value, Converter={StaticResource lRandConverter}}" Header="Value" Width="70" CellStyle="{StaticResource AlignRight}"/>
-                        <DataGridTextColumn Binding="{Binding Balance, Converter={StaticResource lRandConverter}}" Header="Balance" Width="70" CellStyle="{StaticResource AlignRight}"/>
+                        <DataGridTextColumn Binding="{Binding Balance, Converter={StaticResource lRandConverter}}" Header="Liability" Width="70" CellStyle="{StaticResource AlignRight}"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

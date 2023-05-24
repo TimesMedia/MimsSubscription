@@ -49,19 +49,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>kFYlB2a8tO3MH0x/oXzkFMZ5e3e4Ncmv0EvCB5bUsJo=</dsig:DigestValue>
+        <dsig:DigestValue>9Zig1kVk2uhcjIkY928rwCVwh5NsDMMkbY8T9Cyib8Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Data.dll" size="1354752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Data.dll" size="1355264">
       <assemblyIdentity name="Subs.Data" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5Hqtd4hd90GpwmDwITGhIyt9egQm4wF/4PjF32QtZoM=</dsig:DigestValue>
+        <dsig:DigestValue>ODqznma0iT8RDURu1VFXgpIqFz1DWTaX70HMEzrFFJ0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -261,6 +261,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\AccordHealth.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -303,9 +304,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\AccordHealth.png" />
+    <Content Include="Images\Astelair.png" />
+    <Content Include="Images\BeyondHealthCare.png" />
     <Content Include="Images\HamburgerOff.gif" />
     <Content Include="Images\HamburgerOn.gif" />
+    <Content Include="Images\Kroko2.png" />
     <Content Include="Images\Medicine comparison.jpg" />
+    <Content Include="Images\MyDex.png" />
+    <Content Include="Images\PharmaDynamics.png" />
     <Content Include="Images\shopping.png" />
     <Content Include="Images\Tiso_Blackstar_Group_logo.psd" />
     <Content Include="appsettings.Development.json" />
@@ -331,6 +338,7 @@
     <Content Include="Images\Welcome.gif" />
     <Content Include="Images\WelcomeNarrow.gif" />
     <Content Include="Images\WelcomeWide.jpg" />
+    <Content Include="Images\XINdex.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Default.js" />

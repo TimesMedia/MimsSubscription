@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet"href="~/Content/hover.css"/>
     <title>Promotions </title>
     <style>
 
@@ -12105,15 +12106,7 @@
                     font-weight: 400;
                 }
 
-        ::-webkit-scrollbar {
-            width: 7px;
-            background: #fff;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #6c757d;
-            border-radius: 7px;
-        }
+       
 
             ::-webkit-scrollbar-thumb:hover {
                 background: #6c757d;
@@ -12947,14 +12940,21 @@
             .footer {
                 padding: 15px 0;
                 flex-direction: column;
-                .social-links
+            }
 
-        {
-            margin-top: 15px;
+            
         }
-
+        .label a{
+            text-align: center;
+            padding-top: 1em;
+            background-color: lightblue;
+            color: whitesmoke;
+            padding-top: 0.5px;
+            padding-bottom: 0.5px;
+            margin:0;
+            border-radius:inherit;
         }
-        }
+      
     </style>
 </head>
 
@@ -12964,49 +12964,53 @@
 
 
     <div class="row">
-        <div class="col col-md-m3" style="text-align: center; padding-top: 2em; padding-bottom: 1em; background-color: darkcyan;color:white">
-            <h2>OUR PROMOTIONS</h2>
+        <div class="col col-md-m3" style="text-align: center; background-color: lightblue;color:white; ">
+            <h2>PROMOTIONS</h2>
         </div>
     </div>
 
-    <div class="container" style="padding-top:2em;padding-bottom:2em">
+    <div class="container" style="padding-top:1em;padding-bottom:1em">
 
         <div class="row">
+            <br />
             <div class="col col-md-3" style="text-align:center">
-                <label style="color: darkcyan; font-size: 14px">BYOND HEALTHCARE</label><br />
-                <a href="~/Content/BeyondHealthCare.html" target="_blank"><img src="~/Images/BeyondHealthCare.png" width="205" style="border-radius:1px"></a>
+                <label class="label">BYOND HEALTHCARE</label><br />
+                <a href="~/Content/BeyondHealthCare.html" target="_blank"><img src="~/Images/BeyondHealthCare.png" width="200" /></a>
+            </div>
+            <div class="col col-md-3" style="text-align:center">
+                <label class="label">KROKO</label><br />
+                <a href="https://www.kroko.co.za/" target="_blank"><img src="~/Images/Kroko2.png" width="205" /></a>
             </div>
 
-            <div class="col col-md-3" style="text-align:center;">
-                <label style="color: darkcyan; font-size: 14px">KROKO</label><br />
-                <a href="https://www.kroko.co.za/" target="_blank"><img src="~/Images/Kroko2.png" width="205"></a>
-            </div>
             <div class="col col-md-3" style="text-align:center">
-                <label style="color: darkcyan; font-size: 14px">ASTELAIR </label><br />
-                <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/Astelair.png" width="175"></a>
+                <label class="label">ASTELAIR </label><br />
+                <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/Astelair.png" width="176" /></a>
             </div>
 
             <div class="col-12 col-md-3" style="text-align:center">
-                <label style="color: darkcyan; font-size: 14px">PHARMDYNAMICS </label><br />
+                <label class="label">TADALAFIL </label><br />
                 <a href="https://www.mydynamics.co.za/" target="_blank"><img src="~/Images/PharmaDynamics.png" width="176"></a>
+
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-3 " style="text-align:center">
-                <label style="color:darkcyan; font-size:14px">GEN_EYE_MYDEX</label><br />
-                <a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/MyDex.png" width="206"></a>
+            <br />
+            <div class="col col-md-3 " style="text-align:center">
+                <label class="label">TICARDA </label><br />
+                <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/AccordHealth.png" width="193"></a>
             </div>
             <div class="col-12 col-md-3 " style="text-align:center">
-                <label style="color:darkcyan; font-size: 14px">GEN-EYE-XINDEX</label><br />
+                <label>MYDEX</label><br />
+                <a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/MyDex.png" width="205" /></a> 
+            </div>
+            <div class="col-12 col-md-3 " style="text-align:center">
+                <label class="label">XINDEX</label><br />
                 <a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/XINdex.png" width="205"></a>
             </div>
 
 
-            <div class="col col-md-3 " style="text-align:center">
-                <label style="color: darkcyan; font-size: 14px">ACCORD HEALTHCARE </label><br />
-                <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/AccordHealth.png" width="193"></a>
-            </div>
+
         </div>
     </div>
 

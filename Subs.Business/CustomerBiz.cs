@@ -67,10 +67,10 @@ namespace Subs.Business
                 {
                     if (item.LastRow && item.InvoiceId != 0 && item.InvoiceId != 999999999)
                     {
-                        if (item.InvoiceBalance > 1)
+                        if (item.Balance > 1)
                         {
                             // Write out a tuple
-                            pOutstanding.Add(new OutstandingInvoice() { InvoiceId = item.InvoiceId, Balance = item.InvoiceBalance });
+                            pOutstanding.Add(new OutstandingInvoice() { InvoiceId = item.InvoiceId, Balance = item.Balance });
                         }
                     }
                 }
@@ -97,6 +97,8 @@ namespace Subs.Business
 
         public static decimal DistributePaymentToInvoice(int pPaymentTransactionId, decimal pAmount, OutstandingInvoice pInvoice)
         {
+            // This was used when a customer provides documentation to the effect that a payment has to be allocated to a specific invoice.
+            // It is called a 'preference list' 
             try
             {
                 MIMSDataContext lContext = new MIMSDataContext(Settings.ConnectionString); 
@@ -226,7 +228,7 @@ namespace Subs.Business
                 {
                     if (!DistributePaymentToOutstandingInvoices(pPaymentTransactionId, pAmount, lOutstandingInvoices))
                     {
-                        return "Error in DistributePaymentToSpecificInvoices ";
+                        return "Error in DistributePaymentToOutstandingInvoices ";
                     }
                 }
 
@@ -242,7 +244,7 @@ namespace Subs.Business
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "static CustomerBiz", "DistributePaymentToFirstInvoices", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "static CustomerBiz", "DistributePayment", "");
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
@@ -344,8 +346,9 @@ namespace Subs.Business
                 foreach (InvoicesAndPayments lPayment in lPayments)
                 {
 
-                    if (lPayment.InvoiceBalance >= 0)
+                    if (lPayment.Balance >= 0)
                     {
+                        // The is nothing to distribute
                         continue;
                     }
 
@@ -354,7 +357,7 @@ namespace Subs.Business
 
                         if ((lResult2 = CustomerBiz.DistributePayment(pPayerId,
                                                                       lPayment.TransactionId,
-                                                                      lPayment.InvoiceBalance)) != "OK")
+                                                                      lPayment.Balance)) != "OK")
                         {
                             if (lResult2.Contains("Nothing"))
                             {
@@ -380,36 +383,57 @@ namespace Subs.Business
                 do
                 {
                     ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "static CustomerBiz", "ReallocatePayments", "");
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "static CustomerBiz", "DistributeAllPayments", "");
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
-                return "Error in ReallocatePayments " + ex.Message;
+                return "Error in DistributeAllPayments " + ex.Message;
             }
 
         }
 
         public static void Deallocate(int pPayerId)
         {
-            MIMSDataContext lContext = new MIMSDataContext(Settings.ConnectionString);
+            try
+            { 
+                MIMSDataContext lContext = new MIMSDataContext(Settings.ConnectionString);
 
-            // Get the current payments
+                // Get the current payments
 
 
-            CustomerData3.PopulateInvoice(pPayerId, out List<InvoicesAndPayments> lInvoicesAndPayments);
+                CustomerData3.PopulateInvoice(pPayerId, out List<InvoicesAndPayments> lInvoicesAndPayments);
 
-            // Delete all current allocations
+                // Delete all current allocations
 
-            IEnumerable<int> lAllocationsToDelete
-                = lInvoicesAndPayments.Where(p => (p.OperationId == (int)Operation.Pay || p.OperationId == (int)Operation.Balance))
-                                      .ToList()
-                                      .Select(p => p.TransactionId);
+                IEnumerable<int> lAllocationsToDelete
+                    = lInvoicesAndPayments.Where(p => (p.OperationId == (int)Operation.Pay || p.OperationId == (int)Operation.Balance))
+                                          .ToList()
+                                          .Select(p => p.TransactionId);
 
-            foreach (int lTransactionId in lAllocationsToDelete)
-            {
-                lContext.MIMS_InvoicePayment_DeleteByPaymentTransactionId(lTransactionId);
+                foreach (int lTransactionId in lAllocationsToDelete)
+                {
+                    lContext.MIMS_InvoicePayment_DeleteByPaymentTransactionId(lTransactionId);
+                } 
+
             }
+            catch (Exception ex)
+            {
+                //Display all the exceptions
+
+                Exception CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "staticCustomerBiz", "Deallocate", "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
+
+                throw ex;
+            }
+
         }
+
 
         public static void DeallocateByInvoiceId(int pInvoiceId)
         {
@@ -594,7 +618,7 @@ namespace Subs.Business
                 {
                     string lResult;
 
-                    if ((lResult = DistributeAllPayments(pRecord.CustomerId)) != "OK")
+                    if ((lResult = DistributePayment(pRecord.CustomerId, pTransactionId, pRecord.Amount)) != "OK")
                     {
                         return lResult;
                     }
@@ -661,12 +685,7 @@ namespace Subs.Business
                     return "Error in updating liability";
                 }
 
-                // Update the liability on the payer  
-
-                //pCustomerData.Liability = pCustomerData.Liability + pAmount;
-                //pCustomerData.UpdateInTransaction(ref lTransaction);
-               
-                // Create a transaction entry
+               // Create a transaction entry
 
                 pReverseTransactionId = LedgerData.ReversePayment(ref lTransaction, pCustomerData.CustomerId, -pAmount, pPaymentTransactionId, pExplanation);
 
@@ -688,7 +707,8 @@ namespace Subs.Business
 
                 lTransaction.Commit();
 
-                return DistributeAllPayments(pCustomerData.CustomerId);
+                return "OK";     //DistributeAllPayments(pCustomerData.CustomerId); But the next PopulateInvoice will not show the allocation anymore
+                                 // since it has been deleted.
 
             }
             catch (Exception ex)

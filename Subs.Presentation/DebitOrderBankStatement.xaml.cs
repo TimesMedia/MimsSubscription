@@ -591,6 +591,14 @@ namespace Subs.Presentation
                         {
                             continue;
                         }
+                        else
+                        {
+                            string lMessage = lBankStatementRow.ErrorMessage + " CustomerId = " + lBankStatementRow.CustomerId.ToString();
+                            MessageBox.Show(lMessage);
+                            ExceptionData.WriteException(1, lMessage, this.ToString(), "buttonPost_Click", "");
+                            return;
+
+                        }
                     }
 
                     //Construct an OverallPayment object
@@ -616,7 +624,9 @@ namespace Subs.Presentation
 
                         if ((lResult = CustomerBiz.Pay(ref lPaymentRecord, out lPaymentTransactionId)) != "OK")
                         {
-                            MessageBox.Show(lResult);
+                            string lMessage = lResult + " CustomerId = " + lBankStatementRow.CustomerId.ToString();
+                            MessageBox.Show(lMessage);
+                            ExceptionData.WriteException(1, lMessage, this.ToString(), "buttonPost_Click", "");
                             return;
                         }
                         lBankStatementRow.PaymentTransactionId = lPaymentTransactionId;

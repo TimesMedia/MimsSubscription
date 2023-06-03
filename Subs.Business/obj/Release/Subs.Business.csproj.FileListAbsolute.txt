@@ -36,7 +36,6 @@ C:\CSharp\github\Subs2\Subs.Business\obj\Release\Subs.Business.csproj.CoreCompil
 C:\CSharp\github\Subs2\Subs.Business\obj\Release\Subs.Business.csproj.CopyComplete
 C:\CSharp\github\Subs2\Subs.Business\obj\Release\Subs.Business.dll
 C:\CSharp\github\Subs2\Subs.Business\obj\Release\Subs.Business.pdb
-C:\CSharp\MimsSubscription\Subs.Business\obj\Release\Subs.Business.csproj.AssemblyReference.cache
 C:\CSharp\MimsSubscription\Subs.Business\obj\Release\Subs.Business.csproj.CoreCompileInputs.cache
 C:\CSharp\MimsSubscription\Subs.Business\bin\Release\Subs.Business.dll.config
 C:\CSharp\MimsSubscription\Subs.Business\bin\Release\Subs.Business.dll
@@ -71,6 +70,7 @@ C:\CSharp\MimsSubscription\Subs.Business\bin\Release\System.Text.Encodings.Web.x
 C:\CSharp\MimsSubscription\Subs.Business\bin\Release\System.Text.Json.xml
 C:\CSharp\MimsSubscription\Subs.Business\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\CSharp\MimsSubscription\Subs.Business\bin\Release\System.ValueTuple.xml
+C:\CSharp\MimsSubscription\Subs.Business\obj\Release\Subs.Business.csproj.AssemblyReference.cache
 C:\CSharp\MimsSubscription\Subs.Business\obj\Release\Subs.Business.csproj.CopyComplete
 C:\CSharp\MimsSubscription\Subs.Business\obj\Release\Subs.Business.dll
 C:\CSharp\MimsSubscription\Subs.Business\obj\Release\Subs.Business.pdb

@@ -26,14 +26,14 @@
       <Column Name="InvoiceId" Storage="_Reference1" Type="System.Int32" CanBeNull="false" />
       <Column Name="Reference2" Type="System.String" CanBeNull="false" />
       <Column Name="Value" Type="System.Decimal" CanBeNull="false" />
-      <Column Name="InvoiceBalance" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="InvoiceBalance" Member="Balance" Storage="_InvoiceBalance" Type="System.Decimal" CanBeNull="false" />
       <Column Name="StatementBalance" Type="System.Decimal" CanBeNull="false" />
       <Column Name="TransactionId" Type="System.Int32" CanBeNull="false" />
       <Column Name="FirstRow" Type="System.Boolean" DbType="bit" CanBeNull="false" />
       <Column Name="LastRow" Type="System.Boolean" CanBeNull="false" />
       <Column Name="OperationId" Type="System.Int32" CanBeNull="false" />
       <Column Name="OriginalTransactionId" Type="System.Int32" CanBeNull="true" />
-      <Column Member="CaptureDate" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="CaptureDate" Type="System.DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="" Member="SelectedSubscriptions">
@@ -58,7 +58,7 @@
       <Column Name="Balance" Type="System.Decimal" CanBeNull="true" />
       <Column Name="OperationId" Type="System.Int32" CanBeNull="true" />
       <Column Name="OriginalTransactionId" Type="System.Int32" CanBeNull="true" />
-      <Column Member="CaptureDate" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="CaptureDate" Type="System.DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="" Member="InvoiceIds">

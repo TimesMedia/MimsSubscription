@@ -40,12 +40,16 @@
         <TabItem Header="Search" x:Name="tabSearch" TabIndex="0" >
 
             <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="36*"/>
+                    <ColumnDefinition Width="617*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <GroupBox x:Name="SearchGroupBox" Header="Search for an existing subscriber by choosing one of the following criteria" Height="172" HorizontalAlignment="Left" Margin="0,0,0,0" 
-                                MinWidth="796" Background="LightGreen" Width="1167">
+                                MinWidth="796" Background="LightGreen" Width="1167" Grid.ColumnSpan="2">
                     <Canvas Height="Auto" Width="Auto" HorizontalAlignment="Left" >
                         <Button Grid.Column="1" Content="Search by Customer Id." Height="22" x:Name="buttonSearchCustomerId" Width="147" Canvas.Left="20" Canvas.Top="63"
                     			IsDefault="True" Click="buttonSearchCustomerId_Click"/>
@@ -72,13 +76,13 @@
                     </Canvas>
                 </GroupBox>
 
-                <DataGrid x:Name="customerDataGrid" Grid.Row="1" Grid.Column="1" DataContext="{StaticResource customerViewSource}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" 
+                <DataGrid x:Name="customerDataGrid" Grid.Row="1" DataContext="{StaticResource customerViewSource}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" 
                             EnableRowVirtualization="True" SelectionChanged="CustomerDataGrid_SelectionChanged" Background="White"
                             HorizontalAlignment="Left" ItemsSource="{Binding}" 
 						    Margin="0,10,0,0"  SelectionUnit="CellOrRowHeader"  
                             SelectionMode="Single" IsReadOnly="True" 
                             MouseDoubleClick="Click_CustomerSelect" MouseRightButtonUp="Click_MouseRightButtonUp" CanUserAddRows="False" RowHeight="30"
-                            Height="auto" VerticalAlignment="Stretch" FrozenColumnCount="6" KeyUp="CustomerDataGrid_KeyUp" CanUserSortColumns="True" CanUserReorderColumns="True">
+                            Height="auto" VerticalAlignment="Stretch" FrozenColumnCount="6" KeyUp="CustomerDataGrid_KeyUp" CanUserSortColumns="True" CanUserReorderColumns="True" Grid.ColumnSpan="2">
                     <DataGrid.RowHeaderStyle>
                         <Style TargetType="{x:Type DataGridRowHeader}">
                             <Setter Property="Background"  Value="Yellow"/>
@@ -140,7 +144,7 @@
             </Grid>
 
         </TabItem>
-        <TabItem Name="Tab_Invoice" Header="Statement" TabIndex="1" Visibility="Hidden">
+        <TabItem Name="Tab_Invoice" Header="Statement" TabIndex="1" Visibility="Visible">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="70"></RowDefinition>
@@ -220,7 +224,7 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Binding="{Binding Value, Converter={StaticResource lRandConverter}}" Header="Value" Width="100" CellStyle="{StaticResource AlignRight}" />
-                        <DataGridTextColumn Binding="{Binding InvoiceBalance, Converter={StaticResource lRandConverter}}" Header="Unallocated portion" Width="120" CellStyle="{StaticResource AlignRight}"/>
+                        <DataGridTextColumn Binding="{Binding Balance, Converter={StaticResource lRandConverter}}" Header="Unallocated portion" Width="120" CellStyle="{StaticResource AlignRight}"/>
                         <DataGridTextColumn Binding="{Binding StatementBalance, Converter={StaticResource lRandConverter}}" Header="Unallocated balance" Width="120" CellStyle="{StaticResource AlignRight}"/>
                     </DataGrid.Columns>
                     <DataGrid.ContextMenu>
@@ -283,7 +287,7 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Binding="{Binding Value, Converter={StaticResource lRandConverter}}" Header="Value" Width="100" CellStyle="{StaticResource AlignRight}" />
-                        <DataGridTextColumn Binding="{Binding InvoiceBalance, Converter={StaticResource lRandConverter}}" Header="Invoice balance" Width="100" CellStyle="{StaticResource AlignRight}"/>
+                        <DataGridTextColumn Binding="{Binding Balance, Converter={StaticResource lRandConverter}}" Header="Invoice balance" Width="100" CellStyle="{StaticResource AlignRight}"/>
                         <DataGridTextColumn Binding="{Binding StatementBalance, Converter={StaticResource lRandConverter}}" Header="Statement balance" Width="110" CellStyle="{StaticResource AlignRight}"/>
                     </DataGrid.Columns>
                     <DataGrid.ContextMenu>

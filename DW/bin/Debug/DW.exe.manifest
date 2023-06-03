@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Data.dll" size="1477120">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Data.dll" size="1472000">
       <assemblyIdentity name="Subs.Data" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rJ+kBFQ3XS5g0hBmkUf5mK7do7jOLwxsqZ1loR/d0uk=</dsig:DigestValue>
+        <dsig:DigestValue>W1OicU6r9cjgG4M0+Oopz/u4dnVxItJucKCmrFR7jY8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -932,17 +932,14 @@ namespace Subs.Presentation
 
                 gCalculatedLiability = 0M;
                 gLiabilityRecords.Clear();
-                LiabilityDataGrid.ItemsSource = gLiabilityRecords;
+                //LiabilityDataGrid.ItemsSource = gLiabilityRecords;
                 {
                     string lResult;
 
                     if ((lResult = CustomerData3.CalulateLiability(gCurrentCustomer.CustomerId, ref gLiabilityRecords, ref gCalculatedLiability)) != "OK")
                     {
-                        if (!lResult.Contains("Nothing"))
-                        {
                             MessageBox.Show(lResult);
                             return;
-                        }
                     }
                 }
 
@@ -1251,7 +1248,7 @@ namespace Subs.Presentation
                 lPayment = gPaymentAndInvoice.Where(p => p.OperationId == (int)Operation.Balance
                                                       || p.OperationId == (int)Operation.Pay
                                                       || p.OperationId == (int)Operation.Refund
-                                                      || p.OperationId == (int)Operation.ReversePayment).ToList();
+                                                      || p.OperationId == (int)Operation.ReversePayment).OrderBy(q => q.TransactionId).ThenBy(r => r.Date).ToList();
                 lStage = "Payment1";
    
                 if (lPayment != null)
@@ -1270,7 +1267,7 @@ namespace Subs.Presentation
                 lInvoice = gPaymentAndInvoice.Where(p => !(p.OperationId == (int)Operation.Balance
                                                         || p.OperationId == (int)Operation.Pay
                                                         || p.OperationId == (int)Operation.Refund
-                                                        || p.OperationId == (int)Operation.ReversePayment)).OrderBy(q => q.Date).ToList();
+                                                        || p.OperationId == (int)Operation.ReversePayment)).OrderBy(q => q.InvoiceId).ThenBy(r => r.Date).ToList();
                 if (lInvoice != null)
                 {
                     gInvoiceViewSource.Source = lInvoice;
@@ -1395,7 +1392,7 @@ namespace Subs.Presentation
                 {
                     e.Row.Background = new SolidColorBrush(Colors.Yellow);
                 }
-               
+                              
                 //if (lRow.OperationId == (int)Operation.Init_Sub)
                 //{
                 //    DataGridRow lDataGridRow =  (DataGridRow)InvoiceDataGrid.ItemContainerGenerator.ContainerFromItem(lRow);
@@ -1728,7 +1725,7 @@ namespace Subs.Presentation
             }
 
 
-            if (lInvoice.InvoiceBalance >= 0)
+            if (lInvoice.Balance >= 0)
             {
                 MessageBox.Show("This payment has nothing left to allocate");
                 gSelectedPayment = null;
@@ -2320,9 +2317,9 @@ namespace Subs.Presentation
 
                 CustomerData3.OutstandingInvoice lOutstandingInvoice = new CustomerData3.OutstandingInvoice();
                 lOutstandingInvoice.InvoiceId = lInvoice.InvoiceId;
-                lOutstandingInvoice.Balance = lInvoice.InvoiceBalance;
+                lOutstandingInvoice.Balance = lInvoice.Balance;
                
-                CustomerBiz.DistributePaymentToInvoice(gSelectedPayment.TransactionId, gSelectedPayment.InvoiceBalance,  lOutstandingInvoice);
+                CustomerBiz.DistributePaymentToInvoice(gSelectedPayment.TransactionId, gSelectedPayment.Balance,  lOutstandingInvoice);
 
                 gSelectedPayment = null;
  

@@ -530,7 +530,7 @@ namespace Subs.Presentation
 
                         {
                             string lResult;
-                            if ((lResult = CustomerBiz.ReversePayment(lCustomerData, lPaymentTransactionId, -lBankStatementRow.Amount, "Debitorder bounced", out lReverseTransactionId)) != "OK")
+                            if ((lResult = CustomerBiz.ReversePayment(lCustomerData, lPaymentTransactionId, lBankStatementRow.Amount, "Debitorder bounced", out lReverseTransactionId)) != "OK")
                             {
                                 lBankStatementRow.Message = lResult;
                                 continue;
@@ -552,7 +552,7 @@ namespace Subs.Presentation
                         //Construct a PaymentRecord
 
                         lPaymentRecord.CustomerId = lBankStatementRow.CustomerId;
-                        lPaymentRecord.Amount = lBankStatementRow.Amount; ;
+                        lPaymentRecord.Amount = lBankStatementRow.Amount;
                         lPaymentRecord.PaymentMethod = (int)PaymentMethod.DirectDeposit;
                         lPaymentRecord.ReferenceTypeId = 5;
                         lPaymentRecord.Reference = lBankStatementRow.TransactionDate.Year.ToString() + "/"

@@ -69,7 +69,7 @@ namespace Subs.Presentation
 
             if (pCurrentRow.LastRow)
             {
-                lInvoiceBalanceParagraph = new Paragraph(new Run(pCurrentRow.InvoiceBalance.ToString("#######0.00")));
+                lInvoiceBalanceParagraph = new Paragraph(new Run(pCurrentRow.Balance.ToString("#######0.00")));
                 lStatementBalanceParagraph = new Paragraph(new Run(pCurrentRow.StatementBalance.ToString("#######0.00")));
             }
             else
@@ -130,7 +130,7 @@ namespace Subs.Presentation
 
             if (pCurrentRow.LastRow)
             {
-                lInvoiceBalanceParagraph = new Paragraph(new Run(pCurrentRow.InvoiceBalance.ToString("#######0.00")));
+                lInvoiceBalanceParagraph = new Paragraph(new Run(pCurrentRow.Balance.ToString("#######0.00")));
                 lStatementBalanceParagraph = new Paragraph(new Run(pCurrentRow.StatementBalance.ToString("#######0.00")));
             }
             else

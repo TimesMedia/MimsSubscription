@@ -834,8 +834,8 @@ namespace Subs.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InvoiceBalance")]
-		public decimal InvoiceBalance
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="InvoiceBalance", Storage="_InvoiceBalance")]
+		public decimal Balance
 		{
 			get
 			{

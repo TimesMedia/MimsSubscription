@@ -135,4 +135,3 @@ C:\CSharp\MimsSubscription\Subs.Data\bin\Release\System.ValueTuple.xml
 C:\CSharp\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.CopyComplete
 C:\CSharp\MimsSubscription\Subs.Data\obj\Release\Subs.Data.dll
 C:\CSharp\MimsSubscription\Subs.Data\obj\Release\Subs.Data.pdb
-C:\CSharp\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.AssemblyReference.cache

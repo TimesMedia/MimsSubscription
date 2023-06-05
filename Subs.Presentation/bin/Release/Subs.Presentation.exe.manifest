@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Subs.Presentation.exe" version="1.0.0.383" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Subs.Presentation.exe" version="1.0.0.385" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Subs.Presentation" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -157,7 +157,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Q/EFwk+4eaPf5WDC4Q+okizcqjj6CFyTzvXpxGNqKYE=</dsig:DigestValue>
+        <dsig:DigestValue>0T7MiA4v1NS2XCcBXiltPsG4oF0rsZz3PNPoBiDgmb4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -169,7 +169,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>60MIcuCyYiw14JMet2fik5GQzXbD4vsNjU5y0CLMMN0=</dsig:DigestValue>
+        <dsig:DigestValue>8DI4W0qrrOePWO4cmrlucC51/LjypAckG7EpUpDtnlg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

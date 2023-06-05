@@ -302,22 +302,30 @@
     <Content Include="Content\jquery-ui.theme.css" />
     <Content Include="Content\NewBeyondHealth.html" />
     <Content Include="Content\normalize.css" />
+    <Content Include="Content\SignUp.css" />
     <Content Include="Content\skeleton.css" />
     <Content Include="Content\Styles.css" />
     <Content Include="Content\TermsConditions.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\729d475f1e18e3a1af3b88552686f689.jpg" />
     <Content Include="Images\AccordHealth.png" />
+    <Content Include="Images\Ascendis Banner2 narrow.jpg" />
     <Content Include="Images\Astelair.png" />
     <Content Include="Images\BeyondHealthCare.png" />
+    <Content Include="Images\e1ceef999e48075f04d090070dde7fcf.jpg" />
+    <Content Include="Images\gammaCore.jpg" />
     <Content Include="Images\HamburgerOff.gif" />
     <Content Include="Images\HamburgerOn.gif" />
     <Content Include="Images\Kroko2.png" />
     <Content Include="Images\Medicine comparison.jpg" />
+    <Content Include="Images\Mims.jpg" />
+    <Content Include="Images\Mims2.jpg" />
     <Content Include="Images\MyDex.png" />
     <Content Include="Images\NewBeyond.png" />
     <Content Include="Images\NewByoo.jpg" />
+    <Content Include="Images\Parasym.png" />
     <Content Include="Images\PharmaDynamics.png" />
     <Content Include="Images\shopping.png" />
     <Content Include="Images\Tiso_Blackstar_Group_logo.psd" />
@@ -391,6 +399,7 @@
     <Content Include="Views\PayU\IndexOwnAmount.cshtml" />
     <Content Include="Content\BeyondHealthCare.html" />
     <Content Include="Views\Promotion\Promotions.cshtml" />
+    <Content Include="Views\Home\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

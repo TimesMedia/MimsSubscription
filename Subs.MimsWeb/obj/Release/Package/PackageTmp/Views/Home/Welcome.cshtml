@@ -20,23 +20,19 @@
             font-weight: 600;
             color: blue;
         }
+     
     </style>
 </head>
-<body>
+<body class="welcome">
     <p>
         @Html.ViewBag.Message
-    </p>
-    @*<p>
-        @if(Model.Amount > 0.05M)
-        { 
-        @Html.ActionLink("Goto payment menu", "Pay", "Promotion",
-        new
-            {
-                onclick = "return window.confirm('You have R" + @Model.Amount.ToString("######0.00") + " outstanding on INV" +
-                @Model.InvoiceId.ToString() + " Do you want to pay it now?"
-            });
-        }
-    </p>*@
+  </p>
 
+    <div>
+        <img src="~/Images/WelcomeWide.jpg" style="width:100%" />
+
+    </div>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

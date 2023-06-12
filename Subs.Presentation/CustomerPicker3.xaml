@@ -245,8 +245,8 @@
                 <!--Row 3-->
 
 
-                <!--<Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Width="230" Click="ButtonSetCheckpointInvoice"
-                        ToolTip="Invoke input."  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="3">Set a checkpoint for invoices</Button>-->
+                <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Width="230" Click="ButtonSetCheckpointInvoice"
+                        ToolTip="Invoke input."  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="3">Set a checkpoint for invoices</Button>
                 <Label Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100">Invoices</Label>
                 <Button  Grid.Row="3" Grid.Column="4"  Click="ButtonCreateStatement_Click" HorizontalAlignment="Right"  Width="230"  Tag="AuthorityMedium" Loaded="SetVisibility">Create a statement</Button>
 

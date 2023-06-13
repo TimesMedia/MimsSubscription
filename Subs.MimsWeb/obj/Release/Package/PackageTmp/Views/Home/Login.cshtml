@@ -1,0 +1,176 @@
+﻿@model Subs.MimsWeb.Models.LoginRequest
+
+@{ Layout = null;}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/Content/SignUp.css">
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+    <script src="/Scripts/jquery-ui.js"></script>
+    <link href="/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="/Scripts/Default.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <title>Mims Login</title>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#CustomerLookup').click(function () {
+                $('#dialog').dialog("open");
+            });
+
+            $('#dialog').dialog({
+                modal: true,
+                autoOpen: false,
+                buttons: [{
+                    text: "Go",
+                    click: function () {
+                        document.getElementById('Email').value = document.getElementById('EmailAddress').value;
+                        document.forms["SubmitForm"].submit();
+                    }
+                }]
+            });
+        });
+    </script>
+</head>
+
+
+<body>
+
+    <!-- Sing in  Form -->
+    <section class="sign-in">
+        <div class="container">
+            <div class="signin-content">
+                <div class="signin-image">
+                    <figure>
+                        <img src="~/Images/Mims2.jpg" class="img-fluid" alt="sing up image">
+                        <a href="~/Home/RegisterEmail" class="signup-image-link">Create an account</a>
+                    </figure>
+
+                </div>
+
+                <div class="signin-form">
+                    <h2 class="form-title">Sign In</h2>
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "SubmitForm" }))
+                    {
+                        <alert style="font-family: Arial; margin:2em 0em 2em 1em; color:red; text-align:center">
+                            @Html.ViewBag.Message
+                        </alert>
+
+                        <p>
+                            @Html.CheckBoxFor(x => x.ResetFlag, new { id = "ResetFlag", style = "visibility:hidden" })
+                        </p>
+
+                        <p>
+
+                            <input id="Email" name="Email" type="hidden" value="">
+                        </p>
+
+                        <div id="dialog">
+                            <span>Please Enter email</span>
+                            <input type="text" id="EmailAddress" />
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.CustomerId)<br /> &nbsp;
+                            @Html.EditorFor(x => x.CustomerId)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.Password)<br />&nbsp;
+                            @Html.PasswordFor(x => x.Password)
+                        </div>
+
+                        <div class="form-group form-button ">
+
+                            <input type="button" class="LoginStyle" onclick="UsePassword()" value="Log in" />
+                            <input type="text" class="LoginStyle" onclick="ResetPassword()" value="Forgot Mims Password" />
+                            <input type="text" class="LoginStyle" id="CustomerLookup" value="Forgot Customer Number" />
+                        </div>
+
+
+
+                    }
+                    @*<div class="social-login">
+                            <span class="social-label">Or login with</span>
+                            <ul class="socials">
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                            </ul>
+                        </div>*@
+                </div>
+
+            </div>
+            @*<img src="~/Images/Ascendis Banner2 narrow.jpg" style="width:100px;text-align:center ">*@
+
+
+
+
+        </div>
+    </section>
+    <p>
+        <input id="Email" name="Email" type="hidden" value="Email">
+    </p>
+    <script>
+        function UsePassword() {
+            try {
+                document.getElementById("ResetFlag").checked = false;
+                document.forms["SubmitForm"].submit();
+            }
+            catch (message) {
+                alert(message);
+            }
+
+        }
+
+        function CustomerLookup() {
+            try {
+
+                window.alert("Under construction.");
+                // Do an Ajax call to find all customers numbers on this email address, plus their names.
+
+                // Display them in a list where one could be selected.
+
+                //document.getElementById("ResetFlag").checked = false;
+                //window.alert("Under construction.");
+
+
+                //window.alert(document.getElementsByName('Email').values[0]);
+                //document.forms["SubmitForm"].submit();
+
+            }
+            catch (message) {
+                window.alert(message);
+            }
+
+        }
+
+        function ResetPassword() {
+
+            try {
+
+                document.getElementById("ResetFlag").checked = true;
+                document.forms["SubmitForm"].submit();
+            }
+            catch (message) {
+                window.alert(message);
+            }
+
+        }
+
+    </script>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

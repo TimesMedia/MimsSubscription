@@ -316,10 +316,14 @@
     <Content Include="Images\Description.png" />
     <Content Include="Images\e1ceef999e48075f04d090070dde7fcf.jpg" />
     <Content Include="Images\gammaCore.jpg" />
+    <Content Include="Images\Generics Dictionary.jpg" />
     <Content Include="Images\HamburgerOff.gif" />
     <Content Include="Images\HamburgerOn.gif" />
     <Content Include="Images\Home page design wider.jpg" />
+    <Content Include="Images\IVS.jpg" />
     <Content Include="Images\Kroko2.png" />
+    <Content Include="Images\mdr 2022.jpg" />
+    <Content Include="Images\MDR.jpg" />
     <Content Include="Images\Medicine comparison.jpg" />
     <Content Include="Images\Mims.jpg" />
     <Content Include="Images\Mims2.jpg" />

@@ -153,3 +153,4 @@ C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Da
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.CopyComplete
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.dll
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.pdb
+C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.AssemblyReference.cache

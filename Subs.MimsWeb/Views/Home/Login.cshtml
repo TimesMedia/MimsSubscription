@@ -164,27 +164,31 @@
                     <input type="text" id="EmailAddress" />
                 </div>
                 @*<h1 class="mb-4" style="font-family:'Segoe Print';color:dodgerblue;text-align:center">Please login</h1>*@
-                <div class="form-row">
+        <div class="form-row">
 
-                    <div class="form-group ">
-                        @Html.LabelFor(x => x.CustomerId) <br />&nbsp;
-                        @Html.EditorFor(x => x.CustomerId)
-                    </div>
-                    <div class="form-group ">
-                        @Html.LabelFor(x => x.Password)<br />&nbsp;
-                        @Html.PasswordFor(x => x.Password)
-                    </div>
-                    <div class="col-sm-offset-2 col-sm-6" style="text-align:">
+            <div class="form-group ">
+                @Html.LabelFor(x => x.CustomerId) <br />&nbsp;
+                @Html.EditorFor(x => x.CustomerId)
+            </div>
+            <div class="form-group ">
+                @Html.LabelFor(x => x.Password)<br />&nbsp;
+                @Html.PasswordFor(x => x.Password)
+            </div>
+           
+            <div class="form-group form-button ">
 
-                        <input type="submit" class="btn btn-primary" onclick="UsePassword" value="Login" />
-                        <input type="submit" class="btn btn-primary" onclick="ResetPassword" value=" Forgot Password" />
-                    </div>
+                <input type="button" class="LoginStyle" onclick="UsePassword()" value="Log in" />
+                <input type="text" class="LoginStyle" onclick="ResetPassword()" value="Forgot Mims Password" />
+                <input type="text" class="LoginStyle" id="CustomerLookup" value="Forgot Customer Number" />
+                
+                <a href="~/Home/RegisterEmail" class="signup-image-link">Create an Account</a>
+            </div>
 
-                    <br />
-                    <a href="~/Home/RegisterEmail" class="signup-image-link">Create an Account</a>
+            
+          
 
 
-                </div>
+        </div>
 
             }
         </div>

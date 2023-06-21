@@ -38,7 +38,7 @@
         .back-img {
             position: relative;
             width: 100%;
-            height: 250px;
+            height: 170px;
             background: url('https://www.omnihotels.com/-/media/images/hotels/nycber/destinations/nyc-aerial-skyline.jpg?h=660&la=en&w=1170')no-repeat center center;
             background-size: cover;
         }
@@ -62,7 +62,7 @@
         }
 
         .sign-in-text {
-            top: 175px;
+            top: 135px;
             position: absolute;
             z-index: 1;
         }
@@ -79,7 +79,7 @@
             position: absolute;
             z-index: 1;
             color: #0094ff;
-            top: 235px;
+            top: 160px;
             padding-left: 50px;
             font-size: 20px;
         }
@@ -131,7 +131,7 @@
 </head>
 
 
-<body style="padding-top:5em">
+<body >
     <div class="signin">
         <div class="back-img">
             <div class="sign-in-text">
@@ -175,11 +175,10 @@
                         @Html.PasswordFor(x => x.Password)
                     </div>
                     <div class="col-sm-offset-2 col-sm-6" style="text-align:">
-
-                        <input type="submit" class="btn btn-primary" onclick="UsePassword" value="Login" />
-                        <input type="submit" class="btn btn-primary" onclick="ResetPassword" value=" Forgot Password" />
+                        <input type="button" class="LoginStyle" onclick="UsePassword()" value="Log in" />
+                        <input type="text" class="LoginStyle" onclick="ResetPassword()" value="Forgot Mims Password" />
+                        <input type="text" class="LoginStyle" id="CustomerLookup" value="Forgot Customer Number" />
                     </div>
-
                     <br />
                     <a href="~/Home/RegisterEmail" class="signup-image-link">Create an Account</a>
 
@@ -188,13 +187,6 @@
 
             }
         </div>
-
-
-
-
-
-
-
 
 
 

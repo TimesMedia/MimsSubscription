@@ -222,7 +222,7 @@ namespace Subs.Business
 
                 if (lOutstandingInvoices.Count == 0)
                 {
-                    return "Nothing found";
+                    return "OK";
                 }
                 else
                 {

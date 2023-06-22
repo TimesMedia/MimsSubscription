@@ -192,7 +192,7 @@
 
                 <!--Row 1-->
 
-                <!--<Button Grid.Row="1" Grid.Column="0" Height="30" Click="Click_ResetAllCheckpoints" HorizontalAlignment="Left"  Width="230"  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="3">Reset all checkpoints</Button>-->
+                <Button Grid.Row="1" Grid.Column="0" Height="30" Click="Button_SetPaymentCheckpoint" HorizontalAlignment="Left"  Width="230"  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="3">Reset a checkpoint for payments</Button>
                 <Label Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100">Payments</Label>
                 <Button x:Name="ButtonAllocate" Grid.Row="1" Grid.Column="5" Click="ButtonAllocate_Click" HorizontalAlignment="Right"  
                          Tag="AuthorityHigh" Loaded="SetVisibility" Width="230">Allocate all the payments</Button>
@@ -235,8 +235,8 @@
                             <MenuItem Header="Refund payment" Click="Click_Refund" Tag="AuthorityHigh" Loaded="SetVisibility"/>
                             <MenuItem Header="Reverse payment" Click="Click_ReversePayment"/>
                             <MenuItem Header="Select payment for allocation" Click="Click_SelectPaymentForAllocation" Tag="AuthorityHigh" Loaded="SetVisibility"/>
-                            <!--<MenuItem Header="Set as checkpoint" Click="Click_SetAsPaymentCheckpoint" ToolTip="Use the current row as input." Tag="AuthorityHigh" Loaded="SetVisibility"/>
-                            <MenuItem Header="Set checkpoint one day further" Click="Click_SetAsPaymentCheckpoint1" ToolTip="Advance date by one day" Tag="AuthorityHigh" Loaded="SetVisibility"/>
+                            <!--<MenuItem Header="Set checkpoint" Click="Click_SetPaymentCheckpoint" Tag="AuthorityHigh" Loaded="SetVisibility"/>-->
+                            <!--MenuItem Header="Set checkpoint one day further" Click="Click_SetAsPaymentCheckpoint1" ToolTip="Advance date by one day" Tag="AuthorityHigh" Loaded="SetVisibility"/>
                             <MenuItem Header="Set as reduced checkpoint..." Click="Click_SetAsReducedCheckpoint" ToolTip="You will  be prompted for a reduced value." Tag="AuthorityHigh" Loaded="SetVisibility"/>-->
                         </ContextMenu>
                     </DataGrid.ContextMenu>

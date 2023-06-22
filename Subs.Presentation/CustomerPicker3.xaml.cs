@@ -1737,78 +1737,68 @@ namespace Subs.Presentation
         }
 
 
-        //private void Click_SetAsPaymentCheckpoint(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        InvoicesAndPayments lInvoiceAndPayment = (InvoicesAndPayments)gPaymentViewSource.View.CurrentItem;
-        //        if (lInvoiceAndPayment.Operation != "Payment")
-        //        {
-        //            MessageBox.Show("Sorry, I respond only to payment lines.");
-        //            return;
-        //        }
+        private void Button_SetPaymentCheckpoint(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                InvoicesAndPayments lInvoiceAndPayment = (InvoicesAndPayments)gPaymentViewSource.View.CurrentItem;
+                if (lInvoiceAndPayment.Operation != "Payment")
+                {
+                    MessageBox.Show("Sorry, I respond only to payment lines.");
+                    return;
+                }
 
-        //        // Ensure that the checkpoint payment can cover all previously active subscriptions
+                ElicitDate lElicitDate = new ElicitDate("Please supply a date before the payments that you want to include");
+                lElicitDate.ShowDialog();
+                gCurrentCustomer.CheckpointPaymentDate = lElicitDate.Answer;
+           
 
-        //        decimal lPastSubscriptionValue = InvoiceData.ActiveSubscriptionsBefore(lInvoiceAndPayment.Date, gCurrentCustomer.CustomerId);
+                {
+                    string lResult;
 
-        //        if (lPastSubscriptionValue > -lInvoiceAndPayment.Value)
-        //        {
-        //            MessageBox.Show("No can do! This payment does not cover all previous subscriptions.");
-        //            return;
-        //        }
+                    if ((lResult = gCurrentCustomer.Update()) != "OK")
+                    {
+                        MessageBox.Show(lResult);
+                        return;
+                    }
+                }
 
-        //        gCurrentCustomer.CheckpointPaymentDate = lInvoiceAndPayment.Date;
-        //        gCurrentCustomer.CheckpointPaymentValue = 0M;
+                Cursor = Cursors.Wait;
+                AutomaticAllocate();
 
-        //        Cursor = Cursors.Wait;
+                {
+                    string lResult;
 
-        //        {
-        //            string lResult;
+                    if ((lResult = CustomerBiz.SynchronizeLiability(gCurrentCustomer)) != "OK")
+                    {
+                        MessageBox.Show(lResult);
+                        return;
+                    }
+                }
+                MessageBox.Show("Done");
 
-        //            if ((lResult = gCurrentCustomer.Update()) != "OK")
-        //            {
-        //                MessageBox.Show(lResult);
-        //                return;
-        //            }
-        //        }
+                return;
+            }
+            catch (Exception ex)
+            {
+                //Display all the exceptions
 
-        //        //PopulatePaymentAndInvoice();
-        //        AutomaticAllocate();
+                Exception CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "Button_SetPaymentCheckpoint", "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
 
-        //        {
-        //            string lResult;
-
-        //            if ((lResult = CustomerBiz.SynchronizeLiability(gCurrentCustomer)) != "OK")
-        //            {
-        //                MessageBox.Show(lResult);
-        //                return;
-        //            }
-        //        }
-        //        MessageBox.Show("Done");
-
-        //        return;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //Display all the exceptions
-
-        //        Exception CurrentException = ex;
-        //        int ExceptionLevel = 0;
-        //        do
-        //        {
-        //            ExceptionLevel++;
-        //            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "Button_SetAsPaymentCheckpoint", "");
-        //            CurrentException = CurrentException.InnerException;
-        //        } while (CurrentException != null);
-
-        //        MessageBox.Show("Error in Click_SetAsPaymentCheckpoint: " + ex.Message);
-        //    }
-        //    finally 
-        //    {
-        //        Cursor = Cursors.Arrow;
-        //    }
-        //}
+                MessageBox.Show("Error in Click_SetAsPaymentCheckpoint: " + ex.Message);
+            }
+            finally
+            {
+                Cursor = Cursors.Arrow;
+            }
+        }
 
 
         //private void Click_SetAsPaymentCheckpoint1(object sender, RoutedEventArgs e)

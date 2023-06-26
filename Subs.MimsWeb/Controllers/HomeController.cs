@@ -1151,9 +1151,13 @@ namespace Subs.MimsWeb.Controllers
         // Signout **************************************************************************************************************
 
         [HttpGet]
-        public void LogOut()
+        public ActionResult LogOut()
         {
+            Session.Clear();
             Session.Abandon();
+
+
+            return RedirectToAction("Index");
         }
     }
 }

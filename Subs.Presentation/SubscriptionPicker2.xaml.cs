@@ -1267,9 +1267,9 @@ namespace Subs.Presentation
 
                 gSubscriptionData = new SubscriptionData3(lCurrentSubscriptionId);
               
-                if (gSubscriptionData.Status == SubStatus.Expired || gSubscriptionData.Status == SubStatus.Cancelled)
+                if (gSubscriptionData.Status == SubStatus.Cancelled)
                 {
-                    MessageBox.Show("You cannot return on an expired or cancelled subscription. Try to refund the customer on his payment?");
+                    MessageBox.Show("You cannot return on cancelled subscription. Try to refund the customer on his payment?");
                     return;
                 }
 

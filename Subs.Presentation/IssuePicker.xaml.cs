@@ -35,7 +35,7 @@ namespace Subs.Presentation
             {
                 gInitialProductId = pProductId;
  
-                gIssues = gMimsDataContext.Issues.Where(p => p.ProductId == pProductId && p.Year > (DateTime.Now.Year - 3)).OrderBy(p => p.Sequence).ToList();
+                gIssues = gMimsDataContext.Issues.Where(p => p.ProductId == pProductId && p.Year > (DateTime.Now.Year - 5)).OrderBy(p => p.Sequence).ToList();
 
 
                 gIssueView.Source = gIssues;

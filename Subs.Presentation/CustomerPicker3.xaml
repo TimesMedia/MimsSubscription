@@ -156,14 +156,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="19*"/>
                     <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="485*"/>
-                    <ColumnDefinition Width="292*"/>
-                    <ColumnDefinition Width="510*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="442*"/>
+                    <ColumnDefinition Width="293*"/>
+                    <ColumnDefinition Width="512*"/>
                 </Grid.ColumnDefinitions>
 
                 <!--Row 0-->
 
-                <WrapPanel x:Name="PaymentPanel" Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto"  Grid.Row="0" Grid.ColumnSpan="5" Margin="0,10,0,10" >
+                <WrapPanel x:Name="PaymentPanel" Orientation="Horizontal" HorizontalAlignment="Stretch" Height="Auto"  Grid.Row="0" Grid.ColumnSpan="6" Margin="0,10,0,10" >
                     <StackPanel Margin="0,0,20,0">
                         <Label >CustomerId</Label>
                         <TextBox x:Name="CustomerId" TextAlignment="Right"  IsReadOnly="True"></TextBox>
@@ -192,15 +193,15 @@
 
                 <!--Row 1-->
 
-                <Button Grid.Row="1" Grid.Column="0" Height="30" Click="Button_SetPaymentCheckpoint" HorizontalAlignment="Left"  Width="230"  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="3">Reset a checkpoint for payments</Button>
-                <Label Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100">Payments</Label>
+                <Button Grid.Row="1" Grid.Column="0" Height="30" Click="Button_SetPaymentCheckpoint" HorizontalAlignment="Left"  Width="230"  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="4" Margin="0,5">Reset a checkpoint for payments</Button>
+                <Label Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100" Margin="97,0,96,0">Payments</Label>
                 <Button x:Name="ButtonAllocate" Grid.Row="1" Grid.Column="5" Click="ButtonAllocate_Click" HorizontalAlignment="Right"  
                          Tag="AuthorityHigh" Loaded="SetVisibility" Width="230">Allocate all the payments</Button>
 
 
                 <!--Row 2-->
 
-                <DataGrid x:Name="PaymentDataGrid" Grid.Row="2" Grid.ColumnSpan="5" ItemsSource="{Binding Source={StaticResource PaymentViewSource}}" AutoGenerateColumns="False" 
+                <DataGrid x:Name="PaymentDataGrid" Grid.Row="2" Grid.ColumnSpan="6" ItemsSource="{Binding Source={StaticResource PaymentViewSource}}" AutoGenerateColumns="False" 
                               LoadingRow="InvoiceDataGrid_LoadingRow" Width="Auto" HorizontalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False" 
                               EnableRowVirtualization="True" IsReadOnly="True" CanUserSortColumns="False" Margin="0,10,0,10" SelectionChanged="PaymentDataGrid_SelectionChanged"
                               MaxHeight="250">
@@ -246,17 +247,17 @@
 
 
                 <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Width="230" Click="ButtonSetCheckpointInvoice"
-                        ToolTip="Invoke input."  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="3">Set a checkpoint for invoices</Button>
-                <Label Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100">Invoices</Label>
-                <Button  Grid.Row="3" Grid.Column="4"  Click="ButtonCreateStatement_Click" HorizontalAlignment="Right"  Width="230"  Tag="AuthorityMedium" Loaded="SetVisibility">Create a statement</Button>
+                        ToolTip="Invoke input."  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="4">Set a checkpoint for invoices</Button>
+                <Label Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100" Margin="97,0,96,0">Invoices</Label>
+                <Button  Grid.Row="3" Grid.Column="5"  Click="ButtonCreateStatement_Click" HorizontalAlignment="Right"  Width="230"  Tag="AuthorityMedium" Loaded="SetVisibility">Create a statement</Button>
 
 
                 <!--Row 4-->
 
-                <DataGrid x:Name="InvoiceDataGrid" Grid.Row="4" Grid.ColumnSpan="5" ItemsSource="{Binding Source={StaticResource InvoiceViewSource}}" AutoGenerateColumns="False" 
+                <DataGrid x:Name="InvoiceDataGrid" Grid.Row="4" Grid.ColumnSpan="6" ItemsSource="{Binding Source={StaticResource InvoiceViewSource}}" AutoGenerateColumns="False" 
                               LoadingRow="InvoiceDataGrid_LoadingRow" GotFocus="InvoiceDataGrid_GotFocus"
                               Width="Auto" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch" CanUserAddRows="False" CanUserDeleteRows="False"
-                              EnableRowVirtualization="True" IsReadOnly="True" CanUserSortColumns="False" MouseDoubleClick="InvoiceDataGrid_MouseDoubleClick" Margin="0,10,0,10" IsSynchronizedWithCurrentItem="True" Grid.RowSpan="2">
+                              EnableRowVirtualization="True" IsReadOnly="True" CanUserSortColumns="False" MouseDoubleClick="InvoiceDataGrid_MouseDoubleClick" Margin="0,10,0,10" IsSynchronizedWithCurrentItem="True">
                     <DataGrid.GroupStyle>
                         <GroupStyle>
                             <GroupStyle.HeaderTemplate>

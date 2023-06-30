@@ -2092,7 +2092,7 @@ namespace Subs.Data
                         List<Subs.Data.InvoicesAndPayments> lAllocatedPayments =
                             lInvoice.Where(p => {return  p.OperationId == ((int)Operation.AllocatePaymentToInvoice) && (p.TransactionId == lRow.TransactionId); }).ToList();
                                               
-                        lRow.Balance = lRow.Balance -  lAllocatedPayments.Sum(q => q.Value);
+                        lRow.Balance = lRow.Balance - lAllocatedPayments.Sum(q => q.Value);
                         // So, what remains is the net value that has not been allocated yet, shown on the last row.
                     }
                 }

@@ -1415,28 +1415,53 @@ namespace Subs.Presentation
                 lLiabilityAdapter.AttachConnection();
                 lLiabilityAdapter.Fill(lLiabilityTable);
 
-
                 foreach (CustomerDoc2.LiabilityRow lRow in lLiabilityTable)
                 {
                     lCounter++;
                     lCurrentPayer = lRow.PayerId;
+                    List <Subs.Data.InvoicesAndPayments> lPaymentAndInvoice = new List<InvoicesAndPayments>();
 
-                    {
+                    { 
                         string lResult;
 
-                        if ((lResult = CustomerBiz.DistributeAllPayments(lRow.PayerId)) != "OK")
+                        if ((lResult = CustomerData3.PopulateInvoice(lRow.PayerId, out lPaymentAndInvoice)) != "OK")
                         {
-                            if (lResult.Contains("Nothing"))
+                            ExceptionData.WriteException(5, lResult, this.ToString(), "buttonReallocateAllInvoices_Click", "CustomerId= " + lCurrentPayer.ToString());
+                            continue;
+                        }
+
+                        IEnumerable<Subs.Data.InvoicesAndPayments> lPayment = null;
+                        lPayment = lPaymentAndInvoice.Where(p => p.OperationId == (int)Operation.Pay).OrderBy(q => q.TransactionId).ThenBy(r => r.Date).ToList();
+                        if (lPayment.Count() == 0)
+                        {
+                            continue;
+                        }
+
+                        foreach (Subs.Data.InvoicesAndPayments item in lPayment)
+                        {
+                            if (item.Value > item.Balance)
                             {
-                                continue;
-                            }
-                            else
-                            {
-                                MessageBox.Show(lResult);
-                                return;
+                                ExceptionData.WriteException(5, "Reallocation problem", this.ToString(),"buttonReallocateAllInvoices_Click", "CustomerId= " + lCurrentPayer.ToString());
+
                             }
                         }
                     }
+                    //***{
+                    //string lResult;
+
+                    //if ((lResult = CustomerBiz.DistributeAllPayments(lRow.PayerId)) != "OK")
+                    //{
+                    //    if (lResult.Contains("Nothing"))
+                    //    {
+                    //        continue;
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show(lResult);
+                    //        return;
+                    //    }
+                    //}
+                    //}
 
                     if (lCounter % 100 == 0)
                     {

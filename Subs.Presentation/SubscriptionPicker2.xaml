@@ -23,7 +23,7 @@
             <MenuItem Header="Change delivery address" Click="Click_ChangeDeliveryAddress" />
             <MenuItem Header="Change renewal notice" Click="Click_ChangeRenewalNotice" />
             <MenuItem Header="Deliver on credit" Click="Click_DeliverOnCredit" Tag="AuthorityMedium" Loaded="SetVisibility"/>
-            <MenuItem Header="Enforce delivery" Click="Click_EnforceDelivery" Tag="AuthorityMedium" Loaded="SetVisibility"/>
+            <!--<MenuItem Header="Enforce delivery" Click="Click_EnforceDelivery" Tag="AuthorityMedium" Loaded="SetVisibility"/>-->
             <MenuItem Header="Generate invoice directive" Click="Click_GenerateInvoiceDirective"  Tag="AuthorityMedium" Loaded="SetVisibility"/>
             <MenuItem Header="Report" Click="Click_SubscriptionReport" />
             <MenuItem Header="Renew" Click="Click_Renew" />

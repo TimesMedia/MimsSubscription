@@ -618,7 +618,7 @@ namespace Subs.Business
                 {
                     string lResult;
 
-                    if ((lResult = DistributePayment(pRecord.CustomerId, pTransactionId, pRecord.Amount)) != "OK")
+                    if ((lResult = DistributeAllPayments(pRecord.CustomerId)) != "OK")
                     {
                         return lResult;
                     }

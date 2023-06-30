@@ -1226,6 +1226,8 @@ namespace Subs.Presentation
 
         private bool PopulatePaymentAndInvoice([CallerMemberName] string pCaller = null)
         {
+            // This assigns the necessary data sources for display.
+
             this.Cursor = Cursors.Wait;
             string lStage = "Start";
             try

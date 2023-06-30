@@ -1067,10 +1067,10 @@ namespace Subs.Presentation
             lPaymentAllocation.ShowDialog();
         }
 
-        private void Click_EnforceDelivery(object sender, RoutedEventArgs e)
-        {
-            CallPaymentAllocation();
-        }
+        //private void Click_EnforceDelivery(object sender, RoutedEventArgs e)
+        //{
+        //    CallPaymentAllocation();
+        //}
 
 
         private void Click_GenerateInvoiceDirective(object sender, RoutedEventArgs e)

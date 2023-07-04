@@ -58,10 +58,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>FCC7FA8CE7656C323A739B752F520395EE568DF1</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>38661EC788381EBE6E83B670D42335D29C7D7BEA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Subs.Presentation_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Subs.Presentation_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -326,6 +326,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Subs.Presentation_1_TemporaryKey.pfx" />
+    <None Include="Subs.Presentation_2_TemporaryKey.pfx" />
     <None Include="Subs.Presentation_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

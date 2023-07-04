@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="/Content/Styles.css">
+    <link rel="stylesheet" href="~/Content/navbar.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
@@ -30,8 +31,8 @@
         }
 
         #MenuDiv a:hover {
-            font-size: 1.2em;
-            background-color: aqua;
+            font-size: 1.08em;
+            background-color: #00ffff;
         }
      
 
@@ -87,7 +88,7 @@
     <img src="~/Images/HamburgerOff.gif" id="HamburgerOff" class="Hamburger" onclick="MenuFunction()" />
 
     <div class="MimsImage">
-        <img src="~/Content/img/logos/mims-small.png"  width="300" />
+        <img src="~/Content/img/logos/mims-small.png"  width="200" />
     </div>
 
 
@@ -129,7 +130,7 @@
         @*<div>@Html.ActionLink("Test", "Test", "Home")</div>*@
     </div>
 
-    <br />
+    
     @RenderBody()
 </body>
 </html>

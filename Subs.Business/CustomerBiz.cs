@@ -615,6 +615,9 @@ namespace Subs.Business
 
                 lTransaction.Commit();
 
+                lConnection.Close();
+                lTransaction.Dispose();
+
                 {
                     string lResult;
 
@@ -656,7 +659,10 @@ namespace Subs.Business
             }
             finally
             {
-                lConnection.Close();
+                if (lConnection.State == ConnectionState.Open)
+                {
+                    lConnection.Close(); 
+                }
             }
         }
         public static string ReversePayment(CustomerData3 pCustomerData, int pPaymentTransactionId, decimal pAmount, string pExplanation, out int pReverseTransactionId)

@@ -594,7 +594,13 @@ namespace Subs.XMLServiceTest
 
                 lResponse = lClient.AuthorizeMIC(lRequest);
 
-                MessageBox.Show(lResponse.AuthorizeMICResult.ExpirationDate.ToString() + " Seats " + lResponse.AuthorizeMICResult.Seats.ToString() + " " + lResponse.AuthorizeMICResult.Reason.ToString());
+                MessageBox.Show(lResponse.AuthorizeMICResult.ExpirationDate.ToString() + " Seats " 
+                    + lResponse.AuthorizeMICResult.Seats.ToString() + " " 
+                    + lResponse.AuthorizeMICResult.Reason.ToString() + " "
+                    + lResponse.AuthorizeMICResult.Title.ToString() + " "
+                    + lResponse.AuthorizeMICResult.FirstName.ToString() + " "
+                    + lResponse.AuthorizeMICResult.Surname.ToString());
+
 
             }
 

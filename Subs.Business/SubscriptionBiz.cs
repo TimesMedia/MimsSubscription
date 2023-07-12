@@ -17,6 +17,18 @@ namespace Subs.Business
 
     }
 
+    public class MICResult
+    {
+        public int Seats;
+        public string Reason;
+        public DateTime ExpirationDate;
+        public string Title;
+        public string FirstName;
+        public string Surname;
+    }
+
+
+
     public class AuthorizationResult
     {
         public int Year;

@@ -126,11 +126,11 @@ namespace Subs.XMLService
 
         [SoapHeader("Authentication")]
         [WebMethod]
-        public SeatResult AuthorizeMIC(int pReceiverId, string pPassword, int pProductId)
+        public MICResult AuthorizeMIC(int pReceiverId, string pPassword, int pProductId)
         {
             try
             {
-                SeatResult lSeatResult = new SeatResult();
+                MICResult lMICResult = new MICResult();
 
 
                 if (Authentication.Source == "NJA" &&
@@ -138,19 +138,26 @@ namespace Subs.XMLService
                 {
                     if (!CustomerData3.Exists((int)pReceiverId))
                     {
-                       lSeatResult.Reason = "There is no such CustomerId";
-                        return lSeatResult;
+                       lMICResult.Reason = "There is no such CustomerId";
+                        return lMICResult;
                     }
 
                     CustomerData3 lCustomerData = new CustomerData3(pReceiverId);
 
                     if (lCustomerData.Password1 != pPassword)
                     {
-                        lSeatResult.Reason = "Invalid Password";
-                        return lSeatResult;
+                        lMICResult.Reason = "Invalid Password";
+                        return lMICResult;
                     }
 
-                    return SubscriptionBiz.Authorize(pProductId, pReceiverId);
+                    SeatResult lSeatResult = SubscriptionBiz.Authorize(pProductId, pReceiverId);
+                    lMICResult.ExpirationDate = lSeatResult.ExpirationDate;
+                    lMICResult.Seats = lSeatResult.Seats;
+                    lMICResult.Reason = lSeatResult.Reason;
+                    lMICResult.Title = lCustomerData.Title;
+                    lMICResult.FirstName = lCustomerData.FirstName;
+                    lMICResult.Surname = lCustomerData.Surname;
+                    return lMICResult;
                 }
                 else
                 {
@@ -170,11 +177,11 @@ namespace Subs.XMLService
                     CurrentException = CurrentException.InnerException;
                 } while (CurrentException != null);
 
-                SeatResult lSeatResult = new SeatResult();
-                lSeatResult.Seats = 0;
-                lSeatResult.Reason = "Failed due to technical error";
+                MICResult lMICResult = new MICResult();
+                lMICResult.Seats = 0;
+                lMICResult.Reason = "Failed due to technical error";
 
-                return lSeatResult;
+                return lMICResult;
             }
         }
 

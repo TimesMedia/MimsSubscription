@@ -1153,7 +1153,35 @@ namespace Subs.MimsWeb.Controllers
         [HttpGet]
         public void LogOut()
         {
+            
             Session.Abandon();
+
+           
+        }
+
+
+        [HttpGet]
+        public ActionResult Thanks()
+        {
+            try
+            {
+                Session.Abandon();
+                return View();
+            }
+            catch (Exception ex)
+            {
+
+                Exception CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), " Thanks", "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
+
+                return View();
+            }
         }
     }
 }

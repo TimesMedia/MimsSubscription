@@ -157,7 +157,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>n1RsbOkAf59a3cAvM/alxpghSgEh/E2WAXN1JXLR08c=</dsig:DigestValue>
+        <dsig:DigestValue>uFpHmNBGPMh+Us1Um0gAS5bFXSLmenf9tKZszqCP/E4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -169,19 +169,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AKzNBgReG+8xtwIlPDkXMQDvByVyYSyYqWv+vevzvRo=</dsig:DigestValue>
+        <dsig:DigestValue>N+fte+ycS4ViqkrIWZxUider3Eu6ZfZpp5MY7hEixAE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Presentation.exe" size="623552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Subs.Presentation.exe" size="624048">
       <assemblyIdentity name="Subs.Presentation" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>18I2H4jnih382+t/P3IN+M1i+E2DpvKoL0vmwu9GFUY=</dsig:DigestValue>
+        <dsig:DigestValue>LPzn5nIBRPWj19rMipad3PCnE6fe4Uw03CqW0xsKnXE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

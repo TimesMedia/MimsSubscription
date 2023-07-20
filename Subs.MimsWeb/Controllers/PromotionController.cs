@@ -683,26 +683,8 @@ namespace Subs.MimsWeb.Controllers
         [HttpGet]
         public ActionResult Promotions()
         {
-            try
-            {
-                return Redirect("~/Content/BeyondHealthCare.html");
-                //return Redirect("https://www.byondhealthcare.com/partnerships");
-            }
-            catch (Exception ex)
-            {
-                //Display all the exceptions
-
-                Exception CurrentException = ex;
-                int ExceptionLevel = 0;
-                do
-                {
-                    ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "BeyondHealthCare", "");
-                    CurrentException = CurrentException.InnerException;
-                } while (CurrentException != null);
-
-              
-                return View("Empty");
+           
+                return View();
             }
         }
 
@@ -713,4 +695,3 @@ namespace Subs.MimsWeb.Controllers
 
 
     }
-}

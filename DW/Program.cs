@@ -12,8 +12,11 @@ namespace DW
     {
         static string gConnectionString = global::DW.Properties.Settings.Default.ConnectionString;
         static string gDWConnectionString = global::DW.Properties.Settings.Default.SUBSDWConnectionString;
-        static DWDataset.FactLiabilityDataTable gTable = new DWDataset.FactLiabilityDataTable();
-        static DWDatasetTableAdapters.FactLiabilityTableAdapter gAdapter = new DWDatasetTableAdapters.FactLiabilityTableAdapter();
+        static DWDataset.FactLiabilityDataTable gLiability = new DWDataset.FactLiabilityDataTable();
+        static DWDatasetTableAdapters.FactLiabilityTableAdapter gLiabilityAdapter = new DWDatasetTableAdapters.FactLiabilityTableAdapter();
+
+        static DWDataset.FactDebtorDataTable gDebtor = new DWDataset.FactDebtorDataTable();
+        static DWDatasetTableAdapters.FactDebtorTableAdapter gDebtorAdapter = new DWDatasetTableAdapters.FactDebtorTableAdapter();
 
         static void Main(string[] args)
         {
@@ -28,6 +31,56 @@ namespace DW
             }
             UpDateLiability();
         }
+
+        //private static void UpdateDebtor()
+        //{
+        //    try 
+        //    { 
+        //        List<Subs.Data.InvoicesAndPayments> lDebtor = new List<InvoicesAndPayments>();
+
+        //        string lResult;
+
+        //        if ((lResult = CustomerData3.PopulateInvoice(4, out lDebtor)) != "OK")
+        //        {
+        //            ExceptionData.WriteException(5, lResult + DateTime.Now.ToString(), "static Program DW", "UpdateDebtor", "");
+        //        }
+
+        //        foreach (InvoicesAndPayments p in lDebtor)
+        //        {
+
+        //               if(p.OperationId == (int)Operation.VATInvoice
+        //                                   || p.OperationId == (int)Operation.CreditNote
+        //                                   || p.OperationId == (int)Operation.AllocatePaymentToInvoice
+        //                                   || p.OperationId == (int)Operation.WriteOffMoney
+        //                                   || p.OperationId == (int)Operation.ReverseWriteOffMoney)
+        //                { 
+        //                    DWDataset.FactDebtorRow lNewRow = gDebtor.NewFactDebtorRow();
+        //                }
+        //        }
+
+        //        gDebtorAdapter.Update(gDebtor);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        //Display all the exceptions
+
+        //        Exception CurrentException = ex;
+        //        int ExceptionLevel = 0;
+        //        do
+        //        {
+        //            ExceptionLevel++;
+        //            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, "static Program DW", "UpdateDebtor", "");
+        //            CurrentException = CurrentException.InnerException;
+        //        } while (CurrentException != null);
+        //        throw ex;
+
+        //    }
+        //}
+
+
+
+
+
 
         private static void  UpDateLiability()
         {
@@ -51,7 +104,7 @@ namespace DW
                     lCurrentPayer = PayerId;
                     decimal lJournalLiability = 0;
 
-                    gAdapter.FillByPayerId(gTable,PayerId);
+                    gLiabilityAdapter.FillByPayerId(gLiability,PayerId);
 
                     {
                         string lResult;
@@ -72,7 +125,7 @@ namespace DW
 
 
                         // Skip if you have the transaction already
-                        int lHits = gTable.Where(p => p.TransactionId == item.TransactionId).Count();
+                        int lHits = gLiability.Where(p => p.TransactionId == item.TransactionId).Count();
 
                         if (lHits > 0 )
                         {
@@ -80,13 +133,14 @@ namespace DW
                             continue;
                         }
   
-                        DWDataset.FactLiabilityRow lNewRow = gTable.NewFactLiabilityRow();
+                        DWDataset.FactLiabilityRow lNewRow = gLiability.NewFactLiabilityRow();
 
                         lNewRow.TransactionId = item.TransactionId;
                         lNewRow.EffectiveDate = item.EffectiveDate;
-                        if (item.OriginalTransactionId != null)
-                        {
-                            lNewRow.OriginalTransactionId = (int)item.OriginalTransactionId;
+                        if (item.PaymentTransactionId != null)
+                        {   
+                            // This is necessary because 
+                            lNewRow.PaymentTransactionId = (int)item.PaymentTransactionId;
                         }
 
                         if (item.CaptureDate != null)
@@ -102,14 +156,14 @@ namespace DW
                         lStage = "Before adding row";
 
 
-                        gTable.AddFactLiabilityRow(lNewRow);
+                        gLiability.AddFactLiabilityRow(lNewRow);
                     } // End of foreach - item
 
                     lStage = "Before updating table";
 
-                    gAdapter.Update(gTable);
-                    gTable.Clear();
-                    gTable.AcceptChanges();
+                    gLiabilityAdapter.Update(gLiability);
+                    gLiability.Clear();
+                    gLiability.AcceptChanges();
 
                     if (lCounter % 100 == 0)
                     {

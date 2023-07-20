@@ -1400,7 +1400,100 @@ namespace Subs.Presentation
             }
         }
 
-    
+
+        //private void buttonReallocateAllInvoices_Click(object sender, RoutedEventArgs e)
+        //{
+        //    CustomerDoc2.LiabilityDataTable lLiabilityTable = new CustomerDoc2.LiabilityDataTable();
+        //    Subs.Data.CustomerDoc2TableAdapters.LiabilityTableAdapter lLiabilityAdapter = new Subs.Data.CustomerDoc2TableAdapters.LiabilityTableAdapter();
+        //    int lCurrentPayer = 0;
+        //    int lCounter = 0;
+        //    try
+        //    {
+        //        this.Cursor = Cursors.Wait;
+        //        ExceptionData.WriteException(5, "Reallocation job started on  " + DateTime.Now.ToString(), this.ToString(), "buttonReallocateAllInvoices_Click", "");
+
+        //        lLiabilityAdapter.AttachConnection();
+        //        lLiabilityAdapter.Fill(lLiabilityTable);
+
+        //        foreach (CustomerDoc2.LiabilityRow lRow in lLiabilityTable)
+        //        {
+        //            lCounter++;
+        //            lCurrentPayer = lRow.PayerId;
+        //            List <Subs.Data.InvoicesAndPayments> lPaymentAndInvoice = new List<InvoicesAndPayments>();
+
+        //            { 
+        //                string lResult;
+
+        //                if ((lResult = CustomerData3.PopulateInvoice(lRow.PayerId, out lPaymentAndInvoice)) != "OK")
+        //                {
+        //                    ExceptionData.WriteException(5, lResult, this.ToString(), "buttonReallocateAllInvoices_Click", "CustomerId= " + lCurrentPayer.ToString());
+        //                    continue;
+        //                }
+
+        //                IEnumerable<Subs.Data.InvoicesAndPayments> lPayment = null;
+        //                lPayment = lPaymentAndInvoice.Where(p => p.OperationId == (int)Operation.Pay).OrderBy(q => q.TransactionId).ThenBy(r => r.Date).ToList();
+        //                if (lPayment.Count() == 0)
+        //                {
+        //                    continue;
+        //                }
+
+        //                foreach (Subs.Data.InvoicesAndPayments item in lPayment)
+        //                {
+        //                    if (item.Value > item.Balance)
+        //                    {
+        //                        ExceptionData.WriteException(5, "Reallocation problem", this.ToString(),"buttonReallocateAllInvoices_Click", "CustomerId= " + lCurrentPayer.ToString());
+
+        //                    }
+        //                }
+        //            }
+        //            //***{
+        //            //string lResult;
+
+        //            //if ((lResult = CustomerBiz.DistributeAllPayments(lRow.PayerId)) != "OK")
+        //            //{
+        //            //    if (lResult.Contains("Nothing"))
+        //            //    {
+        //            //        continue;
+        //            //    }
+        //            //    else
+        //            //    {
+        //            //        MessageBox.Show(lResult);
+        //            //        return;
+        //            //    }
+        //            //}
+        //            //}
+
+        //            if (lCounter % 100 == 0)
+        //            {
+        //                ExceptionData.WriteException(5, "Reallocation job progressed on  " + DateTime.Now.ToString(), this.ToString(), "buttonReallocateAllInvoices_Click", "Counter= " + lCounter.ToString());
+        //            }
+        //        }
+
+        //        ExceptionData.WriteException(5, "Reallocation job finished on  " + DateTime.Now.ToString(), this.ToString(), "buttonReallocateAllInvoices_Click", "Counter= " + lCounter.ToString());
+        //        MessageBox.Show("Done!");
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        //Display all the exceptions
+
+        //        Exception CurrentException = ex;
+        //        int ExceptionLevel = 0;
+        //        do
+        //        {
+        //            ExceptionLevel++;
+        //            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "buttonReallocateAllInvoices_Click",
+        //                "PayerId = " + lCurrentPayer.ToString());
+        //            CurrentException = CurrentException.InnerException;
+        //        } while (CurrentException != null);
+        //    }
+        //    finally
+        //    {
+        //        this.Cursor = Cursors.Arrow;
+        //    }
+        //}
+
+
         private void buttonReallocateAllInvoices_Click(object sender, RoutedEventArgs e)
         {
             CustomerDoc2.LiabilityDataTable lLiabilityTable = new CustomerDoc2.LiabilityDataTable();
@@ -1419,51 +1512,24 @@ namespace Subs.Presentation
                 {
                     lCounter++;
                     lCurrentPayer = lRow.PayerId;
-                    List <Subs.Data.InvoicesAndPayments> lPaymentAndInvoice = new List<InvoicesAndPayments>();
-
-                    { 
+                    {
                         string lResult;
 
-                        if ((lResult = CustomerData3.PopulateInvoice(lRow.PayerId, out lPaymentAndInvoice)) != "OK")
+                        if ((lResult = CustomerBiz.DistributeAllPayments(lRow.PayerId)) != "OK")
                         {
-                            ExceptionData.WriteException(5, lResult, this.ToString(), "buttonReallocateAllInvoices_Click", "CustomerId= " + lCurrentPayer.ToString());
-                            continue;
-                        }
-
-                        IEnumerable<Subs.Data.InvoicesAndPayments> lPayment = null;
-                        lPayment = lPaymentAndInvoice.Where(p => p.OperationId == (int)Operation.Pay).OrderBy(q => q.TransactionId).ThenBy(r => r.Date).ToList();
-                        if (lPayment.Count() == 0)
-                        {
-                            continue;
-                        }
-
-                        foreach (Subs.Data.InvoicesAndPayments item in lPayment)
-                        {
-                            if (item.Value > item.Balance)
+                            if (lResult.Contains("Nothing"))
                             {
-                                ExceptionData.WriteException(5, "Reallocation problem", this.ToString(),"buttonReallocateAllInvoices_Click", "CustomerId= " + lCurrentPayer.ToString());
-
+                                continue;
+                            }
+                            else
+                            {
+                                MessageBox.Show(lResult);
+                                return;
                             }
                         }
                     }
-                    //***{
-                    //string lResult;
 
-                    //if ((lResult = CustomerBiz.DistributeAllPayments(lRow.PayerId)) != "OK")
-                    //{
-                    //    if (lResult.Contains("Nothing"))
-                    //    {
-                    //        continue;
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show(lResult);
-                    //        return;
-                    //    }
-                    //}
-                    //}
-
-                    if (lCounter % 100 == 0)
+                    if (lCounter % 10 == 0)
                     {
                         ExceptionData.WriteException(5, "Reallocation job progressed on  " + DateTime.Now.ToString(), this.ToString(), "buttonReallocateAllInvoices_Click", "Counter= " + lCounter.ToString());
                     }
@@ -1492,6 +1558,11 @@ namespace Subs.Presentation
                 this.Cursor = Cursors.Arrow;
             }
         }
+
+
+
+
+
 
         #endregion
 

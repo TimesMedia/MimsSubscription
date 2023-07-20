@@ -26,6 +26,8 @@ namespace DW {
         
         private FactLiabilityDataTable tableFactLiability;
         
+        private FactDebtorDataTable tableFactDebtor;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace DW {
                 if ((ds.Tables["FactLiability"] != null)) {
                     base.Tables.Add(new FactLiabilityDataTable(ds.Tables["FactLiability"]));
                 }
+                if ((ds.Tables["FactDebtor"] != null)) {
+                    base.Tables.Add(new FactDebtorDataTable(ds.Tables["FactDebtor"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace DW {
         public FactLiabilityDataTable FactLiability {
             get {
                 return this.tableFactLiability;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public FactDebtorDataTable FactDebtor {
+            get {
+                return this.tableFactDebtor;
             }
         }
         
@@ -155,6 +170,9 @@ namespace DW {
                 if ((ds.Tables["FactLiability"] != null)) {
                     base.Tables.Add(new FactLiabilityDataTable(ds.Tables["FactLiability"]));
                 }
+                if ((ds.Tables["FactDebtor"] != null)) {
+                    base.Tables.Add(new FactDebtorDataTable(ds.Tables["FactDebtor"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace DW {
                     this.tableFactLiability.InitVars();
                 }
             }
+            this.tableFactDebtor = ((FactDebtorDataTable)(base.Tables["FactDebtor"]));
+            if ((initTable == true)) {
+                if ((this.tableFactDebtor != null)) {
+                    this.tableFactDebtor.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace DW {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableFactLiability = new FactLiabilityDataTable();
             base.Tables.Add(this.tableFactLiability);
+            this.tableFactDebtor = new FactDebtorDataTable();
+            base.Tables.Add(this.tableFactDebtor);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeFactLiability() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeFactDebtor() {
             return false;
         }
         
@@ -272,6 +304,9 @@ namespace DW {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void FactLiabilityRowChangeEventHandler(object sender, FactLiabilityRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void FactDebtorRowChangeEventHandler(object sender, FactDebtorRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -282,6 +317,8 @@ namespace DW {
             private global::System.Data.DataColumn columnTransactionId;
             
             private global::System.Data.DataColumn columnEffectiveDate;
+            
+            private global::System.Data.DataColumn columnPaymentTransactionId;
             
             private global::System.Data.DataColumn columnOriginalTransactionId;
             
@@ -339,6 +376,14 @@ namespace DW {
             public global::System.Data.DataColumn EffectiveDateColumn {
                 get {
                     return this.columnEffectiveDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PaymentTransactionIdColumn {
+                get {
+                    return this.columnPaymentTransactionId;
                 }
             }
             
@@ -419,11 +464,12 @@ namespace DW {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public FactLiabilityRow AddFactLiabilityRow(int TransactionId, System.DateTime EffectiveDate, int OriginalTransactionId, System.DateTime CaptureDate, int PayerId, int Operation, decimal Value) {
+            public FactLiabilityRow AddFactLiabilityRow(int TransactionId, System.DateTime EffectiveDate, int PaymentTransactionId, int OriginalTransactionId, System.DateTime CaptureDate, int PayerId, int Operation, decimal Value) {
                 FactLiabilityRow rowFactLiabilityRow = ((FactLiabilityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TransactionId,
                         EffectiveDate,
+                        PaymentTransactionId,
                         OriginalTransactionId,
                         CaptureDate,
                         PayerId,
@@ -460,6 +506,7 @@ namespace DW {
             internal void InitVars() {
                 this.columnTransactionId = base.Columns["TransactionId"];
                 this.columnEffectiveDate = base.Columns["EffectiveDate"];
+                this.columnPaymentTransactionId = base.Columns["PaymentTransactionId"];
                 this.columnOriginalTransactionId = base.Columns["OriginalTransactionId"];
                 this.columnCaptureDate = base.Columns["CaptureDate"];
                 this.columnPayerId = base.Columns["PayerId"];
@@ -474,6 +521,8 @@ namespace DW {
                 base.Columns.Add(this.columnTransactionId);
                 this.columnEffectiveDate = new global::System.Data.DataColumn("EffectiveDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEffectiveDate);
+                this.columnPaymentTransactionId = new global::System.Data.DataColumn("PaymentTransactionId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentTransactionId);
                 this.columnOriginalTransactionId = new global::System.Data.DataColumn("OriginalTransactionId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOriginalTransactionId);
                 this.columnCaptureDate = new global::System.Data.DataColumn("CaptureDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -619,6 +668,396 @@ namespace DW {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class FactDebtorDataTable : global::System.Data.TypedTableBase<FactDebtorRow> {
+            
+            private global::System.Data.DataColumn columnPayerId;
+            
+            private global::System.Data.DataColumn columnInvoiceId;
+            
+            private global::System.Data.DataColumn columnDateFrom;
+            
+            private global::System.Data.DataColumn columnMonth;
+            
+            private global::System.Data.DataColumn columnOperation;
+            
+            private global::System.Data.DataColumn columnOperationId;
+            
+            private global::System.Data.DataColumn columnVatPercentage;
+            
+            private global::System.Data.DataColumn columnExc;
+            
+            private global::System.Data.DataColumn columnVat;
+            
+            private global::System.Data.DataColumn columnInc;
+            
+            private global::System.Data.DataColumn columnStatementBalance;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FactDebtorDataTable() {
+                this.TableName = "FactDebtor";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal FactDebtorDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected FactDebtorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PayerIdColumn {
+                get {
+                    return this.columnPayerId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn InvoiceIdColumn {
+                get {
+                    return this.columnInvoiceId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DateFromColumn {
+                get {
+                    return this.columnDateFrom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn MonthColumn {
+                get {
+                    return this.columnMonth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OperationColumn {
+                get {
+                    return this.columnOperation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OperationIdColumn {
+                get {
+                    return this.columnOperationId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VatPercentageColumn {
+                get {
+                    return this.columnVatPercentage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ExcColumn {
+                get {
+                    return this.columnExc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn VatColumn {
+                get {
+                    return this.columnVat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn IncColumn {
+                get {
+                    return this.columnInc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn StatementBalanceColumn {
+                get {
+                    return this.columnStatementBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FactDebtorRow this[int index] {
+                get {
+                    return ((FactDebtorRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event FactDebtorRowChangeEventHandler FactDebtorRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event FactDebtorRowChangeEventHandler FactDebtorRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event FactDebtorRowChangeEventHandler FactDebtorRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event FactDebtorRowChangeEventHandler FactDebtorRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddFactDebtorRow(FactDebtorRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FactDebtorRow AddFactDebtorRow(int PayerId, int InvoiceId, System.DateTime DateFrom, string Month, string Operation, int OperationId, decimal VatPercentage, decimal Exc, decimal Vat, decimal Inc, decimal StatementBalance) {
+                FactDebtorRow rowFactDebtorRow = ((FactDebtorRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PayerId,
+                        InvoiceId,
+                        DateFrom,
+                        Month,
+                        Operation,
+                        OperationId,
+                        VatPercentage,
+                        Exc,
+                        Vat,
+                        Inc,
+                        StatementBalance};
+                rowFactDebtorRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFactDebtorRow);
+                return rowFactDebtorRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                FactDebtorDataTable cln = ((FactDebtorDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new FactDebtorDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnPayerId = base.Columns["PayerId"];
+                this.columnInvoiceId = base.Columns["InvoiceId"];
+                this.columnDateFrom = base.Columns["DateFrom"];
+                this.columnMonth = base.Columns["Month"];
+                this.columnOperation = base.Columns["Operation"];
+                this.columnOperationId = base.Columns["OperationId"];
+                this.columnVatPercentage = base.Columns["VatPercentage"];
+                this.columnExc = base.Columns["Exc"];
+                this.columnVat = base.Columns["Vat"];
+                this.columnInc = base.Columns["Inc"];
+                this.columnStatementBalance = base.Columns["StatementBalance"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnPayerId = new global::System.Data.DataColumn("PayerId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayerId);
+                this.columnInvoiceId = new global::System.Data.DataColumn("InvoiceId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvoiceId);
+                this.columnDateFrom = new global::System.Data.DataColumn("DateFrom", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateFrom);
+                this.columnMonth = new global::System.Data.DataColumn("Month", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMonth);
+                this.columnOperation = new global::System.Data.DataColumn("Operation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOperation);
+                this.columnOperationId = new global::System.Data.DataColumn("OperationId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOperationId);
+                this.columnVatPercentage = new global::System.Data.DataColumn("VatPercentage", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVatPercentage);
+                this.columnExc = new global::System.Data.DataColumn("Exc", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnExc);
+                this.columnVat = new global::System.Data.DataColumn("Vat", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVat);
+                this.columnInc = new global::System.Data.DataColumn("Inc", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInc);
+                this.columnStatementBalance = new global::System.Data.DataColumn("StatementBalance", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatementBalance);
+                this.columnPayerId.AllowDBNull = false;
+                this.columnMonth.MaxLength = 6;
+                this.columnOperation.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FactDebtorRow NewFactDebtorRow() {
+                return ((FactDebtorRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new FactDebtorRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(FactDebtorRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.FactDebtorRowChanged != null)) {
+                    this.FactDebtorRowChanged(this, new FactDebtorRowChangeEvent(((FactDebtorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.FactDebtorRowChanging != null)) {
+                    this.FactDebtorRowChanging(this, new FactDebtorRowChangeEvent(((FactDebtorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.FactDebtorRowDeleted != null)) {
+                    this.FactDebtorRowDeleted(this, new FactDebtorRowChangeEvent(((FactDebtorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.FactDebtorRowDeleting != null)) {
+                    this.FactDebtorRowDeleting(this, new FactDebtorRowChangeEvent(((FactDebtorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveFactDebtorRow(FactDebtorRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DWDataset ds = new DWDataset();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "FactDebtorDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class FactLiabilityRow : global::System.Data.DataRow {
@@ -651,6 +1090,22 @@ namespace DW {
                 }
                 set {
                     this[this.tableFactLiability.EffectiveDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PaymentTransactionId {
+                get {
+                    try {
+                        return ((int)(this[this.tableFactLiability.PaymentTransactionIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PaymentTransactionId\' in table \'FactLiability\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactLiability.PaymentTransactionIdColumn] = value;
                 }
             }
             
@@ -721,6 +1176,18 @@ namespace DW {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPaymentTransactionIdNull() {
+                return this.IsNull(this.tableFactLiability.PaymentTransactionIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPaymentTransactionIdNull() {
+                this[this.tableFactLiability.PaymentTransactionIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsOriginalTransactionIdNull() {
                 return this.IsNull(this.tableFactLiability.OriginalTransactionIdColumn);
             }
@@ -745,6 +1212,312 @@ namespace DW {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class FactDebtorRow : global::System.Data.DataRow {
+            
+            private FactDebtorDataTable tableFactDebtor;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal FactDebtorRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableFactDebtor = ((FactDebtorDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int PayerId {
+                get {
+                    return ((int)(this[this.tableFactDebtor.PayerIdColumn]));
+                }
+                set {
+                    this[this.tableFactDebtor.PayerIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int InvoiceId {
+                get {
+                    try {
+                        return ((int)(this[this.tableFactDebtor.InvoiceIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InvoiceId\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.InvoiceIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime DateFrom {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableFactDebtor.DateFromColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateFrom\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.DateFromColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Month {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactDebtor.MonthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Month\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.MonthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Operation {
+                get {
+                    try {
+                        return ((string)(this[this.tableFactDebtor.OperationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Operation\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.OperationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int OperationId {
+                get {
+                    try {
+                        return ((int)(this[this.tableFactDebtor.OperationIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OperationId\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.OperationIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal VatPercentage {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFactDebtor.VatPercentageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'VatPercentage\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.VatPercentageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Exc {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFactDebtor.ExcColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Exc\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.ExcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Vat {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFactDebtor.VatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Vat\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.VatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal Inc {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFactDebtor.IncColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Inc\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.IncColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal StatementBalance {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableFactDebtor.StatementBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StatementBalance\' in table \'FactDebtor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFactDebtor.StatementBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInvoiceIdNull() {
+                return this.IsNull(this.tableFactDebtor.InvoiceIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInvoiceIdNull() {
+                this[this.tableFactDebtor.InvoiceIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDateFromNull() {
+                return this.IsNull(this.tableFactDebtor.DateFromColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDateFromNull() {
+                this[this.tableFactDebtor.DateFromColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMonthNull() {
+                return this.IsNull(this.tableFactDebtor.MonthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMonthNull() {
+                this[this.tableFactDebtor.MonthColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOperationNull() {
+                return this.IsNull(this.tableFactDebtor.OperationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOperationNull() {
+                this[this.tableFactDebtor.OperationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOperationIdNull() {
+                return this.IsNull(this.tableFactDebtor.OperationIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOperationIdNull() {
+                this[this.tableFactDebtor.OperationIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVatPercentageNull() {
+                return this.IsNull(this.tableFactDebtor.VatPercentageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVatPercentageNull() {
+                this[this.tableFactDebtor.VatPercentageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsExcNull() {
+                return this.IsNull(this.tableFactDebtor.ExcColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetExcNull() {
+                this[this.tableFactDebtor.ExcColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsVatNull() {
+                return this.IsNull(this.tableFactDebtor.VatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetVatNull() {
+                this[this.tableFactDebtor.VatColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIncNull() {
+                return this.IsNull(this.tableFactDebtor.IncColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIncNull() {
+                this[this.tableFactDebtor.IncColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsStatementBalanceNull() {
+                return this.IsNull(this.tableFactDebtor.StatementBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetStatementBalanceNull() {
+                this[this.tableFactDebtor.StatementBalanceColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -764,6 +1537,40 @@ namespace DW {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public FactLiabilityRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class FactDebtorRowChangeEvent : global::System.EventArgs {
+            
+            private FactDebtorRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FactDebtorRowChangeEvent(FactDebtorRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public FactDebtorRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -911,50 +1718,57 @@ namespace DW.DWDatasetTableAdapters {
             tableMapping.ColumnMappings.Add("EffectiveDate", "EffectiveDate");
             tableMapping.ColumnMappings.Add("OriginalTransactionId", "OriginalTransactionId");
             tableMapping.ColumnMappings.Add("CaptureDate", "CaptureDate");
+            tableMapping.ColumnMappings.Add("PaymentTransactionId", "PaymentTransactionId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [FactLiability] WHERE (([TransactionId] = @Original_TransactionId) AND ([EffectiveDate] = @Original_EffectiveDate) AND ((@IsNull_OriginalTransactionId = 1 AND [OriginalTransactionId] IS NULL) OR ([OriginalTransactionId] = @Original_OriginalTransactionId)) AND ((@IsNull_CaptureDate = 1 AND [CaptureDate] IS NULL) OR ([CaptureDate] = @Original_CaptureDate)) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [FactLiability] WHERE (([TransactionId] = @Original_TransactionId) AND ([EffectiveDate] = @Original_EffectiveDate) AND ((@IsNull_PaymentTransactionId = 1 AND [PaymentTransactionId] IS NULL) OR ([PaymentTransactionId] = @Original_PaymentTransactionId)) AND ((@IsNull_OriginalTransactionId = 1 AND [OriginalTransactionId] IS NULL) OR ([OriginalTransactionId] = @Original_OriginalTransactionId)) AND ((@IsNull_CaptureDate = 1 AND [CaptureDate] IS NULL) OR ([CaptureDate] = @Original_CaptureDate)) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTransactionId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CaptureDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CaptureDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [FactLiability] ([TransactionId], [EffectiveDate], [OriginalTransactionId], [CaptureDate], [PayerId], [Operation], [Value]) VALUES (@TransactionId, @EffectiveDate, @OriginalTransactionId, @CaptureDate, @PayerId, @Operation, @Value);
-SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [FactLiability] ([TransactionId], [EffectiveDate], [PaymentTransactionId], [OriginalTransactionId], [CaptureDate], [PayerId], [Operation], [Value]) VALUES (@TransactionId, @EffectiveDate, @PaymentTransactionId, @OriginalTransactionId, @CaptureDate, @PayerId, @Operation, @Value);
+SELECT TransactionId, EffectiveDate, PaymentTransactionId, OriginalTransactionId, CaptureDate, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CaptureDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [FactLiability] SET [TransactionId] = @TransactionId, [EffectiveDate] = @EffectiveDate, [OriginalTransactionId] = @OriginalTransactionId, [CaptureDate] = @CaptureDate, [PayerId] = @PayerId, [Operation] = @Operation, [Value] = @Value WHERE (([TransactionId] = @Original_TransactionId) AND ([EffectiveDate] = @Original_EffectiveDate) AND ((@IsNull_OriginalTransactionId = 1 AND [OriginalTransactionId] IS NULL) OR ([OriginalTransactionId] = @Original_OriginalTransactionId)) AND ((@IsNull_CaptureDate = 1 AND [CaptureDate] IS NULL) OR ([CaptureDate] = @Original_CaptureDate)) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value));
-SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [FactLiability] SET [TransactionId] = @TransactionId, [EffectiveDate] = @EffectiveDate, [PaymentTransactionId] = @PaymentTransactionId, [OriginalTransactionId] = @OriginalTransactionId, [CaptureDate] = @CaptureDate, [PayerId] = @PayerId, [Operation] = @Operation, [Value] = @Value WHERE (([TransactionId] = @Original_TransactionId) AND ([EffectiveDate] = @Original_EffectiveDate) AND ((@IsNull_PaymentTransactionId = 1 AND [PaymentTransactionId] IS NULL) OR ([PaymentTransactionId] = @Original_PaymentTransactionId)) AND ((@IsNull_OriginalTransactionId = 1 AND [OriginalTransactionId] IS NULL) OR ([OriginalTransactionId] = @Original_OriginalTransactionId)) AND ((@IsNull_CaptureDate = 1 AND [CaptureDate] IS NULL) OR ([CaptureDate] = @Original_CaptureDate)) AND ([PayerId] = @Original_PayerId) AND ([Operation] = @Original_Operation) AND ([Value] = @Original_Value));
+SELECT TransactionId, EffectiveDate, PaymentTransactionId, OriginalTransactionId, CaptureDate, PayerId, Operation, Value FROM FactLiability WHERE (TransactionId = @TransactionId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CaptureDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EffectiveDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EffectiveDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTransactionId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PaymentTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PaymentTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OriginalTransactionId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OriginalTransactionId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CaptureDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CaptureDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CaptureDate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CaptureDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operation", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Value", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Value", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -973,8 +1787,8 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId," +
-                " Operation, Value FROM FactLiability";
+            this._commandCollection[0].CommandText = "SELECT TransactionId, EffectiveDate, PaymentTransactionId, OriginalTransactionId," +
+                " CaptureDate, PayerId, Operation, Value FROM FactLiability";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -1047,6 +1861,310 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class FactDebtorTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public FactDebtorTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "FactDebtor";
+            tableMapping.ColumnMappings.Add("PayerId", "PayerId");
+            tableMapping.ColumnMappings.Add("InvoiceId", "InvoiceId");
+            tableMapping.ColumnMappings.Add("DateFrom", "DateFrom");
+            tableMapping.ColumnMappings.Add("Month", "Month");
+            tableMapping.ColumnMappings.Add("Operation", "Operation");
+            tableMapping.ColumnMappings.Add("OperationId", "OperationId");
+            tableMapping.ColumnMappings.Add("VatPercentage", "VatPercentage");
+            tableMapping.ColumnMappings.Add("Exc", "Exc");
+            tableMapping.ColumnMappings.Add("Vat", "Vat");
+            tableMapping.ColumnMappings.Add("Inc", "Inc");
+            tableMapping.ColumnMappings.Add("StatementBalance", "StatementBalance");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[FactDebtor] ([PayerId], [InvoiceId], [DateFrom], [Month], [Operation], [OperationId], [VatPercentage], [Exc], [Vat], [Inc], [StatementBalance]) VALUES (@PayerId, @InvoiceId, @DateFrom, @Month, @Operation, @OperationId, @VatPercentage, @Exc, @Vat, @Inc, @StatementBalance)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PayerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PayerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@InvoiceId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "InvoiceId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateFrom", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateFrom", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Month", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operation", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operation", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OperationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OperationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VatPercentage", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "VatPercentage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Exc", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Exc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vat", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Vat", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inc", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "Inc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StatementBalance", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 6, "StatementBalance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DW.Properties.Settings.Default.SUBSDWConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT PayerId, InvoiceId, DateFrom, Month, Operation, OperationId, VatPercentage" +
+                ", Exc, Vat, Inc, StatementBalance FROM dbo.FactDebtor";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DWDataset.FactDebtorDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DWDataset.FactDebtorDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DWDataset.FactDebtorDataTable dataTable = new DWDataset.FactDebtorDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DWDataset.FactDebtorDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DWDataset dataSet) {
+            return this.Adapter.Update(dataSet, "FactDebtor");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(int PayerId, global::System.Nullable<int> InvoiceId, global::System.Nullable<global::System.DateTime> DateFrom, string Month, string Operation, global::System.Nullable<int> OperationId, global::System.Nullable<decimal> VatPercentage, global::System.Nullable<decimal> Exc, global::System.Nullable<decimal> Vat, global::System.Nullable<decimal> Inc, global::System.Nullable<decimal> StatementBalance) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(PayerId));
+            if ((InvoiceId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(InvoiceId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((DateFrom.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(DateFrom.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Month == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Month));
+            }
+            if ((Operation == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Operation));
+            }
+            if ((OperationId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(OperationId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((VatPercentage.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(VatPercentage.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Exc.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Exc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Vat.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(Vat.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Inc.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(Inc.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((StatementBalance.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(StatementBalance.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1059,6 +2177,8 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
         private UpdateOrderOption _updateOrder;
         
         private FactLiabilityTableAdapter _factLiabilityTableAdapter;
+        
+        private FactDebtorTableAdapter _factDebtorTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1091,6 +2211,20 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public FactDebtorTableAdapter FactDebtorTableAdapter {
+            get {
+                return this._factDebtorTableAdapter;
+            }
+            set {
+                this._factDebtorTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -1112,6 +2246,10 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
                             && (this._factLiabilityTableAdapter.Connection != null))) {
                     return this._factLiabilityTableAdapter.Connection;
                 }
+                if (((this._factDebtorTableAdapter != null) 
+                            && (this._factDebtorTableAdapter.Connection != null))) {
+                    return this._factDebtorTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -1126,6 +2264,9 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
             get {
                 int count = 0;
                 if ((this._factLiabilityTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._factDebtorTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1148,6 +2289,15 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._factDebtorTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.FactDebtor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._factDebtorTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -1166,6 +2316,14 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._factDebtorTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.FactDebtor.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._factDebtorTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -1176,6 +2334,14 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(DWDataset dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._factDebtorTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.FactDebtor.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._factDebtorTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._factLiabilityTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.FactLiability.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -1228,6 +2394,11 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._factDebtorTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._factDebtorTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -1267,6 +2438,15 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
                     if (this._factLiabilityTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._factLiabilityTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._factLiabilityTableAdapter.Adapter);
+                    }
+                }
+                if ((this._factDebtorTableAdapter != null)) {
+                    revertConnections.Add(this._factDebtorTableAdapter, this._factDebtorTableAdapter.Connection);
+                    this._factDebtorTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._factDebtorTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._factDebtorTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._factDebtorTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._factDebtorTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1330,6 +2510,10 @@ SELECT TransactionId, EffectiveDate, OriginalTransactionId, CaptureDate, PayerId
                 if ((this._factLiabilityTableAdapter != null)) {
                     this._factLiabilityTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._factLiabilityTableAdapter]));
                     this._factLiabilityTableAdapter.Transaction = null;
+                }
+                if ((this._factDebtorTableAdapter != null)) {
+                    this._factDebtorTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._factDebtorTableAdapter]));
+                    this._factDebtorTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

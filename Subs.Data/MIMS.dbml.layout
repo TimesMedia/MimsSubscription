@@ -32,10 +32,10 @@
         <elementListCompartment Id="d1c184e7-4a86-4f50-8c18-4e8fe9705384" absoluteBounds="0.5149999999999999, 5.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="727e55bd-ec04-4673-954e-2f35de1c81f4" absoluteBounds="5.875, 0.5, 2, 2.7324039713541666">
+    <classShape Id="727e55bd-ec04-4673-954e-2f35de1c81f4" absoluteBounds="5.875, 0.5, 2, 2.9247054036458331">
       <DataClassMoniker Name="/MIMSDataContext/LiabilityRecord" />
       <nestedChildShapes>
-        <elementListCompartment Id="b4f02715-cf9a-4902-8221-9ee34e6e7694" absoluteBounds="5.89, 0.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b4f02715-cf9a-4902-8221-9ee34e6e7694" absoluteBounds="5.89, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="20325687-6556-44bc-833d-928f6122db55" absoluteBounds="7.5, 5.25, 2, 1.0016910807291666">

@@ -2195,6 +2195,7 @@ namespace Subs.Data
                 // I want to order by date, and then, within date, by transactionId. 
 
                 // Convert to days without time, i.e. time = 00.00.00.000
+
                 //Put the original transactionid back, so that you do not get duplicate keys in LiabilityRecord.
 
                 foreach (LiabilityRecord item in lLiabilityList)
@@ -2203,6 +2204,7 @@ namespace Subs.Data
 
                     if (item.OperationId == (int)Operation.ReversePayment || item.OperationId == (int)Operation.Refund)
                     {
+                        item.PaymentTransactionId = item.TransactionId;
                         item.TransactionId = (int)item.OriginalTransactionId;
                     }
                 }

@@ -1122,6 +1122,8 @@ namespace Subs.Data
 		
 		private System.Nullable<System.DateTime> _CaptureDate;
 		
+		private System.Nullable<int> _PaymentTransactionId;
+		
 		public LiabilityRecord()
 		{
 		}
@@ -1282,6 +1284,22 @@ namespace Subs.Data
 				if ((this._CaptureDate != value))
 				{
 					this._CaptureDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentTransactionId")]
+		public System.Nullable<int> PaymentTransactionId
+		{
+			get
+			{
+				return this._PaymentTransactionId;
+			}
+			set
+			{
+				if ((this._PaymentTransactionId != value))
+				{
+					this._PaymentTransactionId = value;
 				}
 			}
 		}

@@ -305,14 +305,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\1108995933 -Synglutra Launch Letter %28003%29_Page_2.jpg" />
+    <Content Include="Images\21620T Ticarda Launch Letter EMAILER R4 new export1.jpg" />
+    <Content Include="Images\21620T Ticarda Launch Letter EMAILER R4 new export2.jpg" />
     <Content Include="Images\729d475f1e18e3a1af3b88552686f689.jpg" />
     <Content Include="Images\About page design.jpg" />
     <Content Include="Images\AccordHealth.png" />
+    <Content Include="Images\Accordhealth2.png" />
     <Content Include="Images\Ascendis Banner2 narrow.jpg" />
     <Content Include="Images\Astelair.png" />
+    <Content Include="Images\Auberif mailer for Mims.jpg" />
     <Content Include="Images\AUBERIF.png" />
+    <Content Include="Images\Auberif2.png" />
     <Content Include="Images\BeyondHealthCare.png" />
     <Content Include="Images\BIOMAB.png" />
+    <Content Include="Images\Daglife.png" />
     <Content Include="Images\Description.png" />
     <Content Include="Images\e1ceef999e48075f04d090070dde7fcf.jpg" />
     <Content Include="Images\gammaCore.jpg" />
@@ -320,6 +327,7 @@
     <Content Include="Images\HamburgerOff.gif" />
     <Content Include="Images\HamburgerOn.gif" />
     <Content Include="Images\Home page design wider.jpg" />
+    <Content Include="Images\hr Daglif A4 Ad print.jpg" />
     <Content Include="Images\IVS.jpg" />
     <Content Include="Images\Kroko2.png" />
     <Content Include="Images\mdr 2022.jpg" />
@@ -328,6 +336,8 @@
     <Content Include="Images\Mims.jpg" />
     <Content Include="Images\Mims2.jpg" />
     <Content Include="Images\MyDex.png" />
+    <Content Include="Images\Nasal-Spray-Travel-Budy.jpg" />
+    <Content Include="Images\NasalSpray.png" />
     <Content Include="Images\NewBeyond.png" />
     <Content Include="Images\NewByoo.jpg" />
     <Content Include="Images\OTC.jpg" />
@@ -335,6 +345,7 @@
     <Content Include="Images\PharmaDynamics.png" />
     <Content Include="Images\Saskia.jpg" />
     <Content Include="Images\shopping.png" />
+    <Content Include="Images\Synglutra.png" />
     <Content Include="Images\Tiso_Blackstar_Group_logo.psd" />
     <Content Include="appsettings.Development.json" />
     <Content Include="appsettings.json">

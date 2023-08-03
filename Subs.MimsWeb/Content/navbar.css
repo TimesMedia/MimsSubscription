@@ -43,7 +43,7 @@
 
 html {
     font-family: sans-serif;
-    line-height: 1.15;
+    line-height: 1;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -4626,7 +4626,7 @@ input[type="button"].btn-block {
 
 .nav-link {
     display: flow-root;
-    padding: 0.5rem 1.3rem;
+    padding: 0.5rem 1rem;
 }
 
     .nav-link:hover, .nav-link:focus {

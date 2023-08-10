@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/Content/normalise.css">
+    <link rel="stylesheet" href="/Content/Styles.css">
+    <title>Welcome</title>
+
+    <style>
+        p {
+            padding: 1em 1em 1em 1em;
+            font-family: Arial;
+            font-size: large;
+            font-weight: 600;
+            color: blue;
+        }
+    </style>
+</head>
+<body style="padding-top:7em;padding-bottom:4em;position:page">
+    <p>
+        @Html.ViewBag.Message
+    </p>
+    <div class="pic">
+
+        <img src="~/Images/WelcomeWide.jpg" style="width:100%; " />
+
+    </div>
+    @*<p>
+            @if(Model.Amount > 0.05M)
+            {
+            @Html.ActionLink("Goto payment menu", "Pay", "Promotion",
+            new
+                {
+                    onclick = "return window.confirm('You have R" + @Model.Amount.ToString("######0.00") + " outstanding on INV" +
+                    @Model.InvoiceId.ToString() + " Do you want to pay it now?"
+                });
+            }
+        </p>*@
+    <footer style="border: solid 1px black; color: #fff; background-color: dodgerblue;
+            text-align:center; align-content:center">
+        <label>
+
+            <a href="https://sacoronavirus.co.za/" target="_blank" text-decoration:underline; style="color: #fff; background-color: dodgerblue">Online CoronaVirus News</a>
+        </label>
+        <br />
+
+        <label style="text-align:center; font-size:0.9em">Copyright &copy; @DateTime.Now.Year  MIMS. All Rights Reserved.</label>
+
+
+        <label><a href="~/Content/TermsConditions.html" target="_blank" style="font-size:0.9em; color: white;background-color:dodgerblue;">Terms and conditions</a></label>
+    </footer>
+
+</body>
+</html>

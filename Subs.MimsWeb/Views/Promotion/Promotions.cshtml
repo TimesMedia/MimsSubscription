@@ -77,6 +77,7 @@
             color: #444;
             text-align: left;
             background-color: #fff;
+
         }
 
         .welcome {
@@ -12938,12 +12939,9 @@
         }
         }
 
-        @@include media-breakpoint-down(sm) {
-            .footer {
-                padding: 15px 0;
-                flex-direction: column;
-            }
+       
         }
+
 
         .label a {
             text-align: center;
@@ -12957,15 +12955,49 @@
         }
 
         .brands {
-            width: 225px;
-            height: 290px;
+            width: 205px;
+            height: 250px;
             padding-bottom: 10px;
             margin: 0;
+        }
+        .img:hover img {
+            transform: translate(4px,-3px);
+           
+        }
+        .title {
+            font-size:medium;
+          
+        }
+
+        .title .content  {
+            opacity: .7;
+            margin: 10px 0;
+        }
+        .title .img {
+            background-image: linear-gradient( to top roght, #d89cd1, #d499d4);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 30px;
+        }
+        .img .content {
+            background-color: #ffffff24;
+            border-radius: 30px;
+            padding: 50px 30px;
+            transform: translate(0,-50px);
+            backdrop-filter: blur(20px);
+            color: #fff;
+        }
+
+        .img .content .des {
+            opacity: .7;
+            margin: 10px 0;
         }
     </style>
 </head>
 
-<body style="padding-top:6em;padding-bottom:8em;position:page">
+<body position:page">
 
     <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
 
@@ -12979,74 +13011,76 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-3 " style="text-align:center">
-                    <label class="label">DAGLIFE</label><br />
-                    <a href="https://pi-pil-repository.sahpra.org.za/wp-content/uploads/2022/08/Final_PIL_Daglif_Applicant.pdf" target="_blank"><img src="~/Images/Daglife.png" class="brands" /></a>
+                    <div class="content">
+                    <label class="title">DAGLIFE</label><br />
+                   <div class="img"> <a href="https://pi-pil-repository.sahpra.org.za/wp-content/uploads/2022/08/Final_PIL_Daglif_Applicant.pdf" target="_blank"><img src="~/Images/Daglife.png" class="brands" /></a></div>
+                    </div>
+                    </div>
+
+                <div class="col-12 col-md-3" style="text-align:center">
+                    <label class="title">NASAL SPRAY</label><br />
+                    <div class="img"><a href="~/Images/Nasal-Spray-Travel-Budy.jpg" target="_blank"><img src="~/Images/NasalSpray.png" class="brands" /></a></div>
                 </div>
 
                 <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">NASAL SPRAY</label><br />
-                    <a href="~/Images/Nasal-Spray-Travel-Budy.jpg" target="_blank"><img src="~/Images/NasalSpray.png" class="brands" /></a>
-                </div>
-
-                <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">SAGALATIN</label><br />
-                    <a href="https://www.cipla.co.za/our-offerings/" target="_blank"><img src="~/Images/Synglutra.png" class="brands" /></a>
+                    <label class="title">SAGALATIN</label><br />
+                    <div class="img"><a href="https://www.cipla.co.za/our-offerings/" target="_blank"><img src="~/Images/Synglutra.png" class="brands" /></a></div>
                 </div>
                 <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">SAGALATIN</label><br />
-                    <a href="https://www.cipla.co.za/our-offerings/" target="_blank"><img src="~/Images/sagalatin.png" class="brands" /></a>
+                    <label class="title">SAGALATIN</label><br />
+                    <div class="img"><a href="https://www.cipla.co.za/our-offerings/" target="_blank"><img src="~/Images/sagalatin.png" class="brands" /></a></div>
                 </div>
 
             </div>
 
             <div class="row">
                 <div class="col-12 col-md-3 " style="text-align:center">
-                    <label class="label ">AUBERIF </label><br />
-                    <a href="https://www.sanofi.co.za/en/healthcare-solution" target="_blank"><img src="~/Images/Auberif2.png" class="brands"></a>
+                    <label class="title ">AUBERIF </label><br />
+                   <div class="img"> <a href="https://www.sanofi.co.za/en/healthcare-solution" target="_blank"><img src="~/Images/Auberif2.png" class="brands"></a></div>
                 </div>
 
                 <div class="col-12 col-md-3 " style="text-align:center">
-                    <label class="label ">BYOND HEALTHCARE </label><br />
-                    <a href="~/Content/NewBeyondHealth.html" target="_blank"><img src="~/Images/NewBeyond.png" class="brands"></a>
+                    <label class="title ">BYOND HEALTHCARE </label><br />
+                    <div class="img"><a href="~/Content/NewBeyondHealth.html" target="_blank"><img src="~/Images/NewBeyond.png" class="brands"></a></div>
                 </div>
                 <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">ORAMORPH </label><br />
-                    <a href="https://eurolab.co.za/innovation-technology/biomab/" target="_blank"><img src="~/Images/BIOMAB.png" class="brands" /></a>
+                    <label class="title">ORAMORPH </label><br />
+                    <div class="img"><a href="https://eurolab.co.za/innovation-technology/biomab/" target="_blank"><img src="~/Images/BIOMAB.png" class="brands" /></a></div>
                 </div>
                 <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">KROKO</label><br />
-                    <a href="https://www.kroko.co.za/" target="_blank"><img src="~/Images/Kroko2.png" class="brands" /></a>
+                    <label class="title">KROKO</label><br />
+                    <div class="img"><a href="https://www.kroko.co.za/" target="_blank"><img src="~/Images/Kroko2.png" class="brands" /></a></div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">ASTELAIR </label><br />
-                    <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/Astelair.png" class="brands" /></a>
+                    <label class="title">ASTELAIR </label><br />
+                   <div class="img"> <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/Astelair.png" class="brands" /></a></div>
                 </div>
 
 
                 <div class="col-12 col-md-3" style="text-align:center;">
-                    <label class="label">TADALAFIL </label><br />
-                    <a href="https://www.mydynamics.co.za/" target="_blank"><img src="~/Images/PharmaDynamics.png" class="brands"></a>
+                    <label class="title">TADALAFIL </label><br />
+                    <div class="img"><a href="https://www.mydynamics.co.za/" target="_blank"><img src="~/Images/PharmaDynamics.png" class="brands"></a></div>
                 </div>
                 @*<div class="col-12 col-md-3 " style="text-align:center">
             <label class="label">TICARDA </label><br />
             <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/AccordHealth.png" class="brands"></a>
         </div>*@
                 <div class="col-12 col-md-3 " style="text-align:center">
-                    <label class="label">MYDEX</label><br />
-                    <a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/MyDex.png" class="brands" /></a>
+                    <label class="title">MYDEX</label><br />
+                    <div class="img"><a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/MyDex.png" class="brands" /></a></div>
                 </div>
                 <div class="col-12 col-md-3 " style="text-align:center">
-                    <label class="label">XINDEX</label><br />
-                    <a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/XINdex.png" class="brands"></a>
+                    <label class="title">XINDEX</label><br />
+                    <div class="img"><a href="https://gen-eye.co.za/" target="_blank"><img src="~/Images/XINdex.png" class="brands"></a></div>
                 </div>
             </div>
             <div>
                 <div class="col-12 col-md-3" style="text-align:center">
-                    <label class="label">TIRCADA</label><br />
-                    <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/Accordhealth2.png" class="brands" /></a>
+                    <label class="title">TIRCADA</label><br />
+                   <div class="img"> <a href="https://www.accord-healthcare.co.za/" target="_blank"><img src="~/Images/Accordhealth2.png" class="brands" /></a></div>
                 </div>
             </div>
            

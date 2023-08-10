@@ -30,7 +30,7 @@
         }
 
         #MenuDiv a:hover {
-            font-size: 1.2em;
+            font-size: 1em;
             background-color: aqua;
         }
      
@@ -87,7 +87,7 @@
     <img src="~/Images/HamburgerOff.gif" id="HamburgerOff" class="Hamburger" onclick="MenuFunction()" />
 
     <div class="MimsImage">
-        <img src="~/Content/img/logos/mims-small.png"  width="300" />
+        <img src="~/Content/img/logos/mims-small.png" width="200" />
     </div>
 
 
@@ -105,7 +105,7 @@
         <div>@Html.ActionLink("PROMOTIONS", "Promotions", "Promotion")</div>
 
         @*<div> <a style="color: grey" ; href="http://www.mobimims.co.za/">mobiMIMS</a></div>
-        <div> <a style="color: grey" ; href="https://www.emims.co.za/emims">eMIMS</a></div>*@
+            <div> <a style="color: grey" ; href="https://www.emims.co.za/emims">eMIMS</a></div>*@
 
         <div>@Html.ActionLink("CONTACT", "Contact", "Home", new { target = "Contacts" })</div>
 
@@ -119,7 +119,7 @@
             else
             {
                 <div>@Html.ActionLink("PAY", "Pay", "Promotion")</div>
-                <div>@Html.ActionLink("LOGOUT", "Logout", "Home")</div>
+                <div>@Html.ActionLink("LOGOUT", "Thanks", "Home")</div>
                 <div>@Html.ActionLink("PROFILE", "Account", "Home")</div>
 
             }
@@ -129,7 +129,23 @@
         @*<div>@Html.ActionLink("Test", "Test", "Home")</div>*@
     </div>
 
-    <br />
+
+
+    <hr style="background-color:dodgerblue; height:7px" />
     @RenderBody()
+    
+    
+    <footer style="border: solid 1px black; color: #fff; background-color: dodgerblue;
+            text-align:center;">
+        <label style="justify-content:left;">
+
+            <a href="https://sacoronavirus.co.za/" target="_blank" text-decoration:underline; style="color: #fff; background-color: dodgerblue">Online CoronaVirus News</a>
+        </label>
+
+        <label style="text-align:center; font-size:0.9em">Copyright &copy; @DateTime.Now.Year  MIMS. All Rights Reserved.</label>
+
+
+        <label><a href="~/Content/TermsConditions.html" target="_blank" style="font-size:0.9em; color: white;background-color:dodgerblue;">Terms and conditions</a></label>
+    </footer>
 </body>
 </html>

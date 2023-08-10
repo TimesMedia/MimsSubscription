@@ -10,19 +10,20 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/Content/normalise.css">
     <link rel="stylesheet" href="/Content/Styles.css">
+    <link rel="stylesheet" href="~/Content/navbar.css" />
     <title>Welcome</title>
 
     <style>
         p {
-            padding: 1em 1em 1em 1em;
+            padding: 0 0 0 0;
             font-family: Arial;
             font-size: large;
-            font-weight: 600;
+            font-weight: 500;
             color: blue;
         }
     </style>
 </head>
-<body style="padding-top:7em;padding-bottom:4em;position:page">
+<body style="position:page">
     <p>
         @Html.ViewBag.Message
     </p>
@@ -42,19 +43,7 @@
                 });
             }
         </p>*@
-    <footer style="border: solid 1px black; color: #fff; background-color: dodgerblue;
-            text-align:center; align-content:center">
-        <label>
-
-            <a href="https://sacoronavirus.co.za/" target="_blank" text-decoration:underline; style="color: #fff; background-color: dodgerblue">Online CoronaVirus News</a>
-        </label>
-        <br />
-
-        <label style="text-align:center; font-size:0.9em">Copyright &copy; @DateTime.Now.Year  MIMS. All Rights Reserved.</label>
-
-
-        <label><a href="~/Content/TermsConditions.html" target="_blank" style="font-size:0.9em; color: white;background-color:dodgerblue;">Terms and conditions</a></label>
-    </footer>
+   
 
 </body>
 </html>

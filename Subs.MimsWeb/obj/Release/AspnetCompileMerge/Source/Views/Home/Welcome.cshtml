@@ -10,33 +10,40 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/Content/normalise.css">
     <link rel="stylesheet" href="/Content/Styles.css">
+    <link rel="stylesheet" href="~/Content/navbar.css" />
     <title>Welcome</title>
 
     <style>
         p {
-            padding: 1em 1em 1em 1em;
+            padding: 0 0 0 0;
             font-family: Arial;
             font-size: large;
-            font-weight: 600;
+            font-weight: 500;
             color: blue;
         }
     </style>
 </head>
-<body>
+<body style="position:page">
     <p>
         @Html.ViewBag.Message
     </p>
+    <div class="pic">
+
+        <img src="~/Images/WelcomeWide.jpg" style="width:100%; " />
+
+    </div>
     @*<p>
-        @if(Model.Amount > 0.05M)
-        { 
-        @Html.ActionLink("Goto payment menu", "Pay", "Promotion",
-        new
+            @if(Model.Amount > 0.05M)
             {
-                onclick = "return window.confirm('You have R" + @Model.Amount.ToString("######0.00") + " outstanding on INV" +
-                @Model.InvoiceId.ToString() + " Do you want to pay it now?"
-            });
-        }
-    </p>*@
+            @Html.ActionLink("Goto payment menu", "Pay", "Promotion",
+            new
+                {
+                    onclick = "return window.confirm('You have R" + @Model.Amount.ToString("######0.00") + " outstanding on INV" +
+                    @Model.InvoiceId.ToString() + " Do you want to pay it now?"
+                });
+            }
+        </p>*@
+   
 
 </body>
 </html>

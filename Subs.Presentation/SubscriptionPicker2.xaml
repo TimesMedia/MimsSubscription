@@ -16,7 +16,7 @@
         <local:IntegerConverter x:Key="lIntegerConverter"/>
         <ContextMenu x:Key="ContextTransactions">
             <MenuItem Header="Activate proposal" Click="Click_Activate" />
-            <MenuItem Header="Cancel" Click="Click_Cancel"/>
+            <MenuItem Header="Cancel" Click="Click_Cancel"  Tag="AuthorityHigh" Loaded="SetVisibility"/>
             <MenuItem Header="Change automatic renewal" Click="Click_ChangeAutomaticRenewal" />
             <MenuItem Header="Change receiver" Click="Click_ChangeReceiver" />
             <MenuItem Header="Change delivery method" Click="Click_ChangeDeliveryMethod" />

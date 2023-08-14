@@ -40,7 +40,7 @@ namespace Subs.Presentation
                     Lines[lNextIndex] = gCustomerData.CompanyName; lNextIndex++;
                     Lines[lNextIndex] = gCustomerData.FullName; lNextIndex++;
                 }
-                else { Line1.Content = gCustomerData.FullName; lNextIndex++; };
+                else { Lines[lNextIndex] = gCustomerData.FullName; lNextIndex++; };
 
 
                 if (!String.IsNullOrWhiteSpace(gCustomerData.Department) && gCustomerData.Department != gCustomerData.FullName)

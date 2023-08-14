@@ -365,7 +365,7 @@ namespace Subs.Data
             }
         }
 
-        public static bool Refund(ref SqlTransaction pSqlTransactionId, int pPaymentTransactionId, int pPayerId, decimal pAmount)
+        public static bool Refund(ref SqlTransaction pSqlTransactionId, int pPaymentTransactionId, int pPayerId, decimal pAmount, DateTime pEffectiveDate)
         {
             try
             {
@@ -387,7 +387,7 @@ namespace Subs.Data
                 Command.Parameters["@DebitValue"].Value = pAmount;
                 Command.Parameters["@ReferenceType2"].Value = "PaymentTransactionId";
                 Command.Parameters["@Reference2"].Value = pPaymentTransactionId.ToString();
-                Command.Parameters["@DateFrom"].Value = System.DateTime.Now;
+                Command.Parameters["@DateFrom"].Value = pEffectiveDate;
 
                 Command.ExecuteNonQuery();
                 return true;

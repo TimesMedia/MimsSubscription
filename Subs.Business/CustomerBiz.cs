@@ -739,7 +739,7 @@ namespace Subs.Business
             }
         }
 
-        public static string Refund(int pPaymentTransactionId, int pPayerId, decimal pRefundAmount)
+        public static string Refund(int pPaymentTransactionId, int pPayerId, decimal pRefundAmount, DateTime pEffectiveDate)
         {
             // Start the transaction
             SqlTransaction lSqlTransaction;
@@ -757,7 +757,7 @@ namespace Subs.Business
                     return "Error in Refund ";
                 }
 
-                if (!LedgerData.Refund(ref lSqlTransaction, pPaymentTransactionId, pPayerId, pRefundAmount))
+                if (!LedgerData.Refund(ref lSqlTransaction, pPaymentTransactionId, pPayerId, pRefundAmount, pEffectiveDate))
                 {
                     lSqlTransaction.Rollback("Refund");
                     return "Error in Refund ";

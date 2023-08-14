@@ -34,3 +34,4 @@ C:\CSharp\MimsSubscription\Subs.Data\obj\Debug\Subs.Data.csproj.CoreCompileInput
 C:\CSharp\MimsSubscription\Subs.Data\obj\Debug\Subs.Data.csproj.CopyComplete
 C:\CSharp\MimsSubscription\Subs.Data\obj\Debug\Subs.Data.dll
 C:\CSharp\MimsSubscription\Subs.Data\obj\Debug\Subs.Data.pdb
+C:\CSharp\MimsSubscription\Subs.Data\obj\Debug\Subs.Data.csproj.AssemblyReference.cache

@@ -2065,6 +2065,8 @@ namespace Subs.Presentation
                     return;
                 }
 
+                ElicitDate lElicitDate = new ElicitDate("Please supply the effective date for the refund.");
+                lElicitDate.ShowDialog();
 
                 ElicitDecimal lElicitDecimal = new ElicitDecimal("Please provide the amount to be refunded.");
                 lElicitDecimal.ShowDialog();
@@ -2085,7 +2087,7 @@ namespace Subs.Presentation
                 {
                     string lResult;
 
-                    if ((lResult = CustomerBiz.Refund(lInvoice.TransactionId, gCurrentCustomer.CustomerId, lElicitDecimal.Answer)) != "OK")
+                    if ((lResult = CustomerBiz.Refund(lInvoice.TransactionId, gCurrentCustomer.CustomerId, lElicitDecimal.Answer, lElicitDate.Answer)) != "OK")
                     {
                         MessageBox.Show(lResult);
                         return;

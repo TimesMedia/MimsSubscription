@@ -193,7 +193,7 @@
 
                 <!--Row 1-->
 
-                <Button Grid.Row="1" Grid.Column="0" Height="30" Click="Button_SetPaymentCheckpoint" HorizontalAlignment="Left"  Width="230"  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="4" Margin="0,5">Set a checkpoint for payments</Button>
+                <!--<Button Grid.Row="1" Grid.Column="0" Height="30" Click="Button_SetPaymentCheckpoint" HorizontalAlignment="Left"  Width="230"  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="4" Margin="0,5">Set a checkpoint for payments</Button>-->
                 <Label Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100" Margin="97,0,96,0">Payments</Label>
                 <Button x:Name="ButtonAllocate" Grid.Row="1" Grid.Column="5" Click="ButtonAllocate_Click" HorizontalAlignment="Right"  
                          Tag="AuthorityHigh" Loaded="SetVisibility" Width="230">Allocate all the payments</Button>
@@ -246,8 +246,8 @@
                 <!--Row 3-->
 
 
-                <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Width="230" Click="ButtonSetCheckpointInvoice"
-                        ToolTip="Invoke input."  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="4">Set a checkpoint for invoices</Button>
+                <!--<Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Width="230" Click="ButtonSetCheckpointInvoice"
+                        ToolTip="Invoke input."  Tag="AuthorityHigh" Loaded="SetVisibility" Grid.ColumnSpan="4">Set a checkpoint for invoices</Button>-->
                 <Label Grid.Row="3" Grid.Column="4" HorizontalAlignment="Center" FontSize="15" Background="Gold" Width="100" Margin="97,0,96,0">Invoices</Label>
                 <Button  Grid.Row="3" Grid.Column="5"  Click="ButtonCreateStatement_Click" HorizontalAlignment="Right"  Width="230"  Tag="AuthorityMedium" Loaded="SetVisibility">Create a statement</Button>
 

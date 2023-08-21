@@ -9,7 +9,6 @@
         Title="CustomerPickerWindow" WindowState="Maximized" WindowStartupLocation="Manual" Left="0" Top="20"
         Loaded="Window_Loaded" Background="Gold" Height="920" MinWidth="1000" Width="1330">
     <Window.Resources>
-        <!--<my:CustomerDoc2 x:Key="customerDoc2" />-->
         <my:LedgerDoc2 x:Key="ledgerDoc2" />
         <CollectionViewSource x:Key="customerViewSource"/>
         <CollectionViewSource x:Key="transactionsViewSource" Source="{Binding Path=Transactions, Source={StaticResource ledgerDoc2}}" />
@@ -70,10 +69,7 @@
                         <Button Canvas.Left="956" Canvas.Top="16" Content="Capture a new customer" Height="22" Name="buttonNew" Click="Click_NewCustomer" Width="184" />
                         <Button Canvas.Left="956" Canvas.Top="67" Content="Resume capture of new customer" Height="22" Name="buttonNewResume" Click="Click_NewCustomerResume" 
                                     Width="184" IsEnabled="False" />
-                        <!--<local:AddressTypeControl x:Name="AddressTypeSelector" Height="78" Canvas.Left="721" Canvas.Top="12" Width="203"></local:AddressTypeControl>-->
-                        <!--<Button Content="Search by address type" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="203" Canvas.Left="721" 
-                                    Canvas.Top="118" Height="22" Click="button_SearchByAddressType"/>-->
-                    </Canvas>
+                     </Canvas>
                 </GroupBox>
 
                 <DataGrid x:Name="customerDataGrid" Grid.Row="1" DataContext="{StaticResource customerViewSource}" IsSynchronizedWithCurrentItem="True" AutoGenerateColumns="False" 
@@ -131,7 +127,6 @@
                             <MenuItem Header="DeliveryAddress" Click="Click_DeliveryAddress" IsEnabled="{Binding IsEnabled, ElementName=Profile}"/>
                             <MenuItem Header="Destroy customer" Click="Click_DestroyCustomer" Tag="AuthorityHigh" Loaded="SetVisibility"/>
                             <MenuItem Header="Statement" Click="Click_Statement" />
-                            <!--<MenuItem Header="Invoices Reset checkpoints" Click="Click_ResetAllCheckpoints" />-->
                             <MenuItem Header="Liability calculation" Click="Click_ShowLiabilities"/>
                             <MenuItem Header="Profile" Click="Click_Profile" IsEnabled ="True" x:Name="Profile"/>
                             <MenuItem Header="Select" Click="Click_CustomerSelect" />

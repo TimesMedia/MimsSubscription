@@ -39,7 +39,10 @@ namespace Subs.Presentation
             try
             { 
                 InitializeComponent();
+
+                gDeliveryAddressDoc = ((DeliveryAddressDoc)(this.FindResource("deliveryAddressDoc")));
                 gDeliveryAddressViewSource = (CollectionViewSource)(this.FindResource("deliveryAddressViewSource"));
+                //gDeliveryAddressViewSource.Source = DeliveryAddressStatic.DeliveryAddresses;
                 gCountryViewSource = (CollectionViewSource)Resources["countryViewSource"];
                 gCityViewSource = (CollectionViewSource)Resources["provinceCityViewSource"];
                 gSuburbViewSource = (CollectionViewSource)Resources["provinceCitySuburbViewSource"];
@@ -85,14 +88,13 @@ namespace Subs.Presentation
 
                 // Load the standard addresses hierarchy
 
-                gDeliveryAddressDoc = ((DeliveryAddressDoc)(this.FindResource("deliveryAddressDoc")));
 
                 gCountryTableAdapter.AttachConnection();
                 gProvinceTableAdapter.AttachConnection();
                 gCityTableAdapter.AttachConnection();
                 gSuburbTableAdapter.AttachConnection();
                 gStreetTableAdapter.AttachConnection();
-                 
+
 
                 gCountryTableAdapter.Fill(gDeliveryAddressDoc.Country);
                 gProvinceTableAdapter.Fill(gDeliveryAddressDoc.Province);
@@ -100,7 +102,10 @@ namespace Subs.Presentation
                 gSuburbTableAdapter.Fill(gDeliveryAddressDoc.Suburb);
                 gStreetTableAdapter.Fill(gDeliveryAddressDoc.Street);
 
-                gCountryViewSource.View.MoveCurrentToPosition(gDeliveryAddressDoc.Country.Rows.IndexOf(gDeliveryAddressDoc.Country.FindByCountryId(61)));
+                DeliveryAddressDoc.CountryRow lCountry = gDeliveryAddressDoc.Country.FindByCountryId(61);
+                int lCountryIndex = gDeliveryAddressDoc.Country.Rows.IndexOf(lCountry);
+
+                gCountryViewSource.View.MoveCurrentToPosition(34);
                 countryDataGrid.ScrollIntoView(gCountryViewSource.View.CurrentItem);
 
             }

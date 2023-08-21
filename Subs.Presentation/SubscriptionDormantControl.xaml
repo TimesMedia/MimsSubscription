@@ -20,7 +20,7 @@
     </UserControl.Resources>
     <StackPanel DataContext="{StaticResource DormantViewSource}" Margin="0,0,0,0" Width="auto" Orientation="Vertical">
         <DataGrid x:Name="DormantDataGrid" Width="Auto" Margin="0,0,0,0" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False"
-                  Height="800" SelectionMode="Single" SelectionUnit="CellOrRowHeader"  AlternatingRowBackground="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
+                  Height="800" SelectionMode="Extended" SelectionUnit="CellOrRowHeader"  AlternatingRowBackground="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" 
                   CanUserAddRows="False" CanUserDeleteRows="False" MouseRightButtonUp="Click_MouseRightButtonUp" RowHeight="30" >
             <DataGrid.RowHeaderStyle>
                 <Style TargetType="{x:Type DataGridRowHeader}">

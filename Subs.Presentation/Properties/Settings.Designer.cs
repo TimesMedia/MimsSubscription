@@ -27,7 +27,7 @@ namespace Subs.Presentation.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PKLWEBDB01\\mssql2016std;Initial Catalog=MIMS3;Integrated Security=Tru" +
-            "e;Enlist=False;Pooling=True;Max Pool Size=10;Connect Timeout=100")]
+            "e;Enlist=False;Pooling=True;Max Pool Size=20;Connect Timeout=100")]
         public string ConnectionString {
             get {
                 return ((string)(this["ConnectionString"]));

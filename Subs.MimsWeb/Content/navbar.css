@@ -48,7 +48,7 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, figcaption, figure,  header, hgroup, main, nav, section {
     display: block;
 }
 
@@ -158,17 +158,12 @@ sup {
 }
 
 a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    background-color: transparent;
+    background-color: orangered;
 }
 
-    a:hover {
-        color: #fff;
-        text-decoration: double;
-        background-color: aliceblue;
-        padding-block: auto;
-    }
+   
 
     a:not([href]):not([tabindex]) {
         color: inherit;
@@ -12165,12 +12160,7 @@ textarea.form-control {
             color: #6c757d;
         }
 
-            .footer .social-links a:hover {
-                background: #abd5df;
-                border-color: #ff6e42;
-                color: #fff;
-                text-decoration: none;
-            }
+           
 
 @media (max-width: 767.98px) {
     .footer {
@@ -12828,60 +12818,21 @@ include media-breakpoint-down(lg) {
     margin-top: -8%;
 }
 
-.shape {
-    svg path
 
-{
-    fill: darken(#f9fbfd,1%);
-}
 
-}
-}
 
-/* header title*/
-&-title {
-    font-size: 2.4rem;
-    font-weight: bold;
-    opacity: .8;
-    color: $body-color;
-}
-
-/* header mini*/
-&-mini {
-    min-height: 24rem;
-    height: 24rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem;
-    background: lighten($primary, 20%);
-}
-
-}
 
 /*End of header*/
 
 /*Footer*/
 .footer {
-    @include flex;
-    min-height: 70px;
-    border-top: 1px solid $border-color;
-    align-items: center;
+    
+    align-items: flex-end;
 }
 
-{
-    flex-grow: 1;
-    flex-basis: 0;
-}
 
-a, p {
-    color: $gray-800;
-    padding: 4px 0;
-    display: inline-block;
-    margin: 0;
-}
+
+
 
 .brand {
     font-size: 20px;
@@ -12889,39 +12840,6 @@ a, p {
     margin-bottom: 6px;
 }
 
-.social-links {
-    margin-left: auto;
-    a
-
-{
-    padding: 0;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    line-height: 40px;
-    text-align: center;
-    border: 2px solid #6c757d;
-    color: #6c757d;
-    &:hover
-
-
-{
-    background: #1289A7;
-    border-color: #1289A7;
-    color: $white;
-    text-decoration: none;
-}
-
-}
-}
-}
-
-@include media-breakpoint-down(sm) {
-    .footer {
-        padding: 15px 0;
-        flex-direction: column;
-    }
-}
 
 .label a {
     text-align: center;
@@ -12973,7 +12891,4 @@ a, p {
     color: #fff;
 }
 
-    .img .content .des {
-        opacity: .7;
-        margin: 10px 0;
-    }
+   

@@ -148,6 +148,7 @@ C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\bin\Release\System.
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\bin\Release\System.Windows.Forms.dll
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\bin\Release\System.Xml.dll
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\bin\Release\System.ValueTuple.xml
+C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.AssemblyReference.cache
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.CoreCompileInputs.cache
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.csproj.CopyComplete
 C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Data\obj\Release\Subs.Data.dll

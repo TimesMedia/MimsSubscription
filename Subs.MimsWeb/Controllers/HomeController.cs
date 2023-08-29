@@ -1151,30 +1151,9 @@ namespace Subs.MimsWeb.Controllers
         // Signout **************************************************************************************************************
 
         [HttpGet]
-        public ActionResult Thanks()
+        public void LogOut()
         {
-            try
-            {
-                Session.Abandon();
-                return View();
-
-            }
-            catch (Exception ex)
-            {
-                //Display all the exceptions
-
-                Exception CurrentException = ex;
-                int ExceptionLevel = 0;
-                do
-                {
-                    ExceptionLevel++;
-                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "Thanks", "");
-                    CurrentException = CurrentException.InnerException;
-                } while (CurrentException != null);
-
-
-                return View();
-            }
+            Session.Abandon();
         }
     }
 }

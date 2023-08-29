@@ -1,46 +1,115 @@
 ﻿@model Subs.MimsWeb.Models.LoginRequest
 
-@{
-    ViewBag.Title = "Login";
-}
-
+@{ Layout = null;}
 <!DOCTYPE html>
 <html>
 <head>
+
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="/Content/Styles.css">
+
+
     <script src="/Scripts/jquery-3.4.1.js"></script>
     <script src="/Scripts/jquery-ui.js"></script>
-    <link href="/Content/jquery-ui.css" rel="stylesheet"/>
+    <link href="/Content/jquery-ui.css" rel="stylesheet" />
     <script src="/Scripts/Default.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="~/Content/SignUp.css" />
 
-     <title>@ViewBag.Title</title>
-
+    <title>Mims Login</title>
     <style>
-        .LoginStyle {
-            padding: 0px 7px 1px 7px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-shadow: none;
-            font-weight: 700;
-            color: white;
-            text-transform: capitalize;
-            font-size: 1.2em;
-            letter-spacing: .1em;
-            background-color: dodgerblue;
-            height: 2em;
-            column-span: all;
+        body {
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #F5F5F5;
+        }
+        /*Sign In Form*/
+        .signin {
+            position: relative;
+            height: 650px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0px 30px 125px -5px #000;
+        }
+        /*Background Img*/
+        .back-img {
+            position: relative;
+            width: 100%;
+            height: 170px;
+            background: url('https://www.omnihotels.com/-/media/images/hotels/nycber/destinations/nyc-aerial-skyline.jpg?h=660&la=en&w=1170')no-repeat center center;
+            background-size: cover;
         }
 
-       .editor-field input {
-            width: 1em;
-          
+        .layer {
+            background-color: rgba(33,150,243,0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .active {
+            padding-left: 25px;
+            color: #fff;
+        }
+
+        .nonactive {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .sign-in-text {
+            top: 135px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        h2 {
+            padding-left: 15px;
+            font-size: 25px;
+            text-transform: uppercase;
+            display: inline-block;
+            font-weight: 300;
+        }
+
+        .point {
+            position: absolute;
+            z-index: 1;
+            color: #0094ff;
+            top: 160px;
+            padding-left: 50px;
+            font-size: 20px;
+        }
+
+        /*form-section*/
+        .form-section {
+            padding: 70px 35px 70px 35px;
+        }
+
+        .keep-text {
+            font-size: 12px;
+            color: #BDBDBD;
+        }
+
+        .forgot-text {
+            font-size: 10px;
+            color: #BDBDBD;
+            text-align: right;
+        }
+        /*sign-in-btn*/
+        .sign-in-btn {
+            width: 100%;
+            height: 75px;
+            position: absolute;
+            bottom: 0;
+            border-radius: 0px;
+            background-color: rgba(63, 78, 191, 1);
         }
     </style>
-
-    <script >
+    <script>
         $(document).ready(function () {
             $('#CustomerLookup').click(function () {
                 $('#dialog').dialog("open");
@@ -60,106 +129,120 @@
         });
     </script>
 </head>
-<body>
-    <div style="margin-left: 1em">
-        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "SubmitForm" }))
-        {
-            <p style="font-family: Arial; margin:2em 0em 2em 1em; color:red;">
-                @Html.ViewBag.Message
-            </p>
-
-            <p>
-                @Html.CheckBoxFor(x => x.ResetFlag, new { id = "ResetFlag", style = "visibility:hidden" })
-            </p>
-   
-            <p>
-                <input id="Email" name="Email" type="hidden" value="">
-            </p>
-
-            <div id="dialog">
-                <label>Email address</label>
-                <input type="text" id="EmailAddress"/>
-            </div>
 
 
-            <table>
-                <tr height="50">
-                     <td><label>Customer number</label></td>
-                     <td>@Html.EditorFor(x => x.CustomerId)</td>
-                </tr>
+<body style="padding-top:6em">
+    <div class="signin">
+        <div class="back-img">
+            <div class="sign-in-text">
+                <h2 class="active">Sign In</h2>
 
-                <tr height="50">
-                    <td>@Html.LabelFor(x => x.Password)</td>
-                    <td>@Html.PasswordFor(x => x.Password) </td>
-                </tr>
+            </div><!--/.sign-in-text-->
+            <div class="layer">
+            </div><!--/.layer-->
+            <p class="point">&#9650;</p>
+        </div><!--/.back-img-->
+        <div class="form-section">
+            @*<h2 class="mb-4" style="font-family:'Segoe Print';color:dodgerblue;text-align:center">Please Login</h2>*@
+            @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "SubmitForm" }))
+            {
+                <alert style="font-family: Arial; margin:1em 0em 1em 0em; color:red; text-align:center">
+                    @Html.ViewBag.Message
+                </alert>
 
-                <tr height="50">
-                    <td>
-                        <label class="LoginStyle" id="CustomerLookup">Forgot MIMS customer number</label>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="LoginStyle" onclick="ResetPassword()">Forgot your MIMS password</label>
-                    </td>
-                </tr>
+                <p>
+                    @Html.CheckBoxFor(x => x.ResetFlag, new { id = "ResetFlag", style = "visibility:hidden" })
+                </p>
 
-                <tr height="50">
-                    <td>
-                        <label class="LoginStyle" onclick="UsePassword()">Login</label>
-                    </td>
+                <p>
 
-                </tr>
-            </table>
+                    <input id="Email" name="Email" type="hidden" value="">
+                </p>
 
-            <script>
-                function UsePassword() {
-                    try {
-                        document.getElementById("ResetFlag").checked = false;
-                        document.forms["SubmitForm"].submit();
-                    }
-                    catch (message) {
-                        window.alert(message);
-                    }
+                <div id="dialog">
+                    <span>Please Enter email</span>
+                    <input type="text" id="EmailAddress" />
+                </div>
+                @*<h1 class="mb-4" style="font-family:'Segoe Print';color:dodgerblue;text-align:center">Please login</h1>*@
+                <div class="form-row">
 
+                    <div class="form-group ">
+                        @Html.LabelFor(x => x.CustomerId) <br />&nbsp;
+                        @Html.EditorFor(x => x.CustomerId)
+                    </div>
+                    <div class="form-group ">
+                        @Html.LabelFor(x => x.Password)<br />&nbsp;
+                        @Html.PasswordFor(x => x.Password)
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-6" style="text-align:">
+                        <input type="button" class="LoginStyle" onclick="UsePassword()" value="Log in" />
+                        <input type="text" class="LoginStyle" onclick="ResetPassword()" value="Forgot Mims Password" />
+                        <input type="text" class="LoginStyle" id="CustomerLookup" value="Forgot Customer Number" />
+                    </div>
+                    <br />
+                    <a href="~/Home/RegisterEmail" class="signup-image-link">Create an Account</a>
+
+
+                </div>
+
+            }
+        </div>
+
+
+
+        <script>
+            function UsePassword() {
+                try {
+                    document.getElementById("ResetFlag").checked = false;
+                    document.forms["SubmitForm"].submit();
+                }
+                catch (message) {
+                    alert(message);
                 }
 
-                function CustomerLookup() {
-                    try {
+            }
 
-                        window.alert("Under construction.");
-                        // Do an Ajax call to find all customers numbers on this email address, plus their names.
+            function CustomerLookup() {
+                try {
 
-                        // Display them in a list where one could be selected.
+                    window.alert("Under construction.");
+                    // Do an Ajax call to find all customers numbers on this email address, plus their names.
 
-                        //document.getElementById("ResetFlag").checked = false;
-                        //window.alert("Under construction.");
+                    // Display them in a list where one could be selected.
+
+                    //document.getElementById("ResetFlag").checked = false;
+                    //window.alert("Under construction.");
 
 
-                        //window.alert(document.getElementsByName('Email').values[0]);
-                        //document.forms["SubmitForm"].submit();
-
-                    }
-                    catch (message) {
-                        window.alert(message);
-                    }
+                    //window.alert(document.getElementsByName('Email').values[0]);
+                    //document.forms["SubmitForm"].submit();
 
                 }
-
-                function ResetPassword() {
-
-                    try {
-
-                        document.getElementById("ResetFlag").checked = true;
-                        document.forms["SubmitForm"].submit();
-                    }
-                    catch (message) {
-                        window.alert(message);
-                    }
-
+                catch (message) {
+                    window.alert(message);
                 }
-            </script>
-        }
+
+            }
+
+            function ResetPassword() {
+
+                try {
+
+                    document.getElementById("ResetFlag").checked = true;
+                    document.forms["SubmitForm"].submit();
+                }
+                catch (message) {
+                    window.alert(message);
+                }
+
+            }
+
+        </script>
     </div>
- </body >
-</html >
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+</body>
+</html>

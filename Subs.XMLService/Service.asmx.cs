@@ -146,7 +146,7 @@ namespace Subs.XMLService
 
                     if (lCustomerData.Password1 != pPassword)
                     {
-                        lMICResult.Reason = "Invalid Password";
+                        lMICResult.Reason = "Invalid Username or Password";
                         return lMICResult;
                     }
 

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\
+C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Presentation\obj\Release\
 Subs.Presentation
 none
 false
 TRACE
-C:\CSharp\MimsSubscription\Subs.Presentation\App.xaml
+C:\Users\nhlapot\Documents\GitHub\MimsSubscription\Subs.Presentation\App.xaml
 46257939388
 
-551204095432
-40-274252349
+54-177011938
+401383102559
 AddressTypeControl.xaml;AdministrationCompany.xaml;AdministrationCountry.xaml;AdministrationDeliveryAddress.xaml;AdministrationProduct.xaml;AdministrationPromotion.xaml;ClassificationControl.xaml;ClassificationPicker.xaml;CompanyControl2.xaml;CorrespondenceControl.xaml;CountryControl.xaml;CreditNote.xaml;CustomerClassification.xaml;CustomerPicker3.xaml;CustomerUpdate2.xaml;CustomerUpdateExists2.xaml;DebitOrderBankStatement.xaml;Deliver.xaml;DeliveryAddress2.xaml;DeliveryOptionsControl.xaml;Document.xaml;ElicitDate.xaml;ElicitDecimal.xaml;ElicitEnumSingle.xaml;ElicitInteger.xaml;ElicitRichText.xaml;ElicitString.xaml;FNBBankStatement.xaml;IssuePicker.xaml;ProFormaControl.xaml;InvoiceControl.xaml;IssuePicker2.xaml;Maintenance.xaml;MainWindow.xaml;PaymentAllocation.xaml;ProForma2.xaml;SBBankStatement.xaml;StatementControl2.xaml;SubscriptionCaptureChange.xaml;SubscriptionDetailControl2.xaml;SubscriptionDormantControl.xaml;SubscriptionPicker2.xaml;SubscriptionsCapture.xaml;SubscriptionStatusDisplayControl2.xaml;SubscriptionStatusPrintControl.xaml;WebProductClassification.xaml;
 
-True
+False
 

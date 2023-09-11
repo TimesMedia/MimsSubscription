@@ -159,12 +159,6 @@
     <Compile Include="SubscriptionBiz.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Subs.Data\Subs.Data.csproj">
-      <Project>{F501278F-2AE1-4EAE-8DDC-6029ECE74EED}</Project>
-      <Name>Subs.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -184,6 +178,12 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Subs.Data\Subs.Data.csproj">
+      <Project>{f501278f-2ae1-4eae-8ddc-6029ece74eed}</Project>
+      <Name>Subs.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.2\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.2\build\System.Text.Json.targets')" />

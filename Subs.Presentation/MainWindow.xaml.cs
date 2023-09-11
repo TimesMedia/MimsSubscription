@@ -287,11 +287,11 @@ namespace Subs.Presentation
             lAdministration.Show();
         }
 
-        private void Click_PostCode(object sender, RoutedEventArgs e)
-        {
-            AdministrationPostCode lWindow = new AdministrationPostCode();
-            lWindow.ShowDialog();
-        }
+        //private void Click_PostCode(object sender, RoutedEventArgs e)
+        //{
+        //    AdministrationPostCode lWindow = new AdministrationPostCode();
+        //    lWindow.ShowDialog();
+        //}
 
         private void Click_Promotion(object sender, RoutedEventArgs e)
         {

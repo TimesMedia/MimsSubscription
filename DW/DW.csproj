@@ -115,12 +115,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Subs.Data\Subs.Data.csproj">
-      <Project>{f501278f-2ae1-4eae-8ddc-6029ece74eed}</Project>
-      <Name>Subs.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
@@ -131,6 +125,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Subs.Data\Subs.Data.csproj">
+      <Project>{f501278f-2ae1-4eae-8ddc-6029ece74eed}</Project>
+      <Name>Subs.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

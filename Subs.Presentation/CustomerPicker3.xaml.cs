@@ -1743,6 +1743,7 @@ namespace Subs.Presentation
         {
             try
             {
+                
                 InvoicesAndPayments lInvoiceAndPayment = (InvoicesAndPayments)gPaymentViewSource.View.CurrentItem;
                 if (lInvoiceAndPayment.Operation != "Payment")
                 {
@@ -1750,11 +1751,12 @@ namespace Subs.Presentation
                     return;
                 }
 
+                DateTime lPreviousValue = gCurrentCustomer.CheckpointPaymentDate;
+
                 ElicitDate lElicitDate = new ElicitDate("Please supply a date before the payments that you want to include");
                 lElicitDate.ShowDialog();
                 gCurrentCustomer.CheckpointPaymentDate = lElicitDate.Answer;
-           
-
+  
                 {
                     string lResult;
 
@@ -1777,6 +1779,10 @@ namespace Subs.Presentation
                         return;
                     }
                 }
+
+                ExceptionData.WriteException(5, "PreviousValue = " + lPreviousValue.ToString() + "NewValue = " + gCurrentCustomer.CheckpointPaymentDate, this.ToString(),
+                    "ButtonSetPaymentCheckpoint", "");
+
                 MessageBox.Show("Done");
 
                 return;
@@ -2182,7 +2188,9 @@ namespace Subs.Presentation
                     MessageBox.Show("No can do! There are active subscriptions valued at " + lPastSubscriptionValue.ToString() + " before this date.");
                     return;
                 }
-   
+
+                DateTime lPreviousValue = gCurrentCustomer.CheckpointInvoiceDate;
+
                 gCurrentCustomer.CheckpointInvoiceDate = lElicitDate.Answer;
                 gCurrentCustomer.Update();
 
@@ -2200,6 +2208,9 @@ namespace Subs.Presentation
                         return;
                     }
                 }
+
+                ExceptionData.WriteException(5, "PreviousValue = " + lPreviousValue.ToString() + "NewValue = " + gCurrentCustomer.CheckpointInvoiceDate, this.ToString(),
+                "ButtonSetInvoiceCheckpoint", "");
 
                 MessageBox.Show("Done");
 

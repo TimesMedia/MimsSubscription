@@ -586,7 +586,7 @@ namespace Subs.XMLServiceTest
                 AuthorizeMICRequest lRequest = new AuthorizeMICRequest();
                 lRequest.AuthorizationHeader = lHeader;
                 lRequest.pProductId = 88;
-                lRequest.pReceiverId = 120072;
+                lRequest.pReceiverId = 999999; // 120072;
                 lRequest.pPassword = "Sannie";
 
 

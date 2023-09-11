@@ -207,7 +207,6 @@ C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AddressTypeControl.g.cs
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationCompany.g.cs
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationCountry.g.cs
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationDeliveryAddress.g.cs
-C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationPostCode.g.cs
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationProduct.g.cs
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationPromotion.g.cs
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\ClassificationControl.g.cs
@@ -257,7 +256,6 @@ C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\Subs.Presentation_Marku
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AddressTypeControl.baml
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationCompany.baml
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationCountry.baml
-C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationPostCode.baml
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationProduct.baml
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\AdministrationPromotion.baml
 C:\CSharp\MimsSubscription\Subs.Presentation\obj\Release\ClassificationControl.baml

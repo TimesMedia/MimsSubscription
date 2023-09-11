@@ -31,7 +31,7 @@
     <ProductName>Mims subscription</ProductName>
     <PublisherName>ARENA</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>406</ApplicationRevision>
+    <ApplicationRevision>408</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -162,9 +162,6 @@
       <DependentUpon>AdministrationCountry.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdministrationDeliveryAddress.xaml.cs" />
-    <Compile Include="AdministrationPostCode.xaml.cs">
-      <DependentUpon>AdministrationPostCode.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AdministrationProduct.xaml.cs">
       <DependentUpon>AdministrationProduct.xaml</DependentUpon>
     </Compile>
@@ -345,10 +342,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AdministrationDeliveryAddress.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="AdministrationPostCode.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

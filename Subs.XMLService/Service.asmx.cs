@@ -139,7 +139,10 @@ namespace Subs.XMLService
                     if (!CustomerData3.Exists((int)pReceiverId))
                     {
                        lMICResult.Reason = "There is no such CustomerId";
-                        return lMICResult;
+                       lMICResult.Title = "NoTitle";
+                       lMICResult.FirstName = "NoFirstName";
+                       lMICResult.Surname = "NoSurname";
+                       return lMICResult;
                     }
 
                     CustomerData3 lCustomerData = new CustomerData3(pReceiverId);

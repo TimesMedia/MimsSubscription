@@ -972,7 +972,7 @@ namespace Subs.MimsWeb.Controllers
 
                 if (pLoginRequest.CustomerId == null)
                 {
-                    ViewBag.Message = "If you cannot supply a Customer id. you might have to register first.";
+                    ViewBag.Message = "If you cannot supply a Customer id, you might have to register first.";
                     return View();
                 }
                       
@@ -1032,6 +1032,8 @@ namespace Subs.MimsWeb.Controllers
                 }
                 else
                 {
+                    ExceptionData.WriteException(5, "Invalid password", this.ToString(), "Login post",
+                                                 pLoginRequest.Password + lLoginRequest.CustomerId.ToString());
                     ViewBag.Message = "Unfortunately, your password did not match. Please try again.";
                     return View();
                 }

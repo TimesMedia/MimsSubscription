@@ -807,11 +807,16 @@ namespace Subs.Presentation
 
                 void CreateRawDeliveryList()
                 {
+                    int lCurrentIssue = 0;
+                    try
+                    { 
                     gDeliveryItemsRaw.Clear();
                     gPackageCounters.Clear();
                     foreach (DataRowView lDataRowView in gDeliveryDoc.DeliveryRecord.DefaultView)
                     {
                         DeliveryDoc.DeliveryRecordRow lRow = (DeliveryDoc.DeliveryRecordRow)lDataRowView.Row;
+                        lCurrentIssue = lRow.IssueId;
+
                         lNewDeliveryItem = new DeliveryItem();
                         gDeliveryItemsRaw.Add(lNewDeliveryItem);
                         lCurrentReceiverId = lRow.ReceiverId;
@@ -887,12 +892,34 @@ namespace Subs.Presentation
  
                         gPackageCounters.Add(new PackageCounter() { CustomerId = lRow.ReceiverId, IssueDescription = lRow.IssueDescription, UnitsPerIssue = lRow.UnitsPerIssue });
                     } // End of foreach loop
+                    }
+                    catch (Exception ex)
+                    {
+                        //Display all the exceptions
+
+                        Exception CurrentException = ex;
+                        int ExceptionLevel = 0;
+                        do
+                        {
+                            ExceptionLevel++;
+                            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "local CreateRawDeliveryList", "CurrentReceiverId = " + lCurrentReceiverId.ToString() + " CurrentIssue= " + lCurrentIssue.ToString());
+                            CurrentException = CurrentException.InnerException;
+                        } while (CurrentException != null);
+
+                        MessageBox.Show(ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        this.Cursor = Cursors.Arrow;
+                    }
                 }
 
 
                 void ConsolidateRawDeliveryList()
                 {
-
+                    try 
+                    { 
                     // Consolidate the raw DeliveryItems by CustomerId
 
                     var lCustomerGroups = gDeliveryItemsRaw.GroupBy(p => p.CustomerId);
@@ -921,69 +948,182 @@ namespace Subs.Presentation
                         lNewItem.Pieces = lCustomerGroup.Sum(p => p.Pieces);
                         gDeliveryItems.Add(lNewItem);
                     }
+                    }
+                    catch (Exception ex)
+                    {
+                        //Display all the exceptions
+
+                        Exception CurrentException = ex;
+                        int ExceptionLevel = 0;
+                        do
+                        {
+                            ExceptionLevel++;
+                            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "local ConsolidateRawDeliveryLis", "CurrentReceiverId = " + lCurrentReceiverId.ToString());
+                            CurrentException = CurrentException.InnerException;
+                        } while (CurrentException != null);
+
+                        MessageBox.Show(ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        this.Cursor = Cursors.Arrow;
+                    }
                 }
 
                 void SplitDeliveryListByDeliveryMethod()
                 {
-                    foreach (DeliveryItem lItem in gDeliveryItems)
+                    try 
+                    { 
+                        foreach (DeliveryItem lItem in gDeliveryItems)
+                        {
+                            if (lItem.Country != "RSA")
+                            {
+                                International.Add(lItem);
+                            }
+                            else
+                            {
+                                Economy.Add(lItem);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
                     {
-                        if (lItem.Country != "RSA")
+                        //Display all the exceptions
+
+                        Exception CurrentException = ex;
+                        int ExceptionLevel = 0;
+                        do
                         {
-                            International.Add(lItem);
-                        }
-                        else
-                        {
-                            Economy.Add(lItem);
-                        }
+                            ExceptionLevel++;
+                            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "local SplitDeliveryListByDeliveryMethod", "CurrentReceiverId = " + lCurrentReceiverId.ToString());
+                            CurrentException = CurrentException.InnerException;
+                        } while (CurrentException != null);
+
+                        MessageBox.Show(ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        this.Cursor = Cursors.Arrow;
                     }
                 }
 
                 void BuildInventoryForAll()
                 {
-                    // Build the inventory for all deliverymethods
-                    gInventory.Methods.Clear();
-                    BuildInventory(International, "International");
-                    BuildInventory(Economy, "Economy");
+                    try
+                    {
+                        // Build the inventory for all deliverymethods
+                        gInventory.Methods.Clear();
+                        BuildInventory(International, "International");
+                        BuildInventory(Economy, "Economy");
+                    }
+                    catch (Exception ex)
+                    {
+                        //Display all the exceptions
+
+                        Exception CurrentException = ex;
+                        int ExceptionLevel = 0;
+                        do
+                        {
+                            ExceptionLevel++;
+                            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "local BuildInventoryForAll", "CurrentReceiverId = " + lCurrentReceiverId.ToString());
+                            CurrentException = CurrentException.InnerException;
+                        } while (CurrentException != null);
+
+                        MessageBox.Show(ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        this.Cursor = Cursors.Arrow;
+                    }
                 }
 
 
                 void SerialiseResults()
                 {
-                    SerialiseList(International, "International");
-                    SerialiseList(Economy, "Economy");
+                    try
+                    { 
+                        SerialiseList(International, "International");
+                        SerialiseList(Economy, "Economy");
 
-                    // Write the inventory to XML
-                    string lInventoryFileName = Settings.DirectoryPath + "\\Final_CourierList_ZInventory " + DateTime.Now.ToString("yyyyMMdd") + ".xml";
-                    FileStream lFileStream = new FileStream(lInventoryFileName, FileMode.Create);
-                    XmlSerializer lSerializer = new XmlSerializer(typeof(Inventory));
-                    lSerializer.Serialize(lFileStream, gInventory);
-                    MessageBox.Show(lInventoryFileName + " successfully written to " + Settings.DirectoryPath);
+                        // Write the inventory to XML
+                        string lInventoryFileName = Settings.DirectoryPath + "\\Final_CourierList_ZInventory " + DateTime.Now.ToString("yyyyMMdd") + ".xml";
+                        FileStream lFileStream = new FileStream(lInventoryFileName, FileMode.Create);
+                        XmlSerializer lSerializer = new XmlSerializer(typeof(Inventory));
+                        lSerializer.Serialize(lFileStream, gInventory);
+                        MessageBox.Show(lInventoryFileName + " successfully written to " + Settings.DirectoryPath);
 
-                    // Write the selected files to XML
-                    string lSelectionFileName = Settings.DirectoryPath + "\\Final_CourierList_ZSelectedFiles " + DateTime.Now.ToString("yyyyMMdd") + ".xml";
-                    lFileStream = new FileStream(lSelectionFileName, FileMode.Create);
-                    lSerializer = new XmlSerializer(typeof(SelectedFiles));
-                    lSerializer.Serialize(lFileStream, lSelectedFiles);
-                    MessageBox.Show(lSelectionFileName + " successfully written to " + Settings.DirectoryPath);
+                        // Write the selected files to XML
+                        string lSelectionFileName = Settings.DirectoryPath + "\\Final_CourierList_ZSelectedFiles " + DateTime.Now.ToString("yyyyMMdd") + ".xml";
+                        lFileStream = new FileStream(lSelectionFileName, FileMode.Create);
+                        lSerializer = new XmlSerializer(typeof(SelectedFiles));
+                        lSerializer.Serialize(lFileStream, lSelectedFiles);
+                        MessageBox.Show(lSelectionFileName + " successfully written to " + Settings.DirectoryPath);
 
-                    FileStream lProcessedFileStream = new FileStream(gProcessedFileName, FileMode.Create);
-                    gProcessedSerializer.Serialize(lProcessedFileStream, gProcessedFiles);
-                    lProcessedFileStream.Flush();
-                    lProcessedFileStream.Close();
-                    MessageBox.Show(gProcessedFileName + " successfully written to " + Settings.DirectoryPath);
-                }
+                        FileStream lProcessedFileStream = new FileStream(gProcessedFileName, FileMode.Create);
+                        gProcessedSerializer.Serialize(lProcessedFileStream, gProcessedFiles);
+                        lProcessedFileStream.Flush();
+                        lProcessedFileStream.Close();
+                        MessageBox.Show(gProcessedFileName + " successfully written to " + Settings.DirectoryPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        //Display all the exceptions
+
+                        Exception CurrentException = ex;
+                        int ExceptionLevel = 0;
+                        do
+                        {
+                            ExceptionLevel++;
+                            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "local SerialiseResult", "CurrentReceiverId = " + lCurrentReceiverId.ToString());
+                            CurrentException = CurrentException.InnerException;
+                        } while (CurrentException != null);
+
+                        MessageBox.Show(ex.Message);
+                        throw ex;
+                    }
+            finally
+            {
+                this.Cursor = Cursors.Arrow;
+            }
+        }
 
                 bool RegisterResults()
                 {
-                    foreach (DeliveryDoc.DeliveryRecordRow item in gDeliveryDoc.DeliveryRecord)
-                    {
-                        if (!SubscriptionData3.RegisterListDelivery(item.SubscriptionId, item.IssueId))
+                    try 
+                    { 
+                        foreach (DeliveryDoc.DeliveryRecordRow item in gDeliveryDoc.DeliveryRecord)
                         {
-                            return false;
+                            if (!SubscriptionData3.RegisterListDelivery(item.SubscriptionId, item.IssueId))
+                            {
+                                return false;
+                            }
                         }
-                    }
                     return true;
-                }
+                    }
+                    catch (Exception ex)
+                    {
+                        //Display all the exceptions
+
+                        Exception CurrentException = ex;
+                        int ExceptionLevel = 0;
+                        do
+                        {
+                            ExceptionLevel++;
+                            ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "local RegisterResults", "CurrentReceiverId = " + lCurrentReceiverId.ToString());
+                            CurrentException = CurrentException.InnerException;
+                        } while (CurrentException != null);
+
+                        MessageBox.Show(ex.Message);
+                        throw ex;
+                    }
+                    finally
+                    {
+                        this.Cursor = Cursors.Arrow;
+                    }
+        }
 
                 //**************************************************************************************************************************************************************
 

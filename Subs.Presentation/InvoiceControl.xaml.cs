@@ -69,12 +69,22 @@ namespace Subs.Presentation
                     Line1.Content = Lines[0];
                     Line2.Content = Lines[1];
                     Line3.Content = Lines[2];
-                    Line4.Content = Lines[3];
-                    Line5.Content = Lines[4];
-                    Line6.Content = Lines[5];
-                    Line7.Content = Lines[6];
-                    Line8.Content = Lines[7];
-    
+                    
+                    Line4.Content = gCustomerData.Address1;
+                    if (gCustomerData.Address2 == "")
+                    {
+                        Line5.Content = gCustomerData.Address3;
+                        Line6.Content = gCustomerData.Address4;
+                        Line7.Content = gCustomerData.Address5;
+                    }
+                    else
+                    { 
+                        Line5.Content = gCustomerData.Address2;
+                        Line6.Content = gCustomerData.Address3;
+                        Line7.Content = gCustomerData.Address4;
+                        Line8.Content = gCustomerData.Address5;
+                    }
+
                     lStage = "Delivery address";
 
                     PLine1.Content = lDeliveryAddressData.PAddress1;

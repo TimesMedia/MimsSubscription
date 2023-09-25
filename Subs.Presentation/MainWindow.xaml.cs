@@ -558,6 +558,14 @@ namespace Subs.Presentation
             }
         }
 
+        private void ClickInvalidPassword(object sender, RoutedEventArgs e)
+        {
+            ElicitInteger lElicitInteger = new ElicitInteger("Please enter the customerid");
+            lElicitInteger.ShowDialog();
+            CustomerData3 lCustomerData = new CustomerData3(lElicitInteger.Answer);
+            MessageBox.Show(lCustomerData.Password1);
+        }
+
         #endregion
 
 
@@ -566,7 +574,17 @@ namespace Subs.Presentation
         {
             try
             {
-                int Result = DeliveryAddressData2.GetCustomerId(42479);
+                (int, string, string, string,string) Result = DeliveryAddressStatic.AddressInStrings(396663);
+                var lAddress = DeliveryAddressStatic.AddressInStrings(396663);
+
+                // Get the verified data
+                string Street = lAddress.Street;
+                string Suburb = lAddress.Suburb;
+                string City = lAddress.City;
+                string Province = lAddress.Province;
+                int CountryId = lAddress.CountryId;
+
+
                 MessageBox.Show(Result.ToString());
 
             }
@@ -581,6 +599,9 @@ namespace Subs.Presentation
                 MessageBox.Show("Exception throwed");
             }
         }
+  
+
+      
     }
 }
 

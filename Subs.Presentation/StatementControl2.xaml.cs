@@ -203,12 +203,22 @@ namespace Subs.Presentation
 
                     Line1.Content = Lines[0];
                     Line2.Content = Lines[1];
-                    Line3.Content = Lines[2];
-                    Line4.Content = Lines[3];
-                    Line5.Content = Lines[4];
-                    Line6.Content = Lines[5];
-                    Line7.Content = Lines[6];
-                    Line8.Content = Lines[7];
+
+                    Line3.Content = lCustomerData.Address1;
+                    if (lCustomerData.Address2 == "")
+                    {
+                        Line4.Content = lCustomerData.Address3;
+                        Line5.Content = lCustomerData.Address4;
+                        Line6.Content = lCustomerData.Address5;
+                    }
+                    else
+                    {
+                        Line4.Content = lCustomerData.Address2;
+                        Line5.Content = lCustomerData.Address3;
+                        Line6.Content = lCustomerData.Address4;
+                        Line7.Content = lCustomerData.Address5;
+                    }
+
                 }
                 StatementNumber.Content = "STA" + pStatementId.ToString();
                 PPhoneNumber.Content = lCustomerData.PhoneNumber;

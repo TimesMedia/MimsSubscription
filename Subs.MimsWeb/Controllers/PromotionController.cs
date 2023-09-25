@@ -551,6 +551,13 @@ namespace Subs.MimsWeb.Controllers
                 lWorkerThread.Join();
   
 
+                //What happens if there is an error in the processing on the thread? 
+
+
+
+
+
+
                 // Email the invoice
 
                 string lFileName = Settings.DirectoryPath + "\\" 

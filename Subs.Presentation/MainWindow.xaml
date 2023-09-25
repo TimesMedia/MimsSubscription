@@ -58,6 +58,7 @@
                 <MenuItem Header="Refresh enums" Click="Click_RefreshEnums"/>
                 <MenuItem Header="Postcode standardisation" Click="Click_PostCodeStandardisation"/>
                 <MenuItem Header="Postcode Add Sapo Compliment" Click="Click_PostCodeAddSapoCompliment"/>
+                <MenuItem Header="Invalid password" Click="ClickInvalidPassword" Tag="AuthorityVeryHigh" Loaded="SetVisibility"/>
                 <MenuItem Header="Test" Click="Click_Test"/>
             </MenuItem>
         </Menu>

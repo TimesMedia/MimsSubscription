@@ -551,6 +551,13 @@ namespace Subs.MimsWeb.Controllers
                 lWorkerThread.Join();
   
 
+                //What happens if there is an error in the processing on the thread? 
+
+
+
+
+
+
                 // Email the invoice
 
                 string lFileName = Settings.DirectoryPath + "\\" 
@@ -683,8 +690,34 @@ namespace Subs.MimsWeb.Controllers
         [HttpGet]
         public ActionResult Promotions()
         {
-            return View();
+            try
+            {
+                return Redirect("~/Content/BeyondHealthCare.html");
+                //return Redirect("https://www.byondhealthcare.com/partnerships");
+            }
+            catch (Exception ex)
+            {
+                //Display all the exceptions
+
+                Exception CurrentException = ex;
+                int ExceptionLevel = 0;
+                do
+                {
+                    ExceptionLevel++;
+                    ExceptionData.WriteException(1, ExceptionLevel.ToString() + " " + CurrentException.Message, this.ToString(), "BeyondHealthCare", "");
+                    CurrentException = CurrentException.InnerException;
+                } while (CurrentException != null);
+
+              
+                return View("Empty");
+            }
         }
+
+
+
+
+
+
 
     }
 }

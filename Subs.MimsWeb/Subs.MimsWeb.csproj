@@ -296,6 +296,9 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.structure.css" />
     <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\navbar.css" />
+    <Content Include="Content\NewBeyondHealth.html" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\skeleton.css" />
     <Content Include="Content\Styles.css" />
@@ -377,6 +380,7 @@
     <Content Include="Views\PayU\IndexOwnAmount.cshtml" />
     <Content Include="Content\BeyondHealthCare.html" />
     <Content Include="Views\Promotion\Promotions.cshtml" />
+    <Content Include="Views\Home\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
